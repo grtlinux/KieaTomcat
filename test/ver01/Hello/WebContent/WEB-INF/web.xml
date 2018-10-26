@@ -21,14 +21,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <description>
-      Servlet and JSP Examples.
-    </description>
-    <display-name>Servlet and JSP Examples</display-name>
-
-
-
-
+    <description>Servlet and JSP Examples.(Description)</description>
+    <display-name>Servlet and JSP Examples.(Display-name)</display-name>
 
 	<!--
 	<welcome-file-list>
