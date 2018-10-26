@@ -1,5 +1,8 @@
 package logic;
 
-public class ItemCatalog {
+import java.util.List;
 
+public interface ItemCatalog {
+
+	public List<Item> getItemList();
 }
