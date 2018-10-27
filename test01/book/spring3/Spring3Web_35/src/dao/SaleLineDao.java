@@ -1,5 +1,8 @@
 package dao;
 
-public class SaleLineDao {
+import logic.SaleLine;
 
+public interface SaleLineDao {
+
+	public void create(SaleLine saleLine);
 }

@@ -1,5 +1,7 @@
 package logic;
 
-public class SaleCatalog {
+public interface SaleCatalog {
 
+	public void entrySale(Sale sale);
+	public Integer getNewSaleId();
 }
