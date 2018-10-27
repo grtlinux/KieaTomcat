@@ -3,7 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css" href="css/shopping3-7.css"">
+<link rel="stylesheet" type="text/css" href="css/shopping3-7.css">
 <html>
 <head>
 <title>관리자 로그인 화면</title>
