@@ -29,11 +29,14 @@ public class ItemController {
 	
 	@RequestMapping
 	public ModelAndView index() {
+		// 상품목록정보 취득
 		List<Item> itemList = this.itemService.getItemList();
 		
+		// 모델 생성
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("itemList", itemList);
 		
+		// 반환값이 되는 ModelAndView 인스턴스를 생성
 		ModelAndView modelAndView = new ModelAndView("index");
 		modelAndView.addAllObjects(model);
 		
@@ -43,15 +46,18 @@ public class ItemController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView search(String itemName) {
 		if (itemName == null || itemName.trim().equals("")) {
+			// 검색상품명이 없는 경우, 상품 전체를 반환한다
 			return this.index();
 		}
 		
 		List<Item> itemList = this.itemService.getItemByItemName(itemName);
 		if (itemList == null || itemList.isEmpty()) {
+			// 검색상품명이 없는 경우, 상품 전체를 반환한다
 			return this.index();
 		}
 		
 		ModelAndView modelAndView = new ModelAndView("index");
+		// 반환값이 되는 ModelAndView 인스턴스를 생성
 		modelAndView.addObject("itemList", itemList);
 		
 		return modelAndView;

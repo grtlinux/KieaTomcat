@@ -16,7 +16,8 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<!-- Transaction -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource">
 	</bean>
 	<tx:annotation-driven />
@@ -35,7 +36,7 @@
 		</property>
 		<!-- MySQL 유저ID 설정 -->
 		<property name="username">
-			<value>root	</value>
+			<value>root</value>
 		</property>
 		<!-- MySQL 패스워드 설정 -->
 		<property name="password">

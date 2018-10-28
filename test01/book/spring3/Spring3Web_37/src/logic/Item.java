@@ -20,6 +20,10 @@ public class Item implements Serializable {
 	private Integer price;
 	@NotEmpty
 	private String description;
+	private MultipartFile picture;
+	
+	/////////////////////////////////////////////////////////////
+	
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -44,8 +48,6 @@ public class Item implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	private MultipartFile picture;
 	public MultipartFile getPicture() {
 		return picture;
 	}

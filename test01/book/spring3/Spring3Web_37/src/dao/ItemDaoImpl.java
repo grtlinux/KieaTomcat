@@ -18,9 +18,11 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
+import org.springframework.stereotype.Repository;
 
 import logic.Item;
 
+@Repository
 public class ItemDaoImpl implements ItemDao {
 
 	@Autowired
