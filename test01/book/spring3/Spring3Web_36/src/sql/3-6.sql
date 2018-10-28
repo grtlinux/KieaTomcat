@@ -13,3 +13,7 @@ ALTER TABLE ITEM ADD COLUMN PICTURE LONGBLOB;
 
 TRUNCATE TABLE SALE_LINE;
 TRUNCATE TABLE SALE;
+
+-------------------------------------------------
+
+select item_id, item_name, price, description from spring.item;
