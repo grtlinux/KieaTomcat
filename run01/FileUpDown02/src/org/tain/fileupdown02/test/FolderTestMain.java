@@ -51,7 +51,7 @@ public class FolderTestMain {
 			}
 		}
 		
-		if (flag) {
+		if (!flag) {
 			// using the below function listFilesForFolder
 			final File folder = new File("/hanwha/_TEMP");
 			listFilesForFolder(folder);
