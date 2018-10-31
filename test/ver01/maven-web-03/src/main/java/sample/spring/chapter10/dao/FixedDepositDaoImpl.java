@@ -30,7 +30,7 @@ public class FixedDepositDaoImpl implements FixedDepositDao {
 	@Override
 	public void saveFixedDeposit(FixedDepositDetails fixedDepositDetails) {
 		Random random = new Random();
-		long id = random.nextInt();
+		long id = random.nextInt(1000000);
 		fixedDepositDetails.setId(id);
 		this.list.add(fixedDepositDetails);
 	}

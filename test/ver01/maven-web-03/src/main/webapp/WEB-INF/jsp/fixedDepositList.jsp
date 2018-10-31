@@ -42,7 +42,7 @@
 							<th class="th">Email</th>
 							<th class="th">Action</th>
 						</tr>
-						<c:forEach items="${list}" var="fixedDeposit">
+						<c:forEach items="${fdList}" var="fixedDeposit">
 							<tr>
 								<td class="td"><c:out value="${fixedDeposit.id}" /></td>
 								<td class="td"><c:out value="${fixedDeposit.depositAmount}" /></td>
