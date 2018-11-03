@@ -7,6 +7,9 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+	<display-name>JSP2-0101</display-name>
+	<description>JSP 기본개요</description>
+	
 	<!-- Invoker: servlets be auto mapping -->
 	<listener>
 		<listener-class>org.tain.utils.InvokerLoadListener</listener-class>
