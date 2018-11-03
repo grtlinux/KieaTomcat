@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app>
+<web-app 
+	version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<!-- Invoker: servlets be auto mapping -->
+	<listener>
+		<listener-class>org.tain.utils.InvokerLoadListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>invoker.packages</param-name>
+		<param-value>org.tain.servlet.other, org.tain.servlet.invoker</param-value>
+	</context-param>
+	<context-param>
+		<param-name>invoker.prefix</param-name>
+		<param-value>/servlet2/</param-value>
+	</context-param>
+
+
+
+
+	<!-- Context Parameters -->
+	<context-param>
+		<param-name>email</param-name>
+		<param-value>grtlinux@naver.com</param-value>
+	</context-param>
+	
+	<!-- helloServlet: servlet be manual mapping -->
+    <servlet>
+        <servlet-name>helloServlet</servlet-name>
+        <servlet-class>org.tain.servlet.hello.HelloServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloServlet</servlet-name>
+        <url-pattern>/helloServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
+
