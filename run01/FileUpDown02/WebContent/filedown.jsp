@@ -8,12 +8,14 @@
 	// [java] Tomcat에서 요청 인코딩을 설정하는 방법은 무엇입니까?
 	// http://code.i-harness.com/ko-kr/q/68ee19
 	
+	
+	
+	
+	
 	String fileName = request.getParameter("filename");
 	fileName = new String(fileName.getBytes("iso-8859-1"),"utf-8");
 	
 	request.setCharacterEncoding("utf-8");
- 
- 	fileName = request.getParameter("filename");
  	
     // 파일 업로드된 경로
     String root = request.getSession().getServletContext().getRealPath("/");
@@ -27,7 +29,7 @@
      
     // 실제 내보낼 파일명
     //String orgfilename = "테스트.zip" ;
-    String orgfilename = "[HD 720p] 레드 테일스.smi" ;
+    String orgfilename = fileName;
       
     InputStream in = null;
     OutputStream os = null;
@@ -35,10 +37,7 @@
     boolean skip = false;
     String client = "";
  
- 
     try{
-         
- 
         // 파일을 읽어 스트림에 담기
         try{
             file = new File(savePath, filename);
@@ -46,9 +45,6 @@
         }catch(FileNotFoundException fe){
             skip = true;
         }
- 
- 
- 
          
         client = request.getHeader("User-Agent");
  
@@ -75,7 +71,7 @@
              
             response.setHeader ("Content-Length", ""+file.length() );
  
- 
+            out.clear();
        
             os = response.getOutputStream();
             byte b[] = new byte[(int)file.length()];

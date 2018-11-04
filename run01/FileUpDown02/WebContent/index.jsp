@@ -6,84 +6,13 @@
 <%@ page import="java.io.IOException" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
-
-<%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
-
-<%!
-	/**
-	* String UnEscape 처리
-	* 
-	* @param src
-	* @return
-	*/
-	public String unescape(String src) {
-		StringBuffer tmp = new StringBuffer();
-		tmp.ensureCapacity(src.length());
-		int lastPos = 0, pos = 0;
-		char ch;
-		while (lastPos < src.length()) {
-			pos = src.indexOf("%", lastPos);
-			if (pos == lastPos) {
-				if (src.charAt(pos + 1) == 'u') {
-					ch = (char) Integer.parseInt(src
-							.substring(pos + 2, pos + 6), 16);
-					tmp.append(ch);
-					lastPos = pos + 6;
-				} else {
-					ch = (char) Integer.parseInt(src
-							.substring(pos + 1, pos + 3), 16);
-					tmp.append(ch);
-					lastPos = pos + 3;
-				}
-			} else {
-				if (pos == -1) {
-					tmp.append(src.substring(lastPos));
-					lastPos = src.length();
-				} else {
-					tmp.append(src.substring(lastPos, pos));
-					lastPos = pos;
-				}
-			}
-		}
-		return tmp.toString();
-	}
-		
-	/**
-	* String Escape 처리
-	* @param src
-	* @return
-	*/
-	public String escape(String src) {
-		int i;
-		char j;
-		StringBuffer tmp = new StringBuffer();
-		tmp.ensureCapacity(src.length() * 6);
-		for (i = 0; i < src.length(); i++) {
-			j = src.charAt(i);
-			if (Character.isDigit(j) || Character.isLowerCase(j)
-					|| Character.isUpperCase(j))
-				tmp.append(j);
-			else if (j < 256) {
-				tmp.append("%");
-				if (j < 16)
-					tmp.append("0");
-				tmp.append(Integer.toString(j, 16));
-			} else {
-				tmp.append("%u");
-				tmp.append(Integer.toString(j, 16));
-			}
-		}
-		return tmp.toString();
-	}
-
-	String FILE_PATH = "/hanwha/GIT/git/KieaTomcat/run01/FileUpDown02/WebContent";
-%>
-
 <%
 	/*
 	 * file upload
 	 */
-    boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+	String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
+
+	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
     if (isMultipart) {
         System.out.println("############## upload.jsp [START] ##############");
         
@@ -140,12 +69,8 @@
 	/*
 	 * file list
 	 */
-	File path = new File("/hanwha/GIT/git/KieaTomcat/run01/FileUpDown02/WebContent/files");
+	File path = new File(FILE_PATH + "/files");
 	File[] arrFiles = path.listFiles();
-	String[] files = new String[arrFiles.length];
-	for (int i=0; i < arrFiles.length; i++) {
-		files[i] = StringEscapeUtils.escapeHtml(arrFiles[i].getName());
-	}
 %>
 <!DOCTYPE html>
 <html>
@@ -182,21 +107,10 @@
 <p>
 
 <h4>(File Download)</h4>
-<% for (int i=0; i < files.length; i++){ %>
-<%=String.valueOf(i) %>) <a href="files/<%=files[i] %>"><%=arrFiles[i].getName() %></a><br/>
+<% for (int i=0; i < arrFiles.length; i++){ %>
+<%=String.valueOf(i) %>) <a href="filedown.jsp?filename=<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
 <% } %>
 <p>
-<h4>(File Download)</h4>
-<% for (int i=0; i < files.length; i++){ %>
-<%=String.valueOf(i) %>) <a href="files/<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
-<% } %>
-<p>
-<a href="http://localhost/files/%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.zip">안녕하세요.zip</a><br/>
-<a href="files/강석.smi">강석.smi</a><br/>
-<p>
-<a href="filedown.jsp">filedown.jsp</a><br/>
-<a href="filedown.jsp?filename=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.smi">안녕하세요.smi</a><br/>
-<a href="filedown.jsp?filename=안녕하세요.smi">안녕하세요.smi</a><br/>
 
 
 </body>
