@@ -1,99 +1,96 @@
-<%@page import="java.io.File"%>
- <%@page import="java.io.*"%>
- <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- <html>
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
- <title>Insert title here</title>
- </head>
- <body>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.io.File"%>
+<%@ page import="java.io.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	/*
+	 * TODO-KANG-20181103: RESULT: ERROR
+	 *   ì‹¬ê°: Servlet.service() for servlet [jsp] in context with path [] threw exception [java.lang.IllegalStateException: getOutputStream() has already been called for this response] with root cause
+	 *   java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	 */
+	
+	// ë‹¤ìš´ë°›ì„ íŒŒì¼ì˜ ì´ë¦„ì„ ê°€ì ¸ì˜´
+	String fileName = request.getParameter("filename");
+	fileName = new String(fileName.getBytes("8859_1"), "utf-8");
+	
+	// ë‹¤ìš´ë°›ì„ íŒŒì¼ì´ ì €ì¥ë˜ì–´ ìˆëŠ” í´ë” ì´ë¦„
+	String saveFolder = "files";
 
- <% 
-  // ´Ù¿î¹ŞÀ» ÆÄÀÏÀÇ ÀÌ¸§À» °¡Á®¿È
-  String fileName = request.getParameter("fileName");
-  // ´Ù¿î¹ŞÀ» ÆÄÀÏÀÌ ÀúÀåµÇ¾î ÀÖ´Â Æú´õ ÀÌ¸§
-  String saveFolder = "File";
-  
-  // Context¿¡ ´ëÇÑ Á¤º¸¸¦ ¾Ë¾Æ¿È
-  ServletContext context = getServletContext(); // ¼­ºí¸´¿¡ ´ëÇÑ È¯°æÁ¤º¸¸¦ °¡Á®¿È
-  
-  // ½ÇÁ¦ ÆÄÀÏÀÌ ÀúÀåµÇ¾î ÀÖ´Â Æú´õÀÇ °æ·Î
-  String realFolder = context.getRealPath(saveFolder);
-  // ´Ù¿î¹ŞÀ» ÆÄÀÏÀÇ ÀüÃ¼ °æ·Î¸¦ filePath¿¡ ÀúÀå
-  String filePath = realFolder + "\\" + fileName;
-  
-  try{
-   // ´Ù¿î¹ŞÀ» ÆÄÀÏÀ» ºÒ·¯¿È
-   File file = new File(filePath);
-   byte b[] = new byte[4096];
-   
-   // pageÀÇ ContentTypeµîÀ» µ¿ÀûÀ¸·Î ¹Ù²Ù±â À§ÇØ ÃÊ±âÈ­½ÃÅ´
-   response.reset();
-   response.setContentType("application/octet-stream");
-   
-   // ÇÑ±Û ÀÎÄÚµù
-   String Encoding = new String(fileName.getBytes("UTF-8"), "8859_1");
-   // ÆÄÀÏ ¸µÅ©¸¦ Å¬¸¯ÇßÀ» ¶§ ´Ù¿î·Îµå ÀúÀå È­¸éÀÌ Ãâ·ÂµÇ°Ô Ã³¸®ÇÏ´Â ºÎºĞ
-   response.setHeader("Content-Disposition", "attachment; filename = " + Encoding);
-  
-   // ÆÄÀÏÀÇ ¼¼ºÎ Á¤º¸¸¦ ÀĞ¾î¿À±â À§ÇØ¼­ ¼±¾ğ
-   FileInputStream in = new FileInputStream(filePath);
-  
-   // ÆÄÀÏ¿¡¼­ ÀĞ¾î¿Â ¼¼ºÎ Á¤º¸¸¦ ÀúÀåÇÏ´Â ÆÄÀÏ¿¡ ½áÁÖ±â À§ÇØ¼­ ¼±¾ğ
-   ServletOutputStream out2 = response.getOutputStream();
-   
-   int numRead;
-   // ¹ÙÀÌÆ® ¹è¿­ bÀÇ 0¹ø ºÎÅÍ numRead¹ø ±îÁö ÆÄÀÏ¿¡ ½áÁÜ (Ãâ·Â)
-   while((numRead = in.read(b, 0, b.length)) != -1){
-    out2.write(b, 0, numRead);
-   }
-   
-   out2.flush();
-   out2.close();
-   in.close();
-   
-  } catch(Exception e){
-  }
- %>
- </body>
- </html>
+	// Contextì— ëŒ€í•œ ì •ë³´ë¥¼ ì•Œì•„ì˜´
+	ServletContext context = getServletContext(); // ì„œë¸”ë¦¿ì— ëŒ€í•œ í™˜ê²½ì •ë³´ë¥¼ ê°€ì ¸ì˜´
+	// ì‹¤ì œ íŒŒì¼ì´ ì €ì¥ë˜ì–´ ìˆëŠ” í´ë”ì˜ ê²½ë¡œ
+	String realFolder = context.getRealPath(saveFolder);
+	// ë‹¤ìš´ë°›ì„ íŒŒì¼ì˜ ì „ì²´ ê²½ë¡œë¥¼ filePathì— ì €ì¥
+	String filePath = realFolder + "/" + fileName;
 
-ÃâÃ³: http://kitchu.tistory.com/48 [Dream Archive]
+	FileInputStream in = null;
+	ServletOutputStream out2 = null;
+	
+	try{
+		// ë‹¤ìš´ë°›ì„ íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
+		File file = new File(filePath);
 
+		// pageì˜ ContentTypeë“±ì„ ë™ì ìœ¼ë¡œ ë°”ê¾¸ê¸° ìœ„í•´ ì´ˆê¸°í™”ì‹œí‚´
+		response.reset();
+		response.setContentType("application/octet-stream");
 
-<%@page import="java.io.File"%>
- <%@page import="java.util.Enumeration"%>
- <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
- <%@page import="com.oreilly.servlet.MultipartRequest"%>
- <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- <html>
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
- <title>Insert title here</title>
- </head>
- <body>
- <center>
- <h2> ÆÄÀÏ ´Ù¿î·Îµå </h2>
- <form action = "FileDownloadProc.jsp" method = "post">
- 
- <table border = "0" cellpadding="8" cellspacing="5">
+		// í•œê¸€ ì¸ì½”ë”©
+		String Encoding = new String(fileName.getBytes("UTF-8"), "8859_1");
+		// íŒŒì¼ ë§í¬ë¥¼ í´ë¦­í–ˆì„ ë•Œ ë‹¤ìš´ë¡œë“œ ì €ì¥ í™”ë©´ì´ ì¶œë ¥ë˜ê²Œ ì²˜ë¦¬í•˜ëŠ” ë¶€ë¶„
+		response.setHeader("Content-Disposition", "attachment; filename=" + Encoding);
 
- <tr align = "center">
-  <th> ÆÄÀÏ¸í : </th>
-  <td> <input type = "text" name = "fileName"> </td>
- </tr>
- 
- <tr align = "center">
-  <td colspan = "2"> <input type = "submit" value = "´Ù¿î·Îµå"> </td>
- </tr>
- </table>
- </form>
+		// íŒŒì¼ì˜ ì„¸ë¶€ ì •ë³´ë¥¼ ì½ì–´ì˜¤ê¸° ìœ„í•´ì„œ ì„ ì–¸
+		in = new FileInputStream(filePath);
+		// íŒŒì¼ì—ì„œ ì½ì–´ì˜¨ ì„¸ë¶€ ì •ë³´ë¥¼ ì €ì¥í•˜ëŠ” íŒŒì¼ì— ì¨ì£¼ê¸° ìœ„í•´ì„œ ì„ ì–¸
+		out2 = response.getOutputStream();
 
- </center>
- </body>
- </html>
+		byte b[] = new byte[4096];
+		int numRead;
+		// ë°”ì´íŠ¸ ë°°ì—´ bì˜ 0ë²ˆ ë¶€í„° numReadë²ˆ ê¹Œì§€ íŒŒì¼ì— ì¨ì¤Œ (ì¶œë ¥)
+		while ((numRead = in.read(b, 0, b.length)) != -1) {
+			out2.write(b, 0, numRead);
+		}
+		out2.flush();
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		if (out2 != null) try { out2.close(); } catch (Exception e) {}
+		if (in != null) try { in.close(); } catch (Exception e) {}
+	}
+%>
+</body>
+</html>
 
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+	<h2> íŒŒì¼ ë‹¤ìš´ë¡œë“œ </h2>
+	<form action="FileDownloadProc.jsp" method="post">
 
-ÃâÃ³: http://kitchu.tistory.com/48 [Dream Archive]
+	<table border="0" cellpadding="8" cellspacing="5">
+		<tr align="center">
+			<th> íŒŒì¼ëª… : </th>
+			<td> <input type="text" name="fileName"> </td>
+		</tr>
+		<tr align="center">
+			<td colspan="2"> <input type="submit" value="ë‹¤ìš´ë¡œë“œ"> </td>
+		</tr>
+	</table>
+	</form>
+	</center>
+</body>
+</html>
+ì¶œì²˜: http://kitchu.tistory.com/48 [Dream Archive]
+-->

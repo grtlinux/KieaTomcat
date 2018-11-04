@@ -108,8 +108,16 @@
 
 <h4>(File Download)</h4>
 <% for (int i=0; i < arrFiles.length; i++){ %>
-<%=String.valueOf(i) %>) <a href="filedown.jsp?filename=<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
+<%=String.valueOf(i) %>) <a href="filedown2.jsp?filename=<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
 <% } %>
+<p>
+<hr>
+
+<a href="filedown1.jsp?filename=master[ 강 석 ].zip">filedown1</a>
+<p>
+<a href="filedown2.jsp?filename=master[ 강 석 ].zip">filedown2</a>
+<p>
+<a href="filedown3.jsp?filename=master[ 강 석 ].zip">filedown3</a>
 <p>
 
 

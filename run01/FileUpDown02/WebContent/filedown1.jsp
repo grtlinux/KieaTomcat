@@ -5,6 +5,13 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.net.*" %>
 <%
+	/*
+	 * TODO-KANG-20181103: RESULT: ERROR
+	 *   심각: Servlet.service() for servlet [jsp] in context with path [] threw exception [java.lang.IllegalStateException: getOutputStream() has already been called for this response] with root cause
+	 *   java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	 */
+	 
+	 
 	// [java] Tomcat에서 요청 인코딩을 설정하는 방법은 무엇입니까?
 	// http://code.i-harness.com/ko-kr/q/68ee19
 	
