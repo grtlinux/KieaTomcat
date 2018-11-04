@@ -7,7 +7,75 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 
+<%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
+
 <%!
+	/**
+	* String UnEscape 처리
+	* 
+	* @param src
+	* @return
+	*/
+	public String unescape(String src) {
+		StringBuffer tmp = new StringBuffer();
+		tmp.ensureCapacity(src.length());
+		int lastPos = 0, pos = 0;
+		char ch;
+		while (lastPos < src.length()) {
+			pos = src.indexOf("%", lastPos);
+			if (pos == lastPos) {
+				if (src.charAt(pos + 1) == 'u') {
+					ch = (char) Integer.parseInt(src
+							.substring(pos + 2, pos + 6), 16);
+					tmp.append(ch);
+					lastPos = pos + 6;
+				} else {
+					ch = (char) Integer.parseInt(src
+							.substring(pos + 1, pos + 3), 16);
+					tmp.append(ch);
+					lastPos = pos + 3;
+				}
+			} else {
+				if (pos == -1) {
+					tmp.append(src.substring(lastPos));
+					lastPos = src.length();
+				} else {
+					tmp.append(src.substring(lastPos, pos));
+					lastPos = pos;
+				}
+			}
+		}
+		return tmp.toString();
+	}
+		
+	/**
+	* String Escape 처리
+	* @param src
+	* @return
+	*/
+	public String escape(String src) {
+		int i;
+		char j;
+		StringBuffer tmp = new StringBuffer();
+		tmp.ensureCapacity(src.length() * 6);
+		for (i = 0; i < src.length(); i++) {
+			j = src.charAt(i);
+			if (Character.isDigit(j) || Character.isLowerCase(j)
+					|| Character.isUpperCase(j))
+				tmp.append(j);
+			else if (j < 256) {
+				tmp.append("%");
+				if (j < 16)
+					tmp.append("0");
+				tmp.append(Integer.toString(j, 16));
+			} else {
+				tmp.append("%u");
+				tmp.append(Integer.toString(j, 16));
+			}
+		}
+		return tmp.toString();
+	}
+
 	String FILE_PATH = "/hanwha/GIT/git/KieaTomcat/run01/FileUpDown02/WebContent";
 %>
 
@@ -34,7 +102,7 @@
             FileItem fileItem = iter.next();
             if (fileItem.isFormField()) {
                 // Parameter
-                System.out.println(">>>>> Parameter: " + fileItem.getFieldName() + "=" + fileItem.getString("euc-kr"));
+                System.out.println(">>>>> Parameter: " + fileItem.getFieldName() + "=" + fileItem.getString("utf-8"));
             } else {
                 if (fileItem.getSize() > 0) {
                     String fieldName = fileItem.getFieldName();
@@ -74,19 +142,24 @@
 	 */
 	File path = new File("/hanwha/GIT/git/KieaTomcat/run01/FileUpDown02/WebContent/files");
 	File[] arrFiles = path.listFiles();
+	String[] files = new String[arrFiles.length];
+	for (int i=0; i < arrFiles.length; i++) {
+		files[i] = StringEscapeUtils.escapeHtml(arrFiles[i].getName());
+	}
 %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Insert title here</title>
 </head>
 <body>
 
-<h3>TITLE</h3>
+<h2>[ File Upload and Download ]</h2>
 <hr>
 <p>
 
+<h4>(File Upload)</h4>
 <form action="/index.jsp" method="POST" enctype="multipart/form-data">
     File0: <input type="file" name="file0"/><br>
     <!--
@@ -108,16 +181,23 @@
 <hr>
 <p>
 
-<table border="1" width="250">
-	<tr>
-		<td>파일</td>
-	</tr>
-<% for (int i=0;i<arrFiles.length;i++){ //배열명.length는 배열의 요소의 수를 리턴한다 %>
-	<tr>
-		<td><a href="files/<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a></td>
-	</tr>
+<h4>(File Download)</h4>
+<% for (int i=0; i < files.length; i++){ %>
+<%=String.valueOf(i) %>) <a href="files/<%=files[i] %>"><%=arrFiles[i].getName() %></a><br/>
 <% } %>
-</table>
+<p>
+<h4>(File Download)</h4>
+<% for (int i=0; i < files.length; i++){ %>
+<%=String.valueOf(i) %>) <a href="files/<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
+<% } %>
+<p>
+<a href="http://localhost/files/%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.zip">안녕하세요.zip</a><br/>
+<a href="files/강석.smi">강석.smi</a><br/>
+<p>
+<a href="filedown.jsp">filedown.jsp</a><br/>
+<a href="filedown.jsp?filename=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.smi">안녕하세요.smi</a><br/>
+<a href="filedown.jsp?filename=안녕하세요.smi">안녕하세요.smi</a><br/>
+
 
 </body>
 </html>
