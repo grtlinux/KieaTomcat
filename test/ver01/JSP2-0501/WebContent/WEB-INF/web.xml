@@ -8,7 +8,7 @@
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 	<display-name>JSP2-0501</display-name>
-	<description>JSP2 chapter 5</description>
+	<description>JSP2 chapter 5. JSP 페이지의 액션 태그</description>
 	
 
 </web-app>
