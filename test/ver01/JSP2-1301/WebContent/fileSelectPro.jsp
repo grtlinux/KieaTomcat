@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=euc-kr"%>
+<%@page contentType="text/html;charset=utf-8"%>
 <%@ page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@ page import="java.util.*"%>
@@ -9,7 +9,7 @@
 <%
 String realPath = "";
 String savePath = "fileSave";
-String type = "euc-kr";
+String type = "utf-8";
 int maxSize = 5*1024*1024;//5M
 
 ServletContext context = getServletContext();
@@ -39,26 +39,26 @@ try
 %>
 <html>
 <head>
-<title>¿©·¯°³ÀÇ ÆÄÀÏÀ» ¾÷·ÎµåÇÏ´Â ¿¹Á¦</title>
+<title>ì—¬ëŸ¬ê°œì˜ íŒŒì¼ì„ ì—…ë¡œë“œí•˜ëŠ” ì˜ˆì œ</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="<%=bodyback_c%>">
 <table width="50%" border="1" align="center" cellpadding="1" cellspacing="1" >
 <tr>
-    <td width="15%" bgcolor="<%=value_c%>" align="center"><strong>ÀÛ¼ºÀÚ</strong></td>
+    <td width="15%" bgcolor="<%=value_c%>" align="center"><strong>ìž‘ì„±ìž</strong></td>
     <td width="35%"><%= user %></td></tr>
-<tr><td width="15%" bgcolor="<%=value_c%>" align="center"><strong>Á¦¸ñ</strong></td>
+<tr><td width="15%" bgcolor="<%=value_c%>" align="center"><strong>ì œëª©</strong></td>
     <td width="35%"><%= title %></td>
 </tr>
 <tr>
-	<td width="15%" bgcolor="<%=value_c%>" align="center"><strong>³»¿ë</strong></td>
+	<td width="15%" bgcolor="<%=value_c%>" align="center"><strong>ë‚´ìš©</strong></td>
 	<td width="35%" colspan="3">
 		<%= content %>	
 	</td>
 </tr>
 <tr><td colspan="4" bgcolor="<%=value_c%>">&nbsp;</td></tr>
 <tr>
-	<td colspan="4"><strong>¾÷·ÎµåµÈ ÆÄÀÏ ¸®½ºÆ®</strong></td>
+	<td colspan="4"><strong>ì—…ë¡œë“œëœ íŒŒì¼ ë¦¬ìŠ¤íŠ¸</strong></td>
 </tr>
 <%for(int i=0; i<saveFiles.size();i++){%>
 <tr >

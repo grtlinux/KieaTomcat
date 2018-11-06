@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=euc-kr" %>
+<%@page contentType="text/html; charset=utf-8" %>
 <%@ include file="/view/color.jsp"%>
 <%! 
 	public String getParam(HttpServletRequest request, String paramName){
@@ -10,7 +10,7 @@
 	}
 %>
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("utf-8");
 	int filecounter = 0;
 	if(request.getParameter("addcnt")!=null){
 		filecounter = Integer.parseInt(request.getParameter("addcnt"));
@@ -18,7 +18,7 @@
 %>
 <html>
 <head>
-<title>¿©·¯°³ÀÇ ÆÄÀÏÀ» ¾÷·ÎµåÇÏ´Â ¿¹Á¦</title>
+<title>ì—¬ëŸ¬ê°œì˜ íŒŒì¼ì„ ì—…ë¡œë“œí•˜ëŠ” ì˜ˆì œ</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script language="JavaScript">
 function inputValue(form1, param, form2, idx){
@@ -28,7 +28,7 @@ function inputValue(form1, param, form2, idx){
 }
 function addFile(formName){
 	if(formName.addcnt.value==""){
-		alert(" ÀÔ·ÂÇÒ ÆÄÀÏ °¹¼ö¸¦ ÀÔ·ÂÇÏ°í È®ÀÎ ´ÜÃß¸¦ ´­·¯ÁÖ¼¼¿ä" ); 
+		alert(" ìž…ë ¥í•  íŒŒì¼ ê°¯ìˆ˜ë¥¼ ìž…ë ¥í•˜ê³  í™•ì¸ ë‹¨ì¶”ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”" ); 
 		formName.addcnt.focus();						 
 		return;
 	}
@@ -40,7 +40,7 @@ function elementCheck(formName){
    for(idx=0; idx<formName.elements.length; idx++){
       if(formName.elements[idx].type == "file"){
          if(formName.elements[idx].value==""){
-	        var message = paramIndex+" ¹øÂ° ÆÄÀÏÁ¤º¸°¡ ¾ø½À´Ï´Ù.\n¾÷·ÎµåÇÒ ÆÄÀÏÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä";
+	        var message = paramIndex+" ë²ˆì§¸ íŒŒì¼ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.\nì—…ë¡œë“œí•  íŒŒì¼ì„ ì„ íƒí•´ ì£¼ì„¸ìš”";
 		    alert(message);
 			formName.elements[idx].focus();
 			return;		
@@ -55,28 +55,28 @@ function elementCheck(formName){
 </head>
 <body  bgcolor="<%=bodyback_c%>">
 <div align="center">
-<h2>¿©·¯°³ÀÇ ÆÄÀÏÀ» ¾÷·ÎµåÇÏ´Â ¿¹Á¦</h2>
-<font color="#0000ff" size="2">ÆÄÀÏ °¹¼ö¸¦ ÀÔ·ÂÇÑ ÈÄ [È®ÀÎ] ´ÜÃß¸¦ ´­·¯ÁÖ¼¼¿ä.<br>
-ÀÔ·ÂÀÌ ¿Ï·áµÇ¸é ÆÄÀÏ¾÷·Îµå¸¦ À§ÇÑ [¾÷·Îµå] ´ÜÃß¸¦ ´­·¯ÁÖ¼¼¿ä.</font></div><br>
+<h2>ì—¬ëŸ¬ê°œì˜ íŒŒì¼ì„ ì—…ë¡œë“œí•˜ëŠ” ì˜ˆì œ</h2>
+<font color="#0000ff" size="2">íŒŒì¼ ê°¯ìˆ˜ë¥¼ ìž…ë ¥í•œ í›„ [í™•ì¸] ë‹¨ì¶”ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”.<br>
+ìž…ë ¥ì´ ì™„ë£Œë˜ë©´ íŒŒì¼ì—…ë¡œë“œë¥¼ ìœ„í•œ [ì—…ë¡œë“œ] ë‹¨ì¶”ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”.</font></div><br>
 <form name="frmName1" method="post">
 <table width="50%" border="1" align="center" cellpadding="1" cellspacing="1">
 <tr>
-    <td width="15%" bgcolor="<%=value_c%>" align="center">ÀÛ¼ºÀÚ</td>
+    <td width="15%" bgcolor="<%=value_c%>" align="center">ìž‘ì„±ìž</td>
     <td><input type="text" name="user" onkeyup="inputValue(this.form,user,frmName2,0)" value="<%=getParam(request, "user")%>"></td></tr>
-<tr><td width="15%" bgcolor="<%=value_c%>" align="center">Á¦¸ñ</td>
+<tr><td width="15%" bgcolor="<%=value_c%>" align="center">ì œëª©</td>
     <td><input type="text" name="title" onkeyup="inputValue(this.form,title,frmName2,1)" value="<%=getParam(request, "title")%>"></td>
 </tr>
 <tr>
-	<td width="15%" bgcolor="<%=value_c%>" align="center">³»¿ë</td>
+	<td width="15%" bgcolor="<%=value_c%>" align="center">ë‚´ìš©</td>
 	<td width="50%" colspan="3">
 	<textarea name="abstract" cols="40" onkeyup="inputValue(this.form,abstract, frmName2,2)"><%=getParam(request,"abstract")%></textarea>
 	</td>
 </tr>
 <tr>
 	<td colspan="4" bgcolor="<%=value_c%>" align="center">
-	¾÷·ÎµåÇÒ ÆÄÀÏ ¼ö ÀÔ·Â
+	ì—…ë¡œë“œí•  íŒŒì¼ ìˆ˜ ìž…ë ¥
 	<input type="Text" name="addcnt">
-	<input type="button" value=" È®ÀÎ " onclick="addFile(this.form)">
+	<input type="button" value=" í™•ì¸ " onclick="addFile(this.form)">
 	
 	</td>
 </tr>
@@ -95,7 +95,7 @@ function elementCheck(formName){
 	<%	}%>
 	
 	
-	<input type="Button" value="¾÷·Îµå" onclick="elementCheck(this.form)"></td>
+	<input type="Button" value="ì—…ë¡œë“œ" onclick="elementCheck(this.form)"></td>
 </tr>
 </table>
 </form>

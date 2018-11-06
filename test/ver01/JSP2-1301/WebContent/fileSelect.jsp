@@ -1,20 +1,20 @@
-<%@ page contentType="text/html;charset=euc-kr"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 
 <html>
 <head>
-<title>ÆÄÀÏ ¾÷·Îµå ¿¹Á¦</title>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>íŒŒì¼ ì—…ë¡œë“œ ì˜ˆì œ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
 <body>
 <form name="fileForm" method="post" enctype="multipart/form-data" action="fileUpload.jsp">
-	ÀÛ¼ºÀÚ: 
+	ìž‘ì„±ìž: 
 	<input type="text" name="user"><br>
-	Á¦  ¸ñ: 
+	ì œ  ëª©: 
 	<input type="text" name="title"><br>
-	ÆÄÀÏ¸í: 
+	íŒŒì¼ëª…: 
 	<input type="file" name="uploadFile"><br>
-	<input type="submit" value="ÆÄÀÏ ¿Ã¸®±â"><br>
+	<input type="submit" value="íŒŒì¼ ì˜¬ë¦¬ê¸°"><br>
 </form>
 </body>
 </html>

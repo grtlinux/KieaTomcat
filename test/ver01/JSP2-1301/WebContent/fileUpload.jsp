@@ -1,19 +1,19 @@
-<%@ page contentType="text/html;charset=euc-kr"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.io.*"%>
 
 <%
-String realFolder = "";//À¥ ¾îÇÃ¸®ÄÉÀÌ¼Ç»óÀÇ Àı´ë °æ·Î
+String realFolder = "";//ì›¹ ì–´í”Œë¦¬ì¼€ì´ì…˜ìƒì˜ ì ˆëŒ€ ê²½ë¡œ
 
-//ÆÄÀÏÀÌ ¾÷·ÎµåµÇ´Â Æú´õ¸¦ ÁöÁ¤ÇÑ´Ù.
+//íŒŒì¼ì´ ì—…ë¡œë“œë˜ëŠ” í´ë”ë¥¼ ì§€ì •í•œë‹¤.
 String saveFolder = "fileSave";
-String encType = "euc-kr"; //¿£ÄÚµùÅ¸ÀÔ
-int maxSize = 5*1024*1024;  //ÃÖ´ë ¾÷·ÎµÉ ÆÄÀÏÅ©±â 5Mb
+String encType = "utf-8"; //ì—”ì½”ë”©íƒ€ì…
+int maxSize = 5*1024*1024;  //ìµœëŒ€ ì—…ë¡œë  íŒŒì¼í¬ê¸° 5Mb
 
 ServletContext context = getServletContext();
-//ÇöÀç jspÆäÀÌÁöÀÇ À¥ ¾îÇÃ¸®ÄÉÀÌ¼Ç»óÀÇ Àı´ë °æ·Î¸¦ ±¸ÇÑ´Ù
+//í˜„ì¬ jspí˜ì´ì§€ì˜ ì›¹ ì–´í”Œë¦¬ì¼€ì´ì…˜ìƒì˜ ì ˆëŒ€ ê²½ë¡œë¥¼ êµ¬í•œë‹¤
 realFolder = context.getRealPath(saveFolder);  
 out.println("the realpath is : " + realFolder+"<br>");
 
@@ -21,49 +21,49 @@ try
 {
    MultipartRequest multi = null;
    
-   //Àü¼ÛÀ» ´ã´çÇÒ ÄŞÆ÷³ÍÆ®¸¦ »ı¼ºÇÏ°í ÆÄÀÏÀ» Àü¼ÛÇÑ´Ù.
-   //Àü¼ÛÇÒ ÆÄÀÏ¸íÀ» °¡Áö°í ÀÖ´Â °´Ã¼, ¼­¹ö»óÀÇ Àı´ë°æ·Î,ÃÖ´ë ¾÷·ÎµåµÉ ÆÄÀÏÅ©±â, ¹®ÀÚÄÚµå, ±âº» º¸¾È Àû¿ë
+   //ì „ì†¡ì„ ë‹´ë‹¹í•  ì½¤í¬ë„ŒíŠ¸ë¥¼ ìƒì„±í•˜ê³  íŒŒì¼ì„ ì „ì†¡í•œë‹¤.
+   //ì „ì†¡í•  íŒŒì¼ëª…ì„ ê°€ì§€ê³  ìˆëŠ” ê°ì²´, ì„œë²„ìƒì˜ ì ˆëŒ€ê²½ë¡œ,ìµœëŒ€ ì—…ë¡œë“œë  íŒŒì¼í¬ê¸°, ë¬¸ìì½”ë“œ, ê¸°ë³¸ ë³´ì•ˆ ì ìš©
    multi = new MultipartRequest(request,realFolder,maxSize,encType,new DefaultFileRenamePolicy());
    
-   //FormÀÇ ÆÄ¶ó¹ÌÅÍ ¸ñ·ÏÀ» °¡Á®¿Â´Ù
+   //Formì˜ íŒŒë¼ë¯¸í„° ëª©ë¡ì„ ê°€ì ¸ì˜¨ë‹¤
    Enumeration params = multi.getParameterNames();
   
-   //ÆÄ¶ó¹ÌÅÍ¸¦ Ãâ·ÂÇÑ´Ù
+   //íŒŒë¼ë¯¸í„°ë¥¼ ì¶œë ¥í•œë‹¤
    while(params.hasMoreElements()){ 
-      String name = (String)params.nextElement(); //Àü¼ÛµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§
-      String value = multi.getParameter(name);    //Àü¼ÛµÇ´Â ÆÄ¶ó¹ÌÅÍ°ª  
+      String name = (String)params.nextElement(); //ì „ì†¡ë˜ëŠ” íŒŒë¼ë¯¸í„°ì´ë¦„
+      String value = multi.getParameter(name);    //ì „ì†¡ë˜ëŠ” íŒŒë¼ë¯¸í„°ê°’  
       out.println(name + " = " + value +"<br>");
    }
 
    out.println("-------------------------------------<br>");
 
-   //Àü¼ÛÇÑ ÆÄÀÏ Á¤º¸¸¦ °¡Á®¿Í Ãâ·ÂÇÑ´Ù
+   //ì „ì†¡í•œ íŒŒì¼ ì •ë³´ë¥¼ ê°€ì ¸ì™€ ì¶œë ¥í•œë‹¤
    Enumeration files = multi.getFileNames();
    
-   //ÆÄÀÏ Á¤º¸°¡ ÀÖ´Ù¸é
+   //íŒŒì¼ ì •ë³´ê°€ ìˆë‹¤ë©´
    while(files.hasMoreElements()){
-    //input ÅÂ±×ÀÇ ¼Ó¼ºÀÌ fileÀÎ ÅÂ±×ÀÇ name ¼Ó¼º°ª :ÆÄ¶ó¹ÌÅÍÀÌ¸§
+    //input íƒœê·¸ì˜ ì†ì„±ì´ fileì¸ íƒœê·¸ì˜ name ì†ì„±ê°’ :íŒŒë¼ë¯¸í„°ì´ë¦„
       String name = (String)files.nextElement();
    
-   //¼­¹ö¿¡ ÀúÀåµÈ ÆÄÀÏ ÀÌ¸§
+   //ì„œë²„ì— ì €ì¥ëœ íŒŒì¼ ì´ë¦„
       String filename = multi.getFilesystemName(name);
    
-   //Àü¼ÛÀü ¿ø·¡ÀÇ ÆÄÀÏ ÀÌ¸§
+   //ì „ì†¡ì „ ì›ë˜ì˜ íŒŒì¼ ì´ë¦„
       String original = multi.getOriginalFileName(name);
    
-   //Àü¼ÛµÈ ÆÄÀÏÀÇ ³»¿ë Å¸ÀÔ
+   //ì „ì†¡ëœ íŒŒì¼ì˜ ë‚´ìš© íƒ€ì…
       String type = multi.getContentType(name);
       
-   //Àü¼ÛµÈ ÆÄÀÏ ¼Ó¼ºÀÌ fileÀÎ ÅÂ±×ÀÇ name ¼Ó¼º°ªÀ» ÀÌ¿ëÇØ ÆÄÀÏ °´Ã¼ »ı¼º
+   //ì „ì†¡ëœ íŒŒì¼ ì†ì„±ì´ fileì¸ íƒœê·¸ì˜ name ì†ì„±ê°’ì„ ì´ìš©í•´ íŒŒì¼ ê°ì²´ ìƒì„±
       File file = multi.getFile(name);
    
-      out.println("ÆÄ¶ó¸ŞÅÍ ÀÌ¸§ : " + name +"<br>");
-      out.println("½ÇÁ¦ ÆÄÀÏ ÀÌ¸§ : " + original +"<br>");
-      out.println("ÀúÀåµÈ ÆÄÀÏ ÀÌ¸§ : " + filename +"<br>");
-      out.println("ÆÄÀÏ Å¸ÀÔ : " + type +"<br>");
+      out.println("íŒŒë¼ë©”í„° ì´ë¦„ : " + name +"<br>");
+      out.println("ì‹¤ì œ íŒŒì¼ ì´ë¦„ : " + original +"<br>");
+      out.println("ì €ì¥ëœ íŒŒì¼ ì´ë¦„ : " + filename +"<br>");
+      out.println("íŒŒì¼ íƒ€ì… : " + type +"<br>");
       
 	  if(file!=null){
-         out.println("Å©±â : " + file.length());
+         out.println("í¬ê¸° : " + file.length());
          out.println("<br>");
       }
    }
