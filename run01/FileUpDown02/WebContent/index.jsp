@@ -6,6 +6,7 @@
 <%@ page import="java.io.IOException" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="java.net.URLEncoder" %>
 <%
 	/*
 	 * file upload
@@ -85,7 +86,7 @@
 <p>
 
 <h4>(File Upload)</h4>
-<form action="/index.jsp" method="POST" enctype="multipart/form-data">
+<form action="index.jsp" method="POST" enctype="multipart/form-data">
 	File0: <input type="file" name="file0"/><br>
 	<!--
 	File1: <input type="file" name="file1"/><br>
@@ -107,12 +108,24 @@
 <p>
 
 <h4>(File Download: filedown2.jsp)</h4>
-<% for (int i=0; i < arrFiles.length; i++){ %>
-<%=String.valueOf(i) %>) <a href="filedown2.jsp?filename=<%=arrFiles[i].getName() %>"><%=arrFiles[i].getName() %></a><br/>
-<% } %>
+<%
+	for (int i=0; i < arrFiles.length; i++){
+		String filename = URLEncoder.encode(arrFiles[i].getName(), "utf-8");
+%>
+<%=String.valueOf(i) %>) <a href="filedown2.jsp?filename=<%=filename %>"><%=arrFiles[i].getName() %></a><br/>
+<%
+	}
+%>
 <p>
-<hr>
 
+
+
+<hr>
+<%
+	String encodeName = URLEncoder.encode("master[ 강 석 ].zip", "utf-8");
+%>
+<a href="filedown.jsp?filename=<%=encodeName %>">filedown</a>
+<p>
 <a href="filedown1.jsp?filename=master[ 강 석 ].zip">filedown1</a>
 <p>
 <a href="filedown2.jsp?filename=master[ 강 석 ].zip">filedown2</a>
