@@ -23,4 +23,15 @@ public class HangulConversion {
 			return en;
 		}
 	}
+	
+	public static String convert(String str, String fromCharset, String toCharset) {
+		if (str == null)
+			return null;
+		
+		try {
+			return new String(str.getBytes(fromCharset), toCharset);
+		} catch (Exception e) {
+			return str;
+		}
+	}
 }
