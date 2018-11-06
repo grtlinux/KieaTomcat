@@ -10,7 +10,7 @@ String realFolder = "";//웹 어플리케이션상의 절대 경로
 
 //파일이 업로드되는 폴더를 지정한다.
 String saveFolder = "thumbnail";
-String encType = "euc-kr"; //엔코딩타입
+String encType = "utf-8"; //엔코딩타입
 int maxSize = 5*1024*1024;  //최대 업로될 파일크기 5Mb
 
 ServletContext context = getServletContext();
@@ -44,6 +44,9 @@ try
 	   <img src="<%=orgFileName%>" border="0"><br><br><br>
 	   "썸네일 이미지 저장경로및 파일명: "<%=thumbFileName%><br>
        <img src="<%=thumbFileName%>" border="0">
+       <p>
+       <img src="thumbnail/<%=filename%>" border="0"><br>
+       <img src="thumbnail/small<%=filename%>" border="0">
 
 <%
       }
