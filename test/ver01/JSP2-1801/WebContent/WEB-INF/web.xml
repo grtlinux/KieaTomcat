@@ -8,6 +8,38 @@
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 
+   <!--  요청 파라미터로 명령어를 전달 예제 작성시 주석제거 후 18~31라인을 주석처리 -->
+   <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>ch18.controller.Controller</servlet-class>
+        <init-param>
+            <param-name>propertyConfig</param-name>
+            <param-value>WEB-INF/Command.properties</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!-- -->
+
+
+   <!-- 요청 URI자체를 명령어로 사용하는 예제작성시 주석제거후 9~16라인 주석-->
+   <!--
+   <servlet>
+        <servlet-name>ControllerURI</servlet-name>
+        <servlet-class>ch18.controller.ControllerURI</servlet-class>
+        <init-param>
+            <param-name>propertyConfig</param-name>
+            <param-value>WEB-INF/CommandURI.properties</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ControllerURI</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+	-->
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
