@@ -6,12 +6,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class Controller extends HttpServlet {
-    
+
     private Map commandMap = new HashMap();//명령어와 명령어 처리 클래스를 쌍으로 저장
 
     //명령어와 처리클래스가 매핑되어 있는 properties 파일을 읽어서 Map객체인 commandMap에 저장
 	//명령어와 처리클래스가 매핑되어 있는 properties 파일은 Command.properties파일
-    public void init(ServletConfig config) throws ServletException { 
+    public void init(ServletConfig config) throws ServletException {
     	String root = config.getServletContext().getRealPath("/");
         String props = root + config.getInitParameter("propertyConfig");//web.xml에서 propertyConfig에 해당하는 init-param 의 값을 읽어옴
         Properties pr = new Properties();//명령어와 처리클래스의 매핑정보를 저장할 Properties객체 생성
@@ -55,12 +55,17 @@ public class Controller extends HttpServlet {
 		String view = null;
         CommandProcess com=null;
 		try {
-            String command = request.getParameter("command");
-            com = (CommandProcess)commandMap.get(command);  
+            String command = request.getRequestURI();
+            if (command.indexOf(request.getContextPath()) == 0) {
+               command = command.substring(request.getContextPath().length());
+            }
+
+            // String command = request.getParameter("command");
+            com = (CommandProcess)commandMap.get(command);
             view = com.requestPro(request, response);
         } catch(Throwable e) {
             throw new ServletException(e);
-        }   
+        }
         RequestDispatcher dispatcher =request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
