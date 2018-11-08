@@ -15,5 +15,4 @@ public class SampleItemWriter implements ItemWriter<Object> {
 		// TODO Auto-generated method stub
 		log.info(data);
 	}
-
 }

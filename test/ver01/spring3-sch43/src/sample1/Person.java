@@ -8,6 +8,9 @@ public class Person implements Serializable {
 
 	private String name;
 	private Integer age;
+
+	//////////////////////////////////////////////////////////
+
 	public String getName() {
 		return name;
 	}
@@ -20,6 +23,8 @@ public class Person implements Serializable {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+
+
 	@Override
 	public String toString() {
 		return String.format("name:%s age:%d", this.name, this.age);

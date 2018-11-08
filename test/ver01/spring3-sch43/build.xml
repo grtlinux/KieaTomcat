@@ -3,8 +3,10 @@
 <project name="4-3" basedir="." default="run.sample1">
 
 	<property name="src.dir" value="src"/>
-	<property name="lib.dir" value="lib"/>
+	<!-- property name="lib.dir" value="lib"/ -->
+	<property name="lib.dir" value="WebContent/WEB-INF/lib"/>
 	<property name="classes.dir" value="classes"/>
+	<property name="java.encoding" value="UTF-8"/>
 
 	<path id="classpath">
 		<fileset dir="${lib.dir}">
@@ -19,6 +21,7 @@
 
 	<target name="compile" depends="init" description="컴파일합니다">
 		<!-- javac destdir="${classes.dir}" debug="on" debuglevel="lines, vars, source" includeantruntime="false" -->
+		<!-- javac destdir="${classes.dir}" encoding="${java.encoding}" debug="on" includeantruntime="false" -->
 		<javac destdir="${classes.dir}" debug="on" includeantruntime="false">
 			<src path="${src.dir}"/>
 			<classpath refid="classpath"/>
@@ -32,10 +35,14 @@
 	</target>
 
 	<target name="run.sample1" depends="compile" description="어플리케이션을 기동합니다.">
-		<java classname="org.springframework.batch.core.launch.support.CommandLineJobRunner" classpath="${classes.dir}" classpathref="classpath" fork="true">
+		<java classname="org.springframework.batch.core.launch.support.CommandLineJobRunner"
+			classpath="${classes.dir}"
+			classpathref="classpath"
+			fork="true">
 			<arg value="classpath:launch-context.xml"/>
 			<arg value="jobSample"/>
 			<arg value="-next"/>
+			<jvmarg value="-Dfile.encoding=UTF-8"/>
 		</java>
 	</target>
 </project>
