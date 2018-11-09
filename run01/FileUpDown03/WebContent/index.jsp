@@ -14,7 +14,7 @@
 <%!
 	// declaration
 	boolean flag = true;
-	String sorttype = "filenameasc";
+	String sorttype = "filetimedesc";
 	String sortname = null;
 	String sortkey = null;
 	String count = "all";
