@@ -14,6 +14,12 @@
 <%!
 	// declaration
 	boolean flag = true;
+	String sorttype = "filenameasc";
+	String sortname = null;
+	String sortkey = null;
+	String count = null;
+	String message = null;
+	
 	public void printLog(String msg) {
 		System.out.println("KANG >>>>> " + msg);
 	}
@@ -38,12 +44,20 @@
 		upload.setSizeMax(15 * 1024 * 1024 * 1024);   // 15 GB
 		List<FileItem> items = upload.parseRequest(request);
 		System.out.println(">>>>> upload.jsp [REQUEST OK]");
+		
 		Iterator<FileItem> iter = items.iterator();
 		while (iter.hasNext()) {
 			FileItem fileItem = iter.next();
 			if (fileItem.isFormField()) {
 				// Parameter
 				System.out.println(">>>>> Parameter: " + fileItem.getFieldName() + "=" + fileItem.getString("utf-8"));
+				if ("sorttype1".equals(fileItem.getFieldName())) {
+					sorttype = fileItem.getString("utf-8");
+				} else if ("sorttype2".equals(fileItem.getFieldName())) {
+					sorttype = fileItem.getString("utf-8");
+				} else if ("count".equals(fileItem.getFieldName())) {
+					count = fileItem.getString("utf-8");
+				}
 			} else {
 				if (fileItem.getSize() > 0) {
 					String fieldName = fileItem.getFieldName();
@@ -76,6 +90,26 @@
 	}
 %>
 
+<%
+	/*
+	 * sorting: not be used
+	 */
+	if (!flag) {
+		String sort1 = request.getParameter("sorttype1");
+		System.out.println(">>>>> sorttype1=" + sort1);
+		String sort2 = request.getParameter("sorttype2");
+		System.out.println(">>>>> sorttype2=" + sort2);
+		String[] arrSort2 = request.getParameterValues("sorttype2");
+	}
+
+	if (flag) {
+		sortname = sorttype.substring(0, 8);
+		sortkey = sorttype.substring(8);
+
+		message = String.format("[sortname:%s] [sortkey:%s] [count:%s]", sortname, sortkey, count);
+		System.out.println(">>>>> " + message);
+	}
+%>
 
 <%
 	/*
@@ -84,26 +118,31 @@
 	File path = new File(FILE_PATH + "/files");
 	File[] arrFiles = path.listFiles();
 
-	if (!flag) {
+	if ("filename".equals(sortname)) {
 		// sort by filename
 		Arrays.sort(arrFiles, new Comparator<File>() {
 			@Override
 			public int compare(File file1, File file2) {
-				//return file1.getName().compareTo(file2.getName());
-				return file2.getName().compareTo(file1.getName());
+				if ("asc".equals(sortkey)) {
+					return file1.getName().compareTo(file2.getName());
+				} else {
+					return file2.getName().compareTo(file1.getName());
+				}
 			}
 		});
 	}
 
-	if (flag) {
+	if ("filetime".equals(sortname)) {
 		// sort by lasttime
 		Arrays.sort(arrFiles, new Comparator<File>() {
 			@Override
 			public int compare(File file1, File file2) {
-				int ret = -1;  // 1:ASC  -1:DESC
+				int ret = "asc".equals(sortkey) ? 1 : -1;
+				
 				if (file1.lastModified() > file2.lastModified())
 					return ret;
-				return -ret;
+				else
+					return -ret;
 			}
 		});
 	}
@@ -123,9 +162,9 @@
 <h4>(File Upload)</h4>
 <form action="index.jsp" method="POST" enctype="multipart/form-data">
 	File0: <input type="file" name="file0"/><br>
-	<!--
 	File1: <input type="file" name="file1"/><br>
 	File2: <input type="file" name="file2"/><br>
+	<!--
 	File3: <input type="file" name="file3"/><br>
 	File4: <input type="file" name="file4"/><br>
 	File5: <input type="file" name="file5"/><br>
@@ -137,12 +176,35 @@
 	Parameter1: <input type="text" name="param1"/><br>
 	Parameter2: <input type="text" name="param2"/><br>
 	Parameter3: <input type="text" name="param3"/><br>
+	SortType1: 
+	<select name="sorttype1">
+		<option value="filenameasc">FileName-ASC</option>
+		<option value="filenamedesc">FileName-DESC</option>
+		<option value="filetimeasc">FileTime-ASC</option>
+		<option value="filetimedesc" selected>FileTime-DESC</option>
+	</select>
+	<br>
+	SortType2:
+	<input type="radio" name="sorttype2" value="filenameasc">FileName-ASC
+	<input type="radio" name="sorttype2" value="filenamedesc">FileName-DESC
+	<input type="radio" name="sorttype2" value="filetimeasc">FileTime-ASC
+	<input type="radio" name="sorttype2" value="filetimedesc" checked>FileTime-DESC
+	<br>
+	Count: 
+	<select name="count">
+		<option value="all" selected>all</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="50">50</option>
+	</select>
+	<br>
 	<input type="submit" value="Send" />
 </form>
 <hr>
 <p>
 
 <h4>(File Download: filedown2.jsp)</h4>
+<%=message %><br>
 <%
 	for (int i=0; i < arrFiles.length; i++){
 		String filename = URLEncoder.encode(arrFiles[i].getName(), "utf-8");
