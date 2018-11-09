@@ -17,7 +17,7 @@
 	String sorttype = "filenameasc";
 	String sortname = null;
 	String sortkey = null;
-	String count = null;
+	String count = "all";
 	String message = null;
 	
 	public void printLog(String msg) {
