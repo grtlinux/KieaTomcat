@@ -14,6 +14,7 @@
 <%!
 	// declaration
 	boolean flag = true;
+	String FILES_PATH = "/FILES/";
 	String sorttype = "filetimedesc";
 	String sortname = null;
 	String sortkey = null;
@@ -25,17 +26,28 @@
 	}
 %>
 <%
+	//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
+	//String FILE_PATH = this.getServletContext().getRealPath("/");
+	//String FILE_PATH = application.getRealPath("/");
+
+	if (!flag) {
+		System.out.println("1 >>>>> " + request.getSession().getServletContext().getRealPath("/"));
+		System.out.println("2 >>>>> " + this.getServletContext().getRealPath("/"));
+		System.out.println("3 >>>>> " + application.getRealPath("/"));
+	}
+%>
+<%
 	/*
 	 * file upload
 	 */
-	String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
-
 	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 	if (isMultipart) {
 		System.out.println("############## upload.jsp [START] ##############");
 
-		File tempDir = new File(FILE_PATH + "/files/");
-		File realDir = new File(FILE_PATH + "/files/");
+		//File tempDir = new File(FILE_PATH + "/files/");
+		//File realDir = new File(FILE_PATH + "/files/");
+		File tempDir = new File(FILES_PATH);
+		File realDir = new File(FILES_PATH);
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		factory.setSizeThreshold(100 * 1024 * 1024);   // 100 MB
@@ -106,7 +118,8 @@
 		sortname = sorttype.substring(0, 8);
 		sortkey = sorttype.substring(8);
 
-		message = String.format("[sortname:%s] [sortkey:%s] [count:%s]", sortname, sortkey, count);
+		message = String.format("[FILES_PATH:'%s'] [sortname:'%s'] [sortkey:'%s'] [count:'%s']"
+				, FILES_PATH, sortname, sortkey, count);
 		System.out.println(">>>>> " + message);
 	}
 %>
@@ -115,7 +128,7 @@
 	/*
 	 * file list
 	 */
-	File path = new File(FILE_PATH + "/files");
+	File path = new File(FILES_PATH);
 	File[] arrFiles = path.listFiles();
 
 	if ("filename".equals(sortname)) {
@@ -210,7 +223,7 @@
 		String filename = URLEncoder.encode(arrFiles[i].getName(), "utf-8");
 		String strDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(arrFiles[i].lastModified()));
 %>
-<%=String.valueOf(i) %>) [<%=strDate %>] <a href="filedown2.jsp?filename=<%=filename %>"><%=arrFiles[i].getName() %></a><br/>
+<%=String.valueOf(i) %>) [<%=strDate %>] <a href="filedown.jsp?filename=<%=filename %>"><%=arrFiles[i].getName() %></a><br/>
 <%
 	}
 %>
