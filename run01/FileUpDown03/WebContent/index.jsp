@@ -3,6 +3,7 @@
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
 <%@ page import="org.apache.commons.fileupload.FileItem" %>
 <%@ page import="java.io.File" %>
+<%@ page import="java.io.FileFilter" %>
 <%@ page import="java.io.IOException" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.Comparator" %>
@@ -129,7 +130,14 @@
 	 * file list
 	 */
 	File path = new File(FILES_PATH);
-	File[] arrFiles = path.listFiles();
+	File[] arrFiles = path.listFiles(new FileFilter() {
+		@Override
+		public boolean accept(File pathname) {
+			if (pathname.isFile())
+				return true;
+			return false;
+		}
+	});
 
 	if ("filename".equals(sortname)) {
 		// sort by filename
