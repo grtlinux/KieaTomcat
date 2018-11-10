@@ -25,7 +25,9 @@ public class FileFilterTestMain {
 		if (flag) System.out.println(">>>>> " + ClassUtils.getFileLine());
 
 		if (flag) {
-			File root = new File("/hanwha/_TEMP");
+			// File root = new File("/hanwha/_TEMP");
+			// File root = new File("\\\\192.168.1.15\\public");  // SUCCESS
+			File root = new File("//192.168.1.15/public");       // SUCCESS
 			File[] files = root.listFiles(new FileFilter() {
 				@Override
 				public boolean accept(File pathname) {
