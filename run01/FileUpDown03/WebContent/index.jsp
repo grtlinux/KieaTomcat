@@ -26,9 +26,9 @@
 	}
 %>
 <%
-	//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
-	//String FILE_PATH = this.getServletContext().getRealPath("/");
-	//String FILE_PATH = application.getRealPath("/");
+//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
+//String FILE_PATH = this.getServletContext().getRealPath("/");
+//String FILE_PATH = application.getRealPath("/");
 
 	if (!flag) {
 		System.out.println("1 >>>>> " + request.getSession().getServletContext().getRealPath("/"));
@@ -222,8 +222,9 @@
 	for (int i=0; i < arrFiles.length; i++){
 		String filename = URLEncoder.encode(arrFiles[i].getName(), "utf-8");
 		String strDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(arrFiles[i].lastModified()));
+		String num = String.format("%03d", i);
 %>
-<%=String.valueOf(i) %>) [<%=strDate %>] <a href="filedown.jsp?filename=<%=filename %>"><%=arrFiles[i].getName() %></a><br/>
+<%=num %>) [<%=strDate %>] <a href="filedown.jsp?filename=<%=filename %>"><%=arrFiles[i].getName() %></a><br/>
 <%
 	}
 %>
