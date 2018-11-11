@@ -21,17 +21,18 @@
 	String sortkey = null;
 	String count = "all";
 	String message = null;
+	String searchword = null;
 	
 	public void printLog(String msg) {
 		System.out.println("KANG >>>>> " + msg);
 	}
 %>
 <%
-//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
-//String FILE_PATH = this.getServletContext().getRealPath("/");
-//String FILE_PATH = application.getRealPath("/");
-
 	if (!flag) {
+		//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
+		//String FILE_PATH = this.getServletContext().getRealPath("/");
+		//String FILE_PATH = application.getRealPath("/");
+
 		System.out.println("1 >>>>> " + request.getSession().getServletContext().getRealPath("/"));
 		System.out.println("2 >>>>> " + this.getServletContext().getRealPath("/"));
 		System.out.println("3 >>>>> " + application.getRealPath("/"));
@@ -131,6 +132,7 @@
 	 */
 	File path = new File(FILES_PATH);
 	File[] arrFiles = path.listFiles(new FileFilter() {
+		// file filter
 		@Override
 		public boolean accept(File pathname) {
 			if (pathname.isFile())
@@ -151,9 +153,7 @@
 				}
 			}
 		});
-	}
-
-	if ("filetime".equals(sortname)) {
+	} else if ("filetime".equals(sortname)) {
 		// sort by lasttime
 		Arrays.sort(arrFiles, new Comparator<File>() {
 			@Override
@@ -202,14 +202,14 @@
 		<option value="filenameasc">FileName-ASC</option>
 		<option value="filenamedesc">FileName-DESC</option>
 		<option value="filetimeasc">FileTime-ASC</option>
-		<option value="filetimedesc" selected>FileTime-DESC</option>
+		<option value="filetimedesc" selected>FileTime-DESC(def)</option>
 	</select>
 	<br>
 	SortType2:
 	<input type="radio" name="sorttype2" value="filenameasc">FileName-ASC
 	<input type="radio" name="sorttype2" value="filenamedesc">FileName-DESC
 	<input type="radio" name="sorttype2" value="filetimeasc">FileTime-ASC
-	<input type="radio" name="sorttype2" value="filetimedesc" checked>FileTime-DESC
+	<input type="radio" name="sorttype2" value="filetimedesc" checked>FileTime-DESC(def)
 	<br>
 	Count: 
 	<select name="count">
@@ -218,6 +218,8 @@
 		<option value="20">20</option>
 		<option value="50">50</option>
 	</select>
+	<br>
+	Search: <input type="text" name="searchword" value="searchword" />
 	<br>
 	<input type="submit" value="Send" />
 </form>
