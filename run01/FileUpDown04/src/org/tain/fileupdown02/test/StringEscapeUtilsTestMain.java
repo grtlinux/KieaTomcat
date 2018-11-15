@@ -120,7 +120,7 @@ public class StringEscapeUtilsTestMain {
 	
 	private static void test01() {
 		if (flag) {
-			String str1 = "12345ABCD °­ ¼®";
+			String str1 = "12345ABCD ê°• ì„";
 			String str2 = StringEscapeUtils.escapeHtml(str1);
 			String str3 = StringEscapeUtils.unescapeHtml(str2);
 			System.out.println(">>>>> " + str1);
@@ -133,7 +133,7 @@ public class StringEscapeUtilsTestMain {
 	
 	private static void test02() {
 		if (flag) {
-			String str1 = "12345ABCD °­ ¼®";
+			String str1 = "12345ABCD ê°• ì„";
 			String str2 = escape(str1);
 			String str3 = unescape(str2);
 			System.out.println(">>>>> " + str1);
@@ -146,10 +146,10 @@ public class StringEscapeUtilsTestMain {
 
 	private static void test03() throws Exception {
 		if (flag) {
-			//String str1 = "12345ABCD °­ ¼®";
+			//String str1 = "12345ABCD ê°• ì„";
 			// D%20%B0%AD%20%BC%AE
 
-			String str1 = "D °­ ¼®";
+			String str1 = "D ê°• ì„";
 			String str2 = escape2(str1);
 			String str3 = unescape2("D%20%B0%AD%20%BC%AE");
 			System.out.println(">>>>> " + str1);
@@ -189,7 +189,7 @@ public class StringEscapeUtilsTestMain {
 		
 		if (flag) {
 			String url = "http://www.google.co.kr/";
-			String str_kr = "¾È ³ç ÇÏ ¼¼ ¿ä.html";
+			String str_kr = "ì•ˆ ë…• í•˜ ì„¸ ìš”.html";
 			System.out.println("URLEncoder(utf-8): " + URLEncoder.encode(str_kr, "utf-8"));
 		}
 	}
