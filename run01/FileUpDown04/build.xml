@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE project>
+<project name="FileUpDown04" basedir="." default="build">
+
+	<!-- property -->
+	<property name="src.path" location="${basedir}/src"/>
+	<property name="content.path" location="${basedir}/WebContent"/>
+	<property name="build.path" location="${basedir}/build"/>
+	<property name="war.path" location="${basedir}/war"/>
+	<property name="lib.dir" location="${content.path}/WEB-INF/lib"/>
+	
+	<property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+
+	<!-- class path -->
+    <path id="all.classpath">
+        <pathelement location="${build.path}/classes"/>
+    	<path refid="Jar Path"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+    	<path refid="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath"/>
+    </path>
+	<path id="Jar Path">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+        <pathelement location="./lib/catalina-ant.jar"/>
+	</path>
+    <path id="Web App Libraries.libraryclasspath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath"/>
+
+	<!-- init -->
+	<target name="init">
+        <mkdir dir="${build.path}/classes"/>
+        <copy includeemptydirs="false" todir="${build.path}/classes">
+            <fileset dir="${src.path}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+	
+	<!-- clean -->
+    <target name="clean">
+        <delete dir="${build.path}/classes"/>
+    	<delete dir="${war.path}"/>
+    </target>
+	
+	<!-- cleanall -->
+    <target name="cleanall" depends="clean"/>
+	
+	<!-- build -->
+    <target name="build" depends="cleanall, build-subprojects, build-project, build-refprojects"/>
+	
+	<!-- build-subprojects -->
+    <target name="build-subprojects" description="Sub Projects to include"/>
+	
+	<!-- build-project -->
+    <target name="build-project" depends="init" description="My Project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${build.path}/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="${src.path}"/>
+            <classpath refid="all.classpath"/>
+        </javac>
+    </target>
+	
+	<!-- build-refprojects -->
+    <target name="build-refprojects" description="Build all projects which reference this project. Useful to propagate changes."/>
+	
+	
+	
+	<!-- target name="make-warfile" depends="build-project" -->
+	<target name="make-warfile" depends="build">
+		<mkdir dir="${war.path}"/>
+		<copy todir="${war.path}">
+			<fileset dir="${content.path}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<copy todir="${war.path}/WEB-INF">
+			<fileset dir="${build.path}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<jar destfile="${war.path}/${ant.project.name}.war" basedir="${war.path}"/>
+	</target>
+	
+	
+	
+	<!-- tomcat-check-status -->
+	<target name="tomcat-check-status">
+		<condition property="tomcat.started">
+			<socket server="192.168.1.15" port="8080"/>
+		</condition>
+	</target>
+	
+	
+</project>
+
+
+
