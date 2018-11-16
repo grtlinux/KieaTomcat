@@ -28,7 +28,7 @@
 		System.out.println("KANG >>>>> " + msg);
 	}
 %>
-<%@ include file="include.jsp" %>
+<%@ include file="./include.jsp" %>
 <%
 	if (!flag) {
 		//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");

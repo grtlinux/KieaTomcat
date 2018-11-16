@@ -10,7 +10,7 @@
 <title>file download</title>
 <%!
 	// declaration
-	boolean flag = true;
+	// boolean flag = true;
 	// String FILES_PATH = "/hanwha/_FILE";
 	// String FILES_PATH = "_FILE";
 	String message = null;
@@ -19,7 +19,7 @@
 		System.out.println("KANG >>>>> " + msg);
 	}
 %>
-<%@ include file="include.jsp" %>
+<%@ include file="./include.jsp" %>
 <%
 	if (!flag) {
 		System.out.println("1 >>>>> " + request.getSession().getServletContext().getRealPath("/"));
