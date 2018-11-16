@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="java.io.File" %>
 <%@ page import="java.io.FileInputStream"%>
 <%@ page import="java.io.BufferedInputStream" %>
@@ -11,13 +11,15 @@
 <%!
 	// declaration
 	boolean flag = true;
-	String FILES_PATH = "/FILES/";
+	// String FILES_PATH = "/hanwha/_FILE";
+	// String FILES_PATH = "_FILE";
 	String message = null;
 	
 	public void printLog(String msg) {
 		System.out.println("KANG >>>>> " + msg);
 	}
 %>
+<%@ include file="include.jsp" %>
 <%
 	if (!flag) {
 		System.out.println("1 >>>>> " + request.getSession().getServletContext().getRealPath("/"));
@@ -32,8 +34,8 @@
 	String fileName = request.getParameter("filename");
 	fileName = new String(fileName.getBytes("8859_1"), "utf-8");
 
-	String filePath = FILES_PATH + fileName;
-
+	String filePath = FILES_PATH + "/" + fileName;
+	
 	String userAgent = request.getHeader("user-agent");
 	String contentDisposition = null;
 	if (userAgent.indexOf("MSIE 5.5") != -1) {            // less than MS IE 5.5
@@ -54,6 +56,12 @@
 	BufferedOutputStream bos = null;
 
 	try {
+		if (flag) {
+			System.out.println("############## filedown.jsp [START] ##############");
+			System.out.println(">>>>> filePath: " + filePath);
+			System.out.println(">>>>> userAgent: " + userAgent);
+		}
+
 		File file = new File(filePath);
 
 		out.clear();
@@ -73,6 +81,10 @@
 		}
 
 		bos.flush();
+		
+		if (flag) {
+			System.out.println("############## filedown.jsp [END] ##############");
+		}
 	} catch (IOException e) {
 		e.printStackTrace();
 	} finally {

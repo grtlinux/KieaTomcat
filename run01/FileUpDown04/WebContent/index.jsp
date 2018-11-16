@@ -14,8 +14,9 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%!
 	// declaration
-	boolean flag = true;
-	String FILES_PATH = "/FILES/";
+	// boolean flag = true;
+	// String FILES_PATH = "/hanwha/_FILE";
+	// String FILES_PATH = "_FILE";
 	String sorttype = "filetimedesc";
 	String sortname = null;
 	String sortkey = null;
@@ -27,6 +28,7 @@
 		System.out.println("KANG >>>>> " + msg);
 	}
 %>
+<%@ include file="include.jsp" %>
 <%
 	if (!flag) {
 		//String FILE_PATH = request.getSession().getServletContext().getRealPath("/");
@@ -143,7 +145,7 @@
 
 	if ("filename".equals(sortname)) {
 		// sort by filename
-		Arrays.sort(arrFiles, new Comparator<File>() {
+		if (arrFiles.length > 1) Arrays.sort(arrFiles, new Comparator<File>() {
 			@Override
 			public int compare(File file1, File file2) {
 				if ("asc".equals(sortkey)) {
@@ -155,7 +157,7 @@
 		});
 	} else if ("filetime".equals(sortname)) {
 		// sort by lasttime
-		Arrays.sort(arrFiles, new Comparator<File>() {
+		if (arrFiles.length > 1) Arrays.sort(arrFiles, new Comparator<File>() {
 			@Override
 			public int compare(File file1, File file2) {
 				int ret = "asc".equals(sortkey) ? 1 : -1;
