@@ -25,8 +25,8 @@ Apache Tomcat projects
 - [[Web Server] 아파치( 2.0.64 )와 톰캣( 8.0.52 ) 연동](http://victorydntmd.tistory.com/225 "[Web Server] 아파치( 2.0.64 )와 톰캣( 8.0.52 ) 연동"):
 -
 - [What is Thumbnailator?](https://github.com/coobird/thumbnailator "Thumbnailator"): Thumbnail 모듈
-- []( ""):
-- []( ""):
+- [Thumbnailator on mvnrepository](https://mvnrepository.com/artifact/net.coobird/thumbnailator/0.4.8 "Thumbnailator"): Thumbnail Declaration
+- [Thumbnailator – Thumbnail Generation Java Library](http://www.tellmehow.co/thumbnailator-thumbnail-generation-java-library/ "Thumbnailator – Thumbnail Generation Java Library"):
 - []( ""):
 - []( ""):
 - []( ""):
