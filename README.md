@@ -32,11 +32,12 @@ Apache Tomcat projects
 - [Java thumbnailator를 이용하여 썸네일 만들기 sample](http://devlinker.tistory.com/18 "Java thumbnailator를 이용하여 썸네일 만들기 sample"):
 - [http://projects.coobird.net/past-thumbnailator/howto.html](http://projects.coobird.net/past-thumbnailator/howto.html ""):
 - [https://jar-download.com/artifacts/net.coobird/thumbnailator/0.4.7/source-code](https://jar-download.com/artifacts/net.coobird/thumbnailator/0.4.7/source-code ""):
-- []( ""):
-- []( ""):
-- []( ""):
-- []( ""):
-- []( ""):
+-
+- [tomcat 7: automatically redirect https requests to port 8443](https://stackoverflow.com/questions/24736543/tomcat-7-automatically-redirect-https-requests-to-port-8443 ""):
+- [Redirecting from non ssl port 8080 to ssl port 8443](https://stackoverflow.com/questions/9526425/redirecting-from-non-ssl-port-8080-to-ssl-port-8443 ""):
+- [Tomcat http접속을 https로 리다이렉트 시키기](http://hwangji.kr/sub/dev_leader/link/os/default.aspx?NHBBSID=NHBoardWebTip&NHBBSIDX=81 ""):
+- [SSL 설정법](https://tadpoledbhub.atlassian.net/wiki/spaces/TADPOLE/pages/18382851/SSL ""):
+- [Tomcat HTTPS 설정하기](https://joshua1988.github.io/web-development/pwa/tomcat-https-setup/ ""):
 - []( ""):
 - []( ""):
 - []( ""):
