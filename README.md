@@ -27,6 +27,18 @@ Apache Tomcat projects
 - [What is Thumbnailator?](https://github.com/coobird/thumbnailator "Thumbnailator"): Thumbnail 모듈
 - [Thumbnailator on mvnrepository](https://mvnrepository.com/artifact/net.coobird/thumbnailator/0.4.8 "Thumbnailator"): Thumbnail Declaration
 - [Thumbnailator – Thumbnail Generation Java Library](http://www.tellmehow.co/thumbnailator-thumbnail-generation-java-library/ "Thumbnailator – Thumbnail Generation Java Library"):
+- [Java Code Examples for net.coobird.thumbnailator.Thumbnails](https://www.programcreek.com/java-api-examples/?api=net.coobird.thumbnailator.Thumbnails "Java Code Examples for net.coobird.thumbnailator.Thumbnails"):
+- [Examples of Thumbnail on java](https://github.com/coobird/thumbnailator/wiki/Examples "Examples"):
+- [Java thumbnailator를 이용하여 썸네일 만들기 sample](http://devlinker.tistory.com/18 "Java thumbnailator를 이용하여 썸네일 만들기 sample"):
+- [http://projects.coobird.net/past-thumbnailator/howto.html](http://projects.coobird.net/past-thumbnailator/howto.html ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
 - []( ""):
 - []( ""):
 - []( ""):
