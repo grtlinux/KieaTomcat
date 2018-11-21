@@ -23,6 +23,13 @@ Apache Tomcat projects
 - [한번에 끝내는 Ubuntu JSP서버세팅](https://blog.lael.be/post/858 "한번에 끝내는 Ubuntu JSP서버세팅"):
 - [Apache & Apache Tomcat을 연동하여 php, jsp사용하기](http://knkky.tistory.com/35 "Apache & Apache Tomcat을 연동하여 php, jsp사용하기"): 이 사이트 아래의 목록으로 추가정보를 취하세요.
 - [[Web Server] 아파치( 2.0.64 )와 톰캣( 8.0.52 ) 연동](http://victorydntmd.tistory.com/225 "[Web Server] 아파치( 2.0.64 )와 톰캣( 8.0.52 ) 연동"):
+-
+- [What is Thumbnailator?](https://github.com/coobird/thumbnailator "Thumbnailator"): Thumbnail 모듈
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
 - []( ""):
 - []( ""):
 - []( ""):
