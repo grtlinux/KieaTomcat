@@ -38,6 +38,7 @@ Apache Tomcat projects
 - [Tomcat http접속을 https로 리다이렉트 시키기](http://hwangji.kr/sub/dev_leader/link/os/default.aspx?NHBBSID=NHBoardWebTip&NHBBSIDX=81 ""):
 - [SSL 설정법](https://tadpoledbhub.atlassian.net/wiki/spaces/TADPOLE/pages/18382851/SSL ""):
 - [Tomcat HTTPS 설정하기](https://joshua1988.github.io/web-development/pwa/tomcat-https-setup/ ""): vue.js 를 찾아보아라...^^
+-
 - []( ""):
 - []( ""):
 - []( ""):
@@ -46,5 +47,13 @@ Apache Tomcat projects
 - []( ""):
 - []( ""):
 - []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- [토렌트 설치와 사용법 그리고 토렌트 파일로 자료 다운로드 받기](https://m.blog.naver.com/PostView.nhn?blogId=e_maill&logNo=220310900415&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F ""):
 
 .....
