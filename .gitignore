@@ -13,6 +13,8 @@
 /classes/
 /target/
 /war/
+/bin/
+/gradle/
 
 
 # Package Files #
