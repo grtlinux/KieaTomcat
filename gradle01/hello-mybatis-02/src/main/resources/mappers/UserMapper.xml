@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper>
+<mapper namespace="org.tain.mybatis.UserMapper">
+
+<select id="selectUserList" parameterType="org.tain.mybatis.UserDto" resultType="org.tain.mybatis.UserDto">
+	SELECT user_id, name FROM user
+</select>
+
+</mapper>
