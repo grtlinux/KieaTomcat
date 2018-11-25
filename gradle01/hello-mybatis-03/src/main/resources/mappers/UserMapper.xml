@@ -3,9 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.tain.mybatis.UserMapper">
-
-<select id="selectUserList" parameterType="org.tain.mybatis.UserDto" resultType="org.tain.mybatis.UserDto">
-	SELECT user_id, name FROM user
-</select>
-
+	<select id="selectUserList" resultType="Map">
+		select * from user
+	</select>
 </mapper>
