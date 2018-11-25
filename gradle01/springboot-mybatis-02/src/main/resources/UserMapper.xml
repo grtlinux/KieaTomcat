@@ -2,10 +2,8 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.tain.mybatis.UserMapper">
-
-	<select id="selectTest" resultType="Map">
-		SELECT * FROM user
+<mapper namespace="org.tain.kang.UserMapper">
+	<select id="selectUserList" resultType="Map">
+		select * from user
 	</select>
-	
 </mapper>
