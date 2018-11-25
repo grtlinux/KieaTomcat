@@ -19,6 +19,12 @@ References
 - [SeungHwan-Lee/SpringBoot-front-Template](https://github.com/SeungHwan-Lee/SpringBoot-front-Template)
 - [SeungHwan-Lee/SpringBoot-OAuth2-Template](https://github.com/SeungHwan-Lee/SpringBoot-OAuth2-Template)
 -
+- [build.gradle 기본](http://araikuma.tistory.com/463)
+- []()
+- []()
+- []()
+- []()
+- []()
 - []()
 - []()
 
