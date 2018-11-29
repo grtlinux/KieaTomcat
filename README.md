@@ -2,18 +2,35 @@
 Apache Tomcat projects
 
 ### development order on maven
+```
+1. pom.xml
+2. resources
+	log4j.properties
+3. domain
+	dao
+	service
+	controller / web
+4. web.xml
+	spring
+	jsp
+```
 
-	1. pom.xml
-	2. resources
-		log4j.properties
-	3. domain
-		dao
-		service
-		controller / web
-	4. web.xml
-		spring
-		jsp
-		
+### MongoDB
+```
+DOS> mkdir C:\data\db
+DOS> mongod.exe      <--- run mongoDB server
+DOS> mongo.exe
+	> show dbs
+```
+
+### Neo4j
+```
+$ neo4j start
+...
+$ neo4j stop
+
+```
+
 --------------------------------------
 ### References
 
