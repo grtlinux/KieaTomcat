@@ -31,6 +31,15 @@ $ neo4j stop
 
 ```
 
+### h2 [www.h2database.com](www.h2database.com)
+```
+DOS> echo %H2_HOME%
+	C:\...\H2
+DOS> PATH=%H2_HOME%\bin;%PATH%
+DOS> h2w.bat
+	> http://local:8082/
+```
+
 --------------------------------------
 ### References
 
