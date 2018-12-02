@@ -5,7 +5,9 @@
 	<title>HelloController</title>
 </head>
 <body>
-	<h2>HelloController: index.jsp</h2>
+	<h2>HelloController: index.jsp</h2><br>
+	The time on the server is ${serverTime}.
+	
 </body>
 </html>
 
