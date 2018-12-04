@@ -1,0 +1,1610 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        alert(request.responseText);
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            var request;
+            try {
+                request = new XMLHttpRequest();
+            } catch (exception) {
+
+            }
+            return request;
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            var request;
+            try {
+                request = new XMLHttpRequest();
+            } catch (exception) {
+                try {
+                    request = new ActiveXObject('Msxml2.XMLHTTP');
+                } catch (innerException) {
+                    request = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+            }
+            return request;
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            var request;
+            try {
+                request = new XMLHttpRequest();
+            } catch (exception) {
+                try {
+                    request = new ActiveXObject('Msxml2.XMLHTTP');
+                } catch (innerException) {
+                    request = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+            }
+            return request;
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.open('GET', '/data.html', false);
+
+        // Ajax를 수행합니다.
+        request.send();
+
+        // 출력합니다.
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.open('GET', '/data.html', false);
+
+        // send() 메서드에 소비되는 시간 측정
+        var prevDate = new Date();
+        request.send();
+        var nowDate = new Date();
+
+        // 출력합니다.
+        alert(nowDate - prevDate);
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            // 출력합니다.
+            alert(request.readyState);
+        };
+        request.open('GET', '/data.html', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                document.body.innerHTML += request.responseText;
+            }
+        };
+        request.open('GET', '/data.html', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    document.body.innerHTML += request.responseText;
+                };
+            };
+        };
+        request.open('GET', '/data.html', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    var json = eval('(' + request.responseText + ')');
+                };
+            };
+        };
+        request.open('GET', '/data.json', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 데이터를 가공합니다.
+                    var json = eval('(' + request.responseText + ')');
+                    var output = '';
+
+                    for (var i = 0; i < json.length; i++) {
+                        for (var key in json[i]) {
+                            output += '<h1>' + i + ':' + json[i][key] + '</h1>';
+                        }
+                    }
+
+                    // 출력합니다.
+                    document.body.innerHTML += output;
+                };
+            };
+        };
+        request.open('GET', '/data.json', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 데이터를 가공합니다.
+                    alert(request.responseXML);
+                };
+            };
+        };
+        request.open('GET', '/data.xml', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 변수를 선언합니다.
+                    var xml = request.responseXML;
+
+                    // 데이터를 가공합니다.
+                    var names = xml.getElementsByTagName('name');
+                    var prices = xml.getElementsByTagName('price');
+                    for (var i = 0; i < names.length; i++) {
+
+                    }
+                }
+            };
+        };
+        request.open('GET', '/data.xml', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 변수를 선언합니다.
+                    var xml = request.responseXML;
+
+                    // 데이터를 가공합니다.
+                    var names = xml.getElementsByTagName('name');
+                    var prices = xml.getElementsByTagName('price');
+
+                    for (var i = 0; i < names.length; i++) {
+                        var name = names[i].childNodes[0].nodeValue;
+                        var price = prices[i].childNodes[0].nodeValue;
+                        document.body.innerHTML += '<h1>' + name + '</h1>';
+                        document.body.innerHTML += '<h2>' + price + '</h2>';
+                    }
+                }
+            };
+        };
+        request.open('GET', '/data.xml', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script src="xml2json.js"></script>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 변수를 선언합니다.
+                    var xml = request.responseXML;
+
+                    // 데이터를 가공합니다.
+                    var names = xml.getElementsByTagName('name');
+                    var prices = xml.getElementsByTagName('price');
+
+                    for (var i = 0; i < names.length; i++) {
+                        var name = names[i].childNodes[0].nodeValue;
+                        var price = prices[i].childNodes[0].nodeValue;
+                        document.body.innerHTML += '<h1>' + name + '</h1>';
+                        document.body.innerHTML += '<h2>' + price + '</h2>';
+                    }
+                }
+            };
+        };
+        request.open('GET', '/data.xml', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script src="xml2json.js"></script>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+
+        // XMLHttpRequest 객체를 생성합니다.
+        var request = createRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 변수를 선언합니다.
+                    var json = xml2json.parser(request.responseText);
+
+                    // 이용합니다.
+                    for (var i = 0; i < json.products; i++) {
+                        document.body.innerHTML += '<h1>' + json.products[i].name + '</h1>';
+                        document.body.innerHTML += '<h2>' + json.products[i].price + '</h2>';
+                    }
+                }
+            };
+        };
+        request.open('GET', '/data.xml', true);
+        request.send();
+    </script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () { };
+            document.getElementById('post').onclick = function () { };
+            document.getElementById('put').onclick = function () { };
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products', false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () { };
+            document.getElementById('put').onclick = function () { };
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products?dummy=' + new Date().getTime(), false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () { };
+            document.getElementById('put').onclick = function () { };
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products?dummy=' + new Date().getTime(), false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('POST', '/products', false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('put').onclick = function () { };
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products?dummy=' + new Date().getTime(), false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () {
+                // 변수를 선언합니다.
+                var name = document.getElementById('name').value;
+                var price = document.getElementById('price').value;
+
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('POST', '/products', false);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send('name=' + name + '&price=' + price);
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('put').onclick = function () { };
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products?dummy=' + new Date().getTime(), false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () {
+                // 변수를 선언합니다.
+                var name = document.getElementById('name').value;
+                var price = document.getElementById('price').value;
+
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('POST', '/products', false);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send('name=' + name + '&price=' + price);
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('put').onclick = function () {
+                // 변수를 선언합니다.
+                var name = document.getElementById('name').value;
+                var price = document.getElementById('price').value;
+
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('PUT', '/products/0', false);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send('name=' + name + '&price=' + price);
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('delete').onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+            try {
+                return new XMLHttpRequest();
+            } catch (exception) {
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        return new ActiveXObject(versions[i]);
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('get').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('GET', '/products?dummy=' + new Date().getTime(), false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('post').onclick = function () {
+                // 변수를 선언합니다.
+                var name = document.getElementById('name').value;
+                var price = document.getElementById('price').value;
+
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('POST', '/products', false);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send('name=' + name + '&price=' + price);
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('put').onclick = function () {
+                // 변수를 선언합니다.
+                var name = document.getElementById('name').value;
+                var price = document.getElementById('price').value;
+
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('PUT', '/products/0', false);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send('name=' + name + '&price=' + price);
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+
+            document.getElementById('delete').onclick = function () {
+                // Ajax를 수행합니다.
+                var request = createRequest();
+                request.open('DELETE', '/products/0', false);
+                request.send();
+
+                // 출력합니다.
+                document.getElementById('output').value = request.responseText;
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="40" rows="5"></textarea>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+// 모듈을 추출합니다.
+var http = require('http');
+var express = require('express');
+
+// 변수를 선언합니다.
+var items = [{
+    name: '우유',
+    price: '2000'
+}, {
+    name: '홍차',
+    price: '5000'
+}, {
+    name: '커피',
+    price: '5000'
+}];
+
+// 웹 서버를 생성합니다.
+var app = express();
+app.use(express.static('public'));
+app.use(express.bodyParser());
+app.use(app.router);
+
+// 라우트합니다.
+app.all('/data.html', function (request, response) {
+    var output = '';
+    output += '<!DOCTYPE html>';
+    output += '<html>';
+    output += '<head>';
+    output += '    <title>Data HTML</title>';
+    output += '</head>';
+    output += '<body>';
+    items.forEach(function (item) {
+        output += '<div>';
+        output += '    <h1>' + item.name + '</h1>';
+        output += '    <h2>' + item.price + '</h2>';
+        output += '</div>';
+    });
+    output += '</body>';
+    output += '</html>';
+    response.send(output);
+});
+
+app.all('/data.json', function (request, response) {
+    response.send(items);
+});
+
+app.all('/data.xml', function (request, response) {
+    var output = '';
+    output += '<?xml version="1.0" encoding="UTF-8" ?>';
+    output += '<products>';
+    items.forEach(function (item) {
+        output += '<product>';
+        output += '    <name>' + item.name + '</name>';
+        output += '    <price>' + item.price + '</price>';
+        output += '</product>';
+    });
+    output += '</products>';
+    response.type('text/xml');
+    response.send(output);
+});
+
+app.all('/parameter', function (request, response) {
+    // 변수를 선언합니다.
+    var name = request.param('name');
+    var region = request.param('region');
+
+    // 응답합니다.
+    response.send('<h1>' + name + ':' + region + '</h1>');
+});
+
+app.all('/parameter/:id', function (request, response) {
+    // 변수를 선언합니다.
+    var id = request.param('id');
+
+    // 응답합니다.
+    response.send('<h1>' + id + '</h1>');
+});
+
+app.get('/products', function (request, response) {
+    response.send(items);
+});
+
+app.get('/products/:id', function (request, response) {
+    // 변수를 선언합니다.
+    var id = Number(request.param('id'));
+
+    if (isNaN(id)) {
+        // 오류: 잘못된 경로
+        response.send({
+            error: '숫자를 입력하세요!'
+        });
+    } else if (items[id]) {
+        // 정상
+        response.send(items[id]);
+    } else {
+        // 오류: 요소가 없을 경우
+        response.send({
+            error: '존재하지 않는 데이터입니다!'
+        });
+    }
+});
+
+app.post('/products', function (request, response) {
+    // 변수를 선언합니다.
+    var name = request.param('name');
+    var price = request.param('price');
+    var item = {
+        name: name,
+        price: price
+    };
+
+    // 데이터를 추가합니다.
+    items.push(item);
+
+    // 응답합니다.
+    response.send({
+        message: '데이터를 추가했습니다.',
+        data: item
+    });
+});
+
+app.put('/products/:id', function (request, response) {
+    // 변수를 선언합니다.
+    var id = Number(request.param('id'));
+    var name = request.param('name');
+    var price = request.param('price');
+
+    if (items[id]) {
+        // 데이터를 수정합니다.
+        if (name) { items[id].name = name; }
+        if (price) { items[id].price = price; }
+
+        // 응답합니다.
+        response.send({
+            message: '데이터를 수정했습니다.',
+            data: items[id]
+        });
+    } else {
+        // 오류: 요소가 없을 경우
+        response.send({
+            error: '존재하지 않는 데이터입니다!'
+        });
+    }
+});
+
+app.del('/products/:id', function (request, response) {
+    // 변수를 선언합니다.
+    var id = Number(request.param('id'));
+
+    if (isNaN(id)) {
+        // 오류: 잘못된 경로
+        response.send({
+            error: '숫자를 입력하세요!'
+        });
+    } else if (items[id]) {
+        // 정상: 데이터 삭제
+        items.splice(id, 1);
+        response.send({
+            message: '데이터를 삭제했습니다.'
+        });
+    } else {
+        // 오류: 요소가 없을 경우
+        response.send({
+            error: '존재하지 않는 데이터입니다!'
+        });
+    }
+});
+
+// 웹 서버를 실행합니다.
+http.createServer(app).listen(52273, function () {
+    console.log('Server Running at http://127.0.0.1:52273');
+});
+-----------------------------------------------------------------------------------
+/*
+xml2json v 1.1
+copyright 2005-2007 Thomas Frank
+
+This program is free software under the terms of the 
+GNU General Public License version 2 as published by the Free 
+Software Foundation. It is distributed without any warranty.
+*/
+
+xml2json={
+	parser:function(xmlcode,ignoretags,debug){
+		if(!ignoretags){ignoretags=""};
+		xmlcode=xmlcode.replace(/\s*\/>/g,'/>');
+		xmlcode=xmlcode.replace(/<\?[^>]*>/g,"").replace(/<\![^>]*>/g,"");
+		if (!ignoretags.sort){ignoretags=ignoretags.split(",")};
+		var x=this.no_fast_endings(xmlcode);
+		x=this.attris_to_tags(x);
+		x=escape(x);
+		x=x.split("%3C").join("<").split("%3E").join(">").split("%3D").join("=").split("%22").join("\"");
+		for (var i=0;i<ignoretags.length;i++){
+			x=x.replace(new RegExp("<"+ignoretags[i]+">","g"),"*$**"+ignoretags[i]+"**$*");
+			x=x.replace(new RegExp("</"+ignoretags[i]+">","g"),"*$***"+ignoretags[i]+"**$*")
+		};
+		x='<JSONTAGWRAPPER>'+x+'</JSONTAGWRAPPER>';
+		this.xmlobject={};
+		var y=this.xml_to_object(x).jsontagwrapper;
+		if(debug){y=this.show_json_structure(y,debug)};
+		return y
+	},
+	xml_to_object:function(xmlcode){
+		var x=xmlcode.replace(/<\//g,"?);
+		x=x.split("<");
+		var y=[];
+		var level=0;
+		var opentags=[];
+		for (var i=1;i<x.length;i++){
+			var tagname=x[i].split(">")[0];
+			opentags.push(tagname);
+			level++
+			y.push(level+"<"+x[i].split("?)[0]);
+			while(x[i].indexOf("?+opentags[opentags.length-1]+">")>=0){level--;opentags.pop()}
+		};
+		var oldniva=-1;
+		var objname="this.xmlobject";
+		for (var i=0;i<y.length;i++){
+			var preeval="";
+			var niva=y[i].split("<")[0];
+			var tagnamn=y[i].split("<")[1].split(">")[0];
+			tagnamn=tagnamn.toLowerCase();
+			var rest=y[i].split(">")[1];
+			if(niva<=oldniva){
+				var tabort=oldniva-niva+1;
+				for (var j=0;j<tabort;j++){objname=objname.substring(0,objname.lastIndexOf("."))}
+			};
+			objname+="."+tagnamn;
+			var pobject=objname.substring(0,objname.lastIndexOf("."));
+			if (eval("typeof "+pobject) != "object"){preeval+=pobject+"={value:"+pobject+"};\n"};
+			var objlast=objname.substring(objname.lastIndexOf(".")+1);
+			var already=false;
+			for (k in eval(pobject)){if(k==objlast){already=true}};
+			var onlywhites=true;
+			for(var s=0;s<rest.length;s+=3){
+				if(rest.charAt(s)!="%"){onlywhites=false}
+			};
+			if (rest!="" && !onlywhites){
+				if(rest/1!=rest){
+					rest="'"+rest.replace(/\'/g,"\\'")+"'";
+					rest=rest.replace(/\*\$\*\*\*/g,"</");
+					rest=rest.replace(/\*\$\*\*/g,"<");
+					rest=rest.replace(/\*\*\$\*/g,">")
+				}
+			} 
+			else {rest="{}"};
+			if(rest.charAt(0)=="'"){rest='unescape('+rest+')'};
+			if (already && !eval(objname+".sort")){preeval+=objname+"=["+objname+"];\n"};
+			var before="=";after="";
+			if (already){before=".push(";after=")"};
+			var toeval=preeval+objname+before+rest+after;
+			eval(toeval);
+			if(eval(objname+".sort")){objname+="["+eval(objname+".length-1")+"]"};
+			oldniva=niva
+		};
+		return this.xmlobject
+	},
+	show_json_structure:function(obj,debug,l){
+		var x='';
+		if (obj.sort){x+="[\n"} else {x+="{\n"};
+		for (var i in obj){
+			if (!obj.sort){x+=i+":"};
+			if (typeof obj[i] == "object"){
+				x+=this.show_json_structure(obj[i],false,1)
+			}
+			else {
+				if(typeof obj[i]=="function"){
+					var v=obj[i]+"";
+					//v=v.replace(/\t/g,"");
+					x+=v
+				}
+				else if(typeof obj[i]!="string"){x+=obj[i]+",\n"}
+				else {x+="'"+obj[i].replace(/\'/g,"\\'").replace(/\n/g,"\\n").replace(/\t/g,"\\t").replace(/\r/g,"\\r")+"',\n"}
+			}
+		};
+		if (obj.sort){x+="],\n"} else {x+="},\n"};
+		if (!l){
+			x=x.substring(0,x.lastIndexOf(","));
+			x=x.replace(new RegExp(",\n}","g"),"\n}");
+			x=x.replace(new RegExp(",\n]","g"),"\n]");
+			var y=x.split("\n");x="";
+			var lvl=0;
+			for (var i=0;i<y.length;i++){
+				if(y[i].indexOf("}")>=0 || y[i].indexOf("]")>=0){lvl--};
+				tabs="";for(var j=0;j<lvl;j++){tabs+="\t"};
+				x+=tabs+y[i]+"\n";
+				if(y[i].indexOf("{")>=0 || y[i].indexOf("[")>=0){lvl++}
+			};
+			if(debug=="html"){
+				x=x.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+				x=x.replace(/\n/g,"<BR>").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;")
+			};
+			if (debug=="compact"){x=x.replace(/\n/g,"").replace(/\t/g,"")}
+		};
+		return x
+	},
+	no_fast_endings:function(x){
+		x=x.split("/>");
+		for (var i=1;i<x.length;i++){
+			var t=x[i-1].substring(x[i-1].lastIndexOf("<")+1).split(" ")[0];
+			x[i]="></"+t+">"+x[i]
+		}	;
+		x=x.join("");
+		return x
+	},
+	attris_to_tags: function(x){
+		var d=' ="\''.split("");
+		x=x.split(">");
+		for (var i=0;i<x.length;i++){
+			var temp=x[i].split("<");
+			for (var r=0;r<4;r++){temp[0]=temp[0].replace(new RegExp(d[r],"g"),"_jsonconvtemp"+r+"_")};
+			if(temp[1]){
+				temp[1]=temp[1].replace(/'/g,'"');
+				temp[1]=temp[1].split('"');
+				for (var j=1;j<temp[1].length;j+=2){
+					for (var r=0;r<4;r++){temp[1][j]=temp[1][j].replace(new RegExp(d[r],"g"),"_jsonconvtemp"+r+"_")}
+				};
+				temp[1]=temp[1].join('"')
+			};
+			x[i]=temp.join("<")
+		};
+		x=x.join(">");
+		x=x.replace(/ ([^=]*)=([^ |>]*)/g,"><$1>$2</$1");
+		x=x.replace(/>"/g,">").replace(/"</g,"<");
+		for (var r=0;r<4;r++){x=x.replace(new RegExp("_jsonconvtemp"+r+"_","g"),d[r])}	;
+		return x
+	}
+};
+
+
+if(!Array.prototype.push){
+	Array.prototype.push=function(x){
+		this[this.length]=x;
+		return true
+	}
+};
+
+if (!Array.prototype.pop){
+	Array.prototype.pop=function(){
+  		var response = this[this.length-1];
+  		this.length--;
+  		return response
+	}
+};
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 메서드를 사용합니다.
+			array = array.filter(function (element, index, array) {
+				return element <= 5;
+			});
+
+			// 출력합니다.
+			alert(array);
+        }
+        if (true) {
+			function isBigEnough(element, index, array) {
+				return element >= 10;
+			}
+			
+			alert([12, 5, 8, 130, 44].every(isBigEnough));
+			alert([12, 54, 18, 130, 44].every(isBigEnough));
+        }
+        if (true) {
+			function isBiggerThan10(element, index, array) {
+				return element >= 10;
+			}
+			
+			alert([12, 5, 8, 130, 44].some(isBiggerThan10));
+			alert([2, 4, 8, 1, 4].some(isBiggerThan10));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

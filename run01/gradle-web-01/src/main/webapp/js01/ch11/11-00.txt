@@ -1,0 +1,587 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 변수를 선언합니다.
+            var header = document.getElementById('header');
+
+            // 이벤트를 연결합니다.
+            function whenClick() { alert('CLICK'); }
+            header.onclick = whenClick;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 변수를 선언합니다.
+            var header = document.getElementById('header');
+
+            // 이벤트를 연결합니다.
+            header.onclick = function () {
+                alert('클릭');
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 변수를 선언합니다.
+            var header = document.getElementById('header');
+
+            // 이벤트를 연결합니다.
+            header.onclick = function () {
+                alert('클릭');
+
+                // 이벤트를 제거합니다.
+                header.onclick = null;
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                alert(this);
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                this.style.color = 'orange';
+                this.style.backgroundColor = 'red';
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            document.getElementById('header').onclick = function (e) {
+                // 이벤트 객체를 설정합니다.
+                var event = e || window.event;
+
+                document.body.innerHTML = '';
+                for (var key in event) {
+                    document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 문서 객체를 가져옵니다.
+            var buttonA = document.getElementById('button-a');
+            var buttonB = document.getElementById('button-b');
+            var counterA = document.getElementById('counter-a');
+            var counterB = document.getElementById('counter-b');
+
+            // 이벤트를 연결합니다.
+            buttonA.onclick = function () { };
+            buttonB.onclick = function () { };
+        };
+    </script>
+</head>
+<body>
+    <button id="button-a">ButtonA</button>
+    <button id="button-b">ButtonB</button>
+    <h1>Button A - <span id="counter-a">0</span></h1>
+    <h1>Button B - <span id="counter-b">0</span></h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 문서 객체를 가져옵니다.
+            var buttonA = document.getElementById('button-a');
+            var buttonB = document.getElementById('button-b');
+            var counterA = document.getElementById('counter-a');
+            var counterB = document.getElementById('counter-b');
+
+            // 이벤트를 연결합니다.
+            buttonA.onclick = function () {
+                counterA.innerHTML = Number(counterA.innerHTML) + 1;
+            };
+            buttonB.onclick = function () {
+                counterB.innerHTML = Number(counterB.innerHTML) + 1;
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="button-a">ButtonA</button>
+    <button id="button-b">ButtonB</button>
+    <h1>Button A - <span id="counter-a">0</span></h1>
+    <h1>Button B - <span id="counter-b">0</span></h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 문서 객체를 가져옵니다.
+            var buttonA = document.getElementById('button-a');
+            var buttonB = document.getElementById('button-b');
+            var counterA = document.getElementById('counter-a');
+            var counterB = document.getElementById('counter-b');
+
+            // 이벤트를 연결합니다.
+            buttonA.onclick = function () {
+                counterA.innerHTML = Number(counterA.innerHTML) + 1;
+            };
+            buttonB.onclick = function () {
+                counterB.innerHTML = Number(counterB.innerHTML) + 1;
+                counterA.innerHTML = Number(counterA.innerHTML) + 1;
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="button-a">ButtonA</button>
+    <button id="button-b">ButtonB</button>
+    <h1>Button A - <span id="counter-a">0</span></h1>
+    <h1>Button B - <span id="counter-b">0</span></h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 문서 객체를 가져옵니다.
+            var buttonA = document.getElementById('button-a');
+            var buttonB = document.getElementById('button-b');
+            var counterA = document.getElementById('counter-a');
+            var counterB = document.getElementById('counter-b');
+
+            // 이벤트를 연결합니다.
+            buttonA.onclick = function () {
+                counterA.innerHTML = Number(counterA.innerHTML) + 1;
+            };
+            buttonB.onclick = function () {
+                counterB.innerHTML = Number(counterB.innerHTML) + 1;
+                buttonA.onclick();
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="button-a">ButtonA</button>
+    <button id="button-b">ButtonB</button>
+    <h1>Button A - <span id="counter-a">0</span></h1>
+    <h1>Button B - <span id="counter-b">0</span></h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1 onclick="var alpha=10;alert(alpha);">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function whenClick(e) {
+            alert('클릭');
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="whenClick(event)">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 이벤트를 연결합니다.
+            document.getElementById('my-form').onsubmit = function () {
+                return false;
+            };
+        };
+    </script>
+</head>
+<body>
+    <form id="my-form">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            // 이벤트를 연결합니다.
+            document.getElementById('my-form').onsubmit = function () {
+                // 변수를 선언합니다.
+                var pass = document.getElementById('pass').value;
+                var passCheck = document.getElementById('pass-check').value;
+
+                // 비밀번호가 같은지 확인합니다.
+                if (pass == passCheck) {
+                    alert('성공');
+                } else {
+                    alert('다시 입력해주세요.');
+                    return false;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <form id="my-form">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function whenSubmit() {
+            // 유효성 검사
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return whenSubmit()">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { border: 3px solid black; }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div onclick="alert('outer-div')">
+        <div onclick="alert('inner-div')">
+            <h1 onclick="alert('header')">
+                <p onclick="alert('pagagraph')">Pagagraph</p>
+            </h1>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { border: 3px solid black; }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1 id="header">
+        <p id="paragraph">Pagagraph</p>
+    </h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { border: 3px solid black; }
+    </style>
+    <script>
+        window.onload = function () {
+            // 이벤트를 연결합니다.
+            document.getElementById('header').onclick = function () {
+                alert('header');
+            };
+            document.getElementById('paragraph').onclick = function () {
+                alert('paragraph');
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">
+        <p id="paragraph">Pagagraph</p>
+    </h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { border: 3px solid black; }
+    </style>
+    <script>
+        window.onload = function () {
+            // 이벤트를 연결합니다.
+            document.getElementById('header').onclick = function () {
+                alert('header');
+            };
+            document.getElementById('paragraph').onclick = function (e) {
+                // 이벤트 객체를 처리합니다.
+                var event = e || window.event;
+
+                // 이벤트 발생을 알립니다.
+                alert('paragraph');
+
+                // 이벤트 전달을 제거합니다.
+                event.cancelBubble = true;
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">
+        <p id="paragraph">Pagagraph</p>
+    </h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 윈도우가 로드될 때
+        window.attachEvent('onload', function () {
+            // my-header를 가져옵니다.
+            var header = document.getElementById('my-header');
+
+            // 이벤트를 연결합니다.
+            header.attachEvent('onclick', function () { alert('클릭'); });
+            header.attachEvent('onclick', function () { alert('클릭'); });
+            header.attachEvent('onclick', function () { alert('클릭'); });
+        });
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            var header = document.getElementById('my-header');
+
+            var handler = function () { alert('클릭'); };
+            header.attachEvent('onclick', handler);
+            header.detachEvent('onclick', handler);
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            var header = document.getElementById('my-header');
+            // 인터넷 익스플로러의 경우 실행합니다.
+            if (header.attachEvent) {
+                var handler = function () {
+                    window.event.srcElement.style.color = 'red';
+                    window.event.srcElement.detachEvent('onclick', handler);
+                };
+                header.attachEvent('onclick', handler);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            var header = document.getElementById('my-header');
+
+            header.addEventListener('click', function () {
+                this.innerHTML += '+';
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function () {
+            var header = document.getElementById('my-header');
+
+            if (header.attachEvent) {
+                // 인터넷 익스플로러의 경우 실행합니다.
+                var handler = function () {
+                    window.event.srcElement.style.color = 'red';
+                    window.event.srcElement.detachEvent('onclick', handler);
+                };
+                header.attachEvent('onclick', handler);
+            } else {
+                // 그 이외의 브라우저에서 실행합니다.
+                var handler = function () {
+                    this.style.color = 'red';
+                    this.removeEventListener('click', handler);
+                };
+                header.addEventListener('click', handler);
+                header.addEventListener('click', handler);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------

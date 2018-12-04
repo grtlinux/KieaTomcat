@@ -1,0 +1,1882 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var primitiveNumber = 273;
+        var objectNumber = new Number(273);
+
+        // 출력합니다.
+        var output = '';
+        output += typeof (primitiveNumber) + ' : ' + primitiveNumber + '\n';
+        output += typeof (objectNumber) + ' : ' + objectNumber;
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 만듭니다.
+        var primitiveNumber = 273;
+
+        // 메서드를 추가합니다.
+        primitiveNumber.method = function () {
+            return 'Primitive Method'
+        };
+
+        // 메서드를 실행합니다.
+        var output = primitiveNumber.method() + '\n';
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 만듭니다.
+        var primitiveNumber = 273;
+        var objectNumber = new Number(273);
+
+        // 메서드를 추가합니다.
+        Number.prototype.method = function () {
+            return 'Method on Prototype';
+        };
+
+        // 메서드를 실행합니다.
+        var output = '';
+        output += primitiveNumber.method() + '\n';
+        output += objectNumber.method();
+
+        // 출력합니다.
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 만듭니다.
+        var object = { property: 273 };
+
+        // 출력합니다.
+        var output = '';
+        output += "HOP('property'): " + object.hasOwnProperty('property') + '\n';
+        output += "HOP('constructor'): " + object.hasOwnProperty('constructor') + '\n';
+        output += "PIE('property'): " + object.propertyIsEnumerable('property') + '\n';
+        output += "PIE('constructor'): " + object.propertyIsEnumerable('constructor');
+        alert(output);
+
+        // for in 반복문을 사용합니다.
+        for (var key in object) {
+            alert(object[key]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var student = {
+            name: '윤명월',
+            grade: '대학교 1학년',
+            toString: function () {
+                return this.name + ' : ' + this.grade;
+            }
+        };
+
+        // 출력합니다.
+        alert(student);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var object = new Object();
+
+        // 출력합니다.
+        alert(object);
+        alert(object.toString());
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 만듭니다.
+        var numberFromLiteral = 273;
+        var numberFromObject = new Number(273);
+
+        // 출력합니다.
+        var output = '';
+        output += '1. ' + typeof (numberFromLiteral) + '\n';
+        output += '2. ' + typeof (numberFromObject);
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var numberFromLiteral = 273;
+        var numberFromObject = new Number(273);
+
+        // 자료형을 확인합니다.
+        if (typeof (numberFromLiteral) == 'number') {
+            alert('numberFromLiteral은 숫자입니다.');
+        }
+        if (typeof (numberFromObject) == 'number') {
+            alert('numberFromObject는 숫자입니다.');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var numberFromLiteral = 273;
+        var numberFromObject = new Number(273);
+
+        // 자료형을 확인합니다.
+        if (numberFromLiteral.constructor == Number) {
+            alert('numberFromLiteral은 숫자입니다.');
+        }
+        if (numberFromObject.constructor == Number) {
+            alert('numberFromObject는 숫자입니다.');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Object 객체의 프로토타입에 메서드를 추가합니다.
+        Object.prototype.test = function () {
+            alert(this);
+        };
+
+        // Number 객체의 test() 메서드를 호출합니다.
+        var number = 273;
+        number.test();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var numberFromLiteral = 273;
+        var numberFromConstructor = new Number(273);
+
+        // 출력합니다.
+        alert(typeof (numberFromLiteral));
+        alert(typeof (numberFromConstructor));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var number = 273.5210332;
+
+        // 출력합니다.
+        var output = '';
+        output += number.toFixed(1) + '\n';
+        output += number.toFixed(4);
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var fixedNumber = (273.5210332).toFixed(2);
+
+        // 출력합니다.
+        alert(fixedNumber);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 생성자 함수를 만듭니다.
+        function Constructor() { }
+        Constructor.property = 273;
+        Constructor.method = function () { };
+
+        // 출력합니다.
+        alert(Constructor.property);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var number = Number.MAX_VALUE + 1;
+
+        // 출력합니다.
+        alert(Number.MAX_VALUE + "\n" + number);
+        alert(number);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var addNumber = Number('0.0000000000000001e+308');
+        var number = Number.MAX_VALUE + addNumber;
+
+        // 출력합니다.
+        alert(number);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var stringFromLiteral = 'Hello World..!';
+        var stringFromConstructor = new String('Hello World..!');
+
+        // 변수의 자료형을 출력합니다.
+        var output = '';
+        output += typeof (stringFromLiteral) + '\n';
+        output += typeof (stringFromConstructor);
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var characters = prompt('사용할 비밀번호를 입력해주세요.', '6글자 이상');
+
+        // 출력합니다.
+        if (characters.length < 6) {
+            alert('6글자 이상으로 입력하세요.');
+        } else {
+            alert('잘했어요!');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var string = 'abcdefg';
+
+        // 출력합니다.
+        string.toUpperCase();
+        alert(string);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var string = 'abcdefg';
+
+        // 출력합니다.
+        string = string.toUpperCase();
+        alert(string);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 문자열을 만듭니다.
+        var string = 'JavaScript';
+        var output = '';
+        output += 'anchor: ' + string.anchor() + '<br/>';
+        output += 'big: ' + string.big() + '<br/>';
+        output += 'blink: ' + string.blink() + '<br/>';
+        output += 'bold: ' + string.bold() + '<br/>';
+        output += 'fixed: ' + string.fixed() + '<br/>';
+        output += 'string: ' + string.fontcolor('red') + '<br/>';
+        output += 'fontsize: ' + string.fontsize(15) + '<br/>';
+        output += 'italics: ' + string.italics() + '<br/>';
+        output += 'link: ' + string.link('http://hanb.co.kr') + '<br/>';
+        output += 'small: ' + string.small() + '<br/>';
+        output += 'strike: ' + string.strike() + '<br/>';
+        output += 'sub: ' + string.sub() + '<br/>';
+        output += 'sup: ' + string.sup() + '<br/>';
+
+		alert(output);
+		
+        // 출력합니다.
+        document.write(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var output = 'Hello World .. !';
+
+        // 메서드 체이닝
+        output = output.toLowerCase();
+        output = output.substring(0, 10);
+        output = output.anchor('name');
+
+        // 출력합니다.
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var output = 'Hello World .. !';
+
+        // 메서드 체이닝
+        output = output.toLowerCase().substring(0, 10).anchor('name');
+
+        // 출력합니다.
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var array1 = [52, 273, 103, 57, 32];
+        var array2 = new Array();
+        var array3 = new Array(10);
+        var array4 = new Array(52, 273, 103, 57, 32);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var array = ['A', 'B', 'C', 'D'];
+
+        // 출력합니다.
+        var output = '';
+        for (var i = 0; i < array.length; i++) {
+            output += i + ' : ' + array[i] + '\n';
+        }
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언하고 정렬합니다.
+        var array = [52, 273, 103, 32];
+        array.sort();
+
+        // 출력합니다.
+        alert(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언하고 정렬합니다.
+        var array = [52, 273, 103, 32];
+        array.sort(function (left, right) {
+            return left - right;
+        });
+
+        // 출력합니다.
+        alert(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 생성자 함수를 선언합니다.
+        function Student(name, korean, math, english, science) {
+            // 속성
+            this.이름 = name;
+            this.국어 = korean;
+            this.수학 = math;
+            this.영어 = english;
+            this.과학 = science;
+
+            // 메서드
+            this.getSum = function () {
+                return this.국어 + this.수학 + this.영어 + this.과학;
+            };
+            this.getAverage = function () {
+                return this.getSum() / 4;
+            };
+            this.toString = function () {
+                return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+            };
+        }
+
+        // 학생 정보 배열을 만듭니다.
+        var students = [];
+        students.push(new Student('윤인성', 87, 98, 88, 95));
+        students.push(new Student('연하진', 92, 98, 96, 98));
+        students.push(new Student('구지연', 76, 96, 94, 90));
+        students.push(new Student('나선주', 98, 92, 96, 92));
+        students.push(new Student('윤아린', 95, 98, 98, 98));
+        students.push(new Student('윤명월', 64, 88, 92, 92));
+        students.push(new Student('김미화', 82, 86, 98, 88));
+        students.push(new Student('김연화', 88, 74, 78, 92));
+        students.push(new Student('박아현', 97, 92, 88, 95));
+        students.push(new Student('서준서', 45, 52, 72, 78));
+
+        // 정렬하고 1등부터 3등까지만 배열에 남겨둡니다.
+        students.sort(function (left, right) {
+            return right.getSum() - left.getSum();
+        });
+        students = students.slice(0, 3);
+
+        // 출력합니다.
+        var output = '이름\t총점\t평균\n';
+        for (var i in students) {
+            output += students[i].toString() + '\n';
+        }
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 생성자 함수를 선언합니다.
+        function Student(name, korean, math, english, science) {
+            // 속성
+            this.이름 = name;
+            this.국어 = korean;
+            this.수학 = math;
+            this.영어 = english;
+            this.과학 = science;
+
+            // 메서드
+            this.getSum = function () {
+                return this.국어 + this.수학 + this.영어 + this.과학;
+            };
+            this.getAverage = function () {
+                return this.getSum() / 4;
+            };
+            this.toString = function () {
+                return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+            };
+        }
+
+        // 학생 정보 배열을 만듭니다.
+        var students = [];
+        students.push(new Student('윤인성', 87, 98, 88, 95));
+        students.push(new Student('연하진', 92, 98, 96, 98));
+        students.push(new Student('구지연', 76, 96, 94, 90));
+        students.push(new Student('나선주', 98, 92, 96, 92));
+        students.push(new Student('윤아린', 95, 98, 98, 98));
+        students.push(new Student('윤명월', 64, 88, 92, 92));
+        students.push(new Student('김미화', 82, 86, 98, 88));
+        students.push(new Student('김연화', 88, 74, 78, 92));
+        students.push(new Student('박아현', 97, 92, 88, 95));
+        students.push(new Student('서준서', 45, 52, 72, 78));
+
+        // 정렬하고 1등부터 3등까지만 배열에 남겨둡니다.
+        students.sort(function (left, right) {
+            return right.getSum() - left.getSum();
+        });
+        students = students.slice(0, 3);
+
+        // 출력합니다.
+        var output = '이름\t총점\t평균\n';
+        for (var i in students) {
+            output += students[i].toString() + '\n';
+        }
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 생성자 함수를 선언합니다.
+        function Student(name, korean, math, english, science) {
+            // 속성
+            this.이름 = name;
+            this.국어 = korean;
+            this.수학 = math;
+            this.영어 = english;
+            this.과학 = science;
+
+            // 메서드
+            this.getSum = function () {
+                return this.국어 + this.수학 + this.영어 + this.과학;
+            };
+            this.getAverage = function () {
+                return this.getSum() / 4;
+            };
+            this.toString = function () {
+                return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+            };
+        }
+
+        // 학생 정보 배열을 만듭니다.
+        var students = [];
+        students.push(new Student('윤인성', 87, 98, 88, 95));
+        students.push(new Student('연하진', 92, 98, 96, 98));
+        students.push(new Student('구지연', 76, 96, 94, 90));
+        students.push(new Student('나선주', 98, 92, 96, 92));
+        students.push(new Student('윤아린', 95, 98, 98, 98));
+        students.push(new Student('윤명월', 64, 88, 92, 92));
+        students.push(new Student('김미화', 82, 86, 98, 88));
+        students.push(new Student('김연화', 88, 74, 78, 92));
+        students.push(new Student('박아현', 97, 92, 88, 95));
+        students.push(new Student('서준서', 45, 52, 72, 78));
+
+        // 정렬하고 1등부터 3등까지만 배열에 남겨둡니다.
+        students = students.sort(function (left, right) {
+            return right.getSum() - left.getSum();
+        }).slice(0, 3);
+
+
+        // 출력합니다.
+        var output = '이름\t총점\t평균\n';
+        for (var i in students) {
+            output += students[i].toString() + '\n';
+        }
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Array생성자 함수의 프로토타입에 remove() 메서드를 추가합니다.
+        Array.prototype.remove = function (index) {
+            this.splice(index, 1);
+        }
+
+		if (true) {
+			var arr = [ 12, 34, 21, 56 ];
+			arr = arr.slice(2, 4);
+			alert(arr);
+		}
+		
+		if (true) {
+			var arr = [ 12, 34, 21, 56 ];
+			arr.slice(2, 4);
+			alert(arr);
+		}
+		
+		if (true) {
+			var arr = [ 12, 34, 21, 56 ];
+			arr = arr.splice(1, 2);
+			alert(arr);
+		}
+
+		if (true) {
+			var arr = [ 12, 34, 21, 56 ];
+			arr.splice(1, 2);
+			alert(arr);
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Array생성자 함수의 프로토타입에 remove() 메서드를 추가합니다.
+        Array.prototype.remove = function (index) { this.splice(index, 1); }
+
+        // 변수를 선언합니다.
+        var array = [52, 273, 103, 32, 274, 129];
+
+		// @@@ LOGICAL ERROR
+        // 반복문과 조건문으로 100보다 큰 요소를 제거합니다.
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] > 100) {
+                array.remove(i);
+            }
+        }
+
+        // 출력합니다.
+        alert(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Array 생성자 함수의 프로토타입에 remove() 메서드를 추가합니다.
+        Array.prototype.remove = function (index) { this.splice(index, 1); }
+
+        // 변수를 선언합니다.
+        var array = [52, 273, 103, 32, 274, 129];
+
+		if (!true) {
+			// @@@ print undefined at index i=array.length
+			// 반복문과 조건문으로 100보다 큰 요소를 제거합니다.
+			for (var i = array.length; i >= 0; i--) {
+				alert(array[i]);
+				if (array[i] > 100) {
+					array.remove(i);
+				}
+			}
+		}
+
+		if (true) {
+			// 반복문과 조건문으로 100보다 큰 요소를 제거합니다.
+			for (var i = array.length-1; i >= 0; i--) {
+				if (!true) alert(array[i]);
+				if (array[i] > 100) {
+					array.remove(i);
+				}
+			}
+		}
+
+        // 출력합니다.
+        alert(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var date = new Date();
+
+        // 출력합니다.
+        alert(date);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var date = new Date('December 9');
+		if (true) alert(date);
+        var date = new Date('December 9, 1991');
+		if (true) alert(date);
+        var date = new Date('December 9, 1991 02:24:23');
+		if (true) alert(date);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var date = new Date(1991, 11, 9);
+		if (true) alert(date);
+        var date = new Date(1991, 11, 9, 2, 24, 23);
+		if (true) alert(date);
+        var date = new Date(1991, 11, 9, 2, 24, 23, 1);
+		if (true) alert(date);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var date = new Date(2732741033257);
+		if (true) alert(date);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		/*
+		 * getDate
+		 * getDay
+		 * getFullYear
+		 * getHours
+		 * getMilliseconds
+		 * getMinutes
+		 * getMonth
+		 * getSeconds
+		 * getTime
+		 */
+		if (true) {
+			// 변수를 선언합니다.
+			var date = new Date();
+			if (true) alert(date);
+			
+			// 현재 시간에서 7일을 더합니다.    
+			date.setDate(date.getDate() + 7);
+			if (true) alert(date);
+		}
+		
+		if (true) {
+			// 변수를 선언합니다.
+			var date = new Date();
+			if (true) alert(date);
+			
+			// 현재 시간에서 7일을 더합니다.    
+			date.setHours(date.getHours() + 2);
+			if (true) alert(date);
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		if (true) {
+			// 변수를 생성합니다.
+			var date = new Date(1991, 11, 9);
+
+			// 출력합니다.
+			var output = '';
+			output += '★toDateString: '       + date.toDateString()       + '\n';
+			output += '★toGMTString: '        + date.toGMTString()        + '\n';
+			output += '★toLocaleDateString: ' + date.toLocaleDateString() + '\n';
+			output += '★toLocaleString: '     + date.toLocaleString()     + '\n';
+			output += '★toLocaleTimeString: ' + date.toLocaleTimeString() + '\n';
+			output += '★toString: '           + date.toString()           + '\n';
+			output += '★toTimeString: '       + date.toTimeString()       + '\n';
+			output += '★toUTCString: '        + date.toUTCString()        + '\n';
+			alert(output);
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		if (true) {
+			// 변수를 선언합니다.
+			var now = new Date();
+			var before = new Date('December 9, 1991');
+
+			// 날짜 간격을 구합니다.
+			var interval = now.getTime() - before.getTime();
+			interval = Math.floor(interval / (1000 * 60 * 60 * 24));
+
+			// 출력합니다.
+			alert('Interval: ' + interval + '일');
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		if (true) {
+			// Date생성자 함수의 프로토타입에 메서드를 추가합니다.
+			Date.prototype.getInterval = function (otherDate) {
+				// 변수를 선언합니다.
+				var interval;
+
+				// 양수로 날짜 간격을 구하려고 조건문을 사용합니다.
+				if (this > otherDate) {
+					interval = this.getTime() - otherDate.getTime();
+				} else {
+					interval = otherDate.getTime() - this.getTime();
+				}
+
+				// 리턴합니다.
+				return Math.floor(interval / (1000 * 60 * 60 * 24));
+			};
+
+			// 변수를 선언합니다.
+			var now = new Date();
+			var before = new Date('December 9, 1991');
+
+			// 출력합니다.
+			alert('Interval: ' + now.getInterval(before) + '일');
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        alert(Math.E);
+        alert(Math.LN2);
+        alert(Math.LN10);
+        alert(Math.LOG2E);
+        alert(Math.LOG10E);
+        alert(Math.PI);
+        alert(Math.SQRT1_2);
+        alert(Math.SQRT2);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		if (true) {
+			// 변수를 선언합니다.
+			var max = Math.max;
+
+			// 출력합니다.
+			alert(max(52, 273, 103, 57, 32));
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+		if (true) {
+		   // 출력합니다.
+			alert(Array.isArray([1, 2, 3]));
+			alert(Array.isArray({}));
+			alert(Array.isArray(1));
+		}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 5, 4, 3, 2, 1];
+
+			// 메서드를 사용합니다.
+			var output1 = array.indexOf(4);
+			var output2 = array.indexOf(8);
+			var output3 = array.lastIndexOf(4);
+			var output4 = array.lastIndexOf(8);
+
+			// 출력합니다.
+			var output = '';
+			output += output1 + ' : ' + output2 + '\n';
+			output += output3 + ' : ' + output4;
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (!true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 메서드를 사용합니다.
+			var sum = 0;
+			var output = '';
+			array.forEach(function (element, index, array) {
+				sum += element;
+				output += index + ': ' + element + ' → ' + sum + '\n';
+			});
+
+			// 출력합니다.
+			alert(output);
+        }
+		
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 메서드를 사용합니다.
+			var sum = 0;
+			var output = '';
+			array.forEach(function (element, index, arr) {
+				sum += element;
+				output += index + ': ' + element + ' → ' + sum + '\n';
+				
+				var kang = '';
+				arr.forEach(function(el, idx, arr) {
+					kang += '>' + el + '\n';
+				});
+				alert(kang);
+			});
+
+			// 출력합니다.
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 메서드를 사용합니다.
+			var output = array.map(function (element) {
+				return element * element;
+			});
+
+			// 출력합니다.
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 메서드를 사용합니다.
+			array = array.filter(function (element, index, array) {
+				return element <= 5;
+			});
+
+			// 출력합니다.
+			alert(array);
+        }
+        if (true) {
+			function isBigEnough(element, index, array) {
+				return element >= 10;
+			}
+			
+			alert([12, 5, 8, 130, 44].every(isBigEnough));
+			alert([12, 54, 18, 130, 44].every(isBigEnough));
+        }
+        if (true) {
+			function isBiggerThan10(element, index, array) {
+				return element >= 10;
+			}
+			
+			alert([12, 5, 8, 130, 44].some(isBiggerThan10));
+			alert([2, 4, 8, 1, 4].some(isBiggerThan10));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+			// 함수를 선언합니다.
+			function lessThanFive(element, index, array) {
+				return element < 5;
+			}
+			function lessThanTwenty(element, index, array) {
+				return element < 20;
+			}
+
+			// 메서드를 사용합니다.
+			var output1 = array.every(lessThanFive);
+			var output2 = array.every(lessThanTwenty);
+			var output3 = array.some(lessThanFive);
+			var output4 = array.some(lessThanTwenty);
+
+			// 출력합니다.
+			var output = ''
+			output += output1 + ' : ' + output2 + '\n';
+			output += output3 + ' : ' + output4 + '\n';
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5];
+
+			// 출력합니다.
+			var output = '';
+			array.reduce(function (previousValue, currentValue, index, array) {
+				output += previousValue + ' : ' + currentValue + ' : ' + index + '\n';
+			});
+			alert(output);
+        }
+
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5];
+
+			// 출력합니다.
+			var output = '';
+			array.reduceRight(function (previousValue, currentValue, index, array) {
+				output += previousValue + ' : ' + currentValue + ' : ' + index + '\n';
+			});
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5];
+
+			// 출력합니다.
+			var result = array.reduce(function (previousValue, currentValue) {
+				return previousValue + currentValue;
+			});
+			alert('reduce : ' + result);
+        }
+
+        if (true) {
+			// 변수를 선언합니다.
+			var array = [1, 2, 3, 4, 5];
+
+			// 출력합니다.
+			var result = array.reduceRight(function (previousValue, currentValue) {
+				return previousValue + currentValue;
+			});
+			alert('reduceRight : ' + result);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: '윤인성',
+				region: '서울특별시'
+			};
+
+			// 출력합니다.
+			alert(JSON.stringify(object));
+        }
+		
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: '윤인성',
+				region: '서울특별시'
+			};
+			var copy = JSON.parse(JSON.stringify(object));
+
+			// 출력합니다.
+			alert(copy.name + ' : ' + copy.region + ' : ' + copy.gender);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: '윤인성',
+				region: '서울특별시'
+			};
+			var copy = JSON.parse(JSON.stringify(object));
+
+			// 출력합니다.
+			alert(copy.name + ' : ' + copy.gender);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: 'objectName',
+				prop: 'objectProp',
+			};
+
+			// 출력합니다.
+			alert(JSON.stringify(object));
+        }
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: 'object',
+				prop: 'object',
+				toJSON: function () {
+					return {
+						custom: 'custom'
+					};
+				}
+			};
+
+			// 출력합니다.
+			alert(JSON.stringify(object));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var text = '  text  ';
+
+			// 출력합니다.
+			var output = '';
+			output += '++' + text + '++\n';
+			output += '++' + text.trim() + '++';
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var object = {};
+        Object.defineProperty(object, 'name', {
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			Object.defineProperty(object, 'name', {
+				value: '윤인성',
+				writable: false,
+				enumerable: false
+			});
+
+			// 확인합니다.
+			object.name = 'OTHER';              // writable = false
+			for (var i in object) {            // enumerable = false
+				alert(i + ' : ' + object[i]);
+			}
+
+			// 출력합니다.
+			alert(object.name);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			var value = 'test';
+			Object.defineProperty(object, 'name', {
+				get: function () {
+					alert('GETTER');
+					return value;
+				},
+				set: function (newValue) {
+					alert('SETTER: ' + newValue);
+					value = newValue;
+				}
+			});
+
+			// 출력합니다.
+			object.name = 'ALPHA';
+			alert(object.name);
+			
+			alert(object.name.get());  // no operate
+			object.name.set('KANG');   // no operate
+			//alert(object.name);
+			
+			alert(value);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+
+			// hidden 속성을 정의합니다.
+			Object.defineProperty(object, 'hidden', {
+				value: {
+					width: null
+				}
+			});
+
+			// width 속성을 정의합니다.
+			Object.defineProperty(object, 'width', {
+				get: function () { return this.hidden.width; },
+				set: function (newValue) {
+					if (newValue < 0) {
+						// 오류 발생: 프로그램 강제 종료
+						alert('길이는 음수일 수 없습니다.');
+					} else {
+						this.hidden.width = newValue;
+					}
+				}
+			});
+
+			// 출력합니다: 정상 사용
+			object.width = 10;
+
+			// 출력합니다: 오류 발생
+			object.width = -10;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			var value = 'test';
+
+			Object.defineProperty(object, 'name', {
+				get: function () { return value; },
+				set: function (newValue) { value = newValue; },
+				configurable: true
+			});
+
+			Object.defineProperty(object, 'name', {
+				enumerable: true
+			});
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			Object.defineProperties(object, {
+				name: { value: '윤인성' },
+				region: { value: '서울특별시' }
+			});
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (!true) {
+			// 변수를 선언합니다.
+			var object = Object.create({}, {
+				name: { value: '윤인성', enumerable: true },
+				region: { value: '서울특별시', enumerable: true }
+			});
+
+			// 출력합니다.
+			alert(Object.keys(object));
+			alert(Object.values(object));   // ERROR
+        }
+
+        if (!true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: '윤인성',
+				region: '서울특별시',
+			};
+
+			// 출력합니다.
+			alert(Object.keys(object));
+			alert(Object.values(object));    //
+        }
+
+		if (true) {
+			var obj = { foo: "bar", baz: 42 };
+			console.log(Object.values(obj)); // ['bar', 42]
+
+			// array like object
+			var obj = { 0: 'a', 1: 'b', 2: 'c' };
+			console.log(Object.values(obj)); // ['a', 'b', 'c']
+
+			// array like object with random key ordering
+			var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+			console.log(Object.values(an_obj)); // ['b', 'c', 'a']
+
+			// getFoo is property which isn't enumerable
+			var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+			my_obj.foo = "bar";
+			console.log(Object.values(my_obj)); // ['bar']
+
+			// non-object argument will be coerced to an object
+			console.log(Object.values("foo")); // ['f', 'o', 'o']
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = Object.create({}, {
+				name: { value: '윤인성', enumerable: true },
+				region: { value: '서울특별시', enumerable: true }
+			});
+
+			var person = Object.create(object, {   // hire
+				gender: { value: '남자', enumerable: true },
+				hobby: { value: '기타', enumerable: true }
+			})
+
+			// 출력합니다.
+			alert(Object.getOwnPropertyNames(person) + '\n' + Object.keys(person));
+			alert(person.name + ' : ' + person.region);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+
+			// 간단한 객체 속성 추가 방법
+			object.region = '서울특별시';
+
+			// 복잡한 객체 속성 추가 방법
+			Object.defineProperty(object, 'name', {
+				value: '윤인성',
+				writable: false
+			});
+			
+			alert(Object.keys(object));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+
+			// 간단한 객체 속성 추가 방법
+			object.region = '서울특별시';
+
+			// 복잡한 객체 속성 추가 방법
+			Object.defineProperty(object, 'name', {
+				value: '윤인성',
+				writable: false
+			});
+
+			alert(Object.isExtensible(object));
+			Object.preventExtensions(object);                 // <---
+			alert(Object.isExtensible(object));
+
+			// 간단한 객체 속성 추가 방법
+			object.dream = '생명공학자';
+
+			// 복잡한 객체 속성 추가 방법
+			Object.defineProperty(object, 'showMeTheMoney', {   // <--- Object.preventExtensions(object);
+				value: true
+			});
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var person = {
+				name: '윤인성',
+				region: '서울특별시',
+				hobby: '기타'
+			};
+
+			Object.seal(person);
+			delete person.name;
+
+			// 출력합니다.
+			alert(person.name);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = { name: '윤인성' };
+
+			// 속성을 추가합니다.
+			Object.defineProperty(object, 'region', {
+				value: '서울특별시'
+			});
+
+			// 출력합니다.
+			alert(Object.keys(object));
+			alert(Object.values(object));
+			alert(Object.getOwnPropertyNames(object));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = { name: '윤인성' };
+			Object.defineProperty(object, 'region', { value: '서울특별시' });
+
+			if (true) alert(Object.keys(object));
+			
+			// 설정 배열을 추출합니다.
+			var descriptors = [];
+			descriptors.push(Object.getOwnPropertyDescriptor(object, 'name'));
+			descriptors.push(Object.getOwnPropertyDescriptor(object, 'region'));
+
+			// 출력합니다.
+			var output = '';
+			for (var i in descriptors) {
+				var item = descriptors[i];
+				for (var key in item) {
+					output += key + ' : ' + item[key] + '\n';
+				}
+				output += '--------------------\n'
+			}
+			alert(output);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var audio = new Audio('Kalimba.mp3');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var audio = new Audio();
+        audio.src = 'Kalimba.mp3';
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var audio = new Audio('Kalimba.mp3');
+    </script>
+</head>
+<body>
+    <button onclick="audio.play()">PLAY</button>
+    <button onclick="audio.pause()">PAUSE</button>
+    <input type="number" onchange="audio.currentTime=this.value"/>
+    <input type="number" onchange="audio.volume=this.value"/>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------

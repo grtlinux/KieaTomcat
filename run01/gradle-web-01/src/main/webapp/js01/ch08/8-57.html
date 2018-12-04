@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			Object.defineProperty(object, 'name', {
+				value: '윤인성',
+				writable: false,
+				enumerable: false
+			});
+
+			// 확인합니다.
+			object.name = 'OTHER';              // writable = false
+			for (var i in object) {            // enumerable = false
+				alert(i + ' : ' + object[i]);
+			}
+
+			// 출력합니다.
+			alert(object.name);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,2486 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        var userAgent = navigator.userAgent;
+        alert(userAgent);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        // 변수를 선언합니다.
+        var smartPhones = [
+            'iphone', 'ipod',
+            'windows ce',
+            'android', 'blackberry',
+            'nokia', 'webos',
+            'opera mini', 'sonyerricsson',
+            'opera mobi', 'iemobile'
+        ];
+
+        for (var i in smartPhones) {
+            // 스마트폰 확인
+            if (navigator.userAgent.toLowerCase().match(new RegExp(smartPhones[i]))) {
+                alert('This is Smart Phone..!');
+                document.location = 'http://m.hanb.com';
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        window.onorientationchange = function () {
+            alert(window.orientation);
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+       $(document).ready(function () {
+           $(window).on('orientationchange', function () {
+               alert(window.orientation);
+           });
+       });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        // 윈도우가 회전될 때
+        $(window).on('orientationchange', function () {
+            var output = '<h1>Orientation</h1>';
+
+            // 회전 각도에 따라 조건
+            switch (window.orientation) {
+                case 0:
+                    output += '<h2>Portrait</h2>';
+                    break;
+                case -90:
+                    output += '<h2>Landscape</h2>';
+                    output += '<h2>right, screen turned clockwise</h2>';
+                    break;
+                case 90:
+                    output += '<h2>Landscape</h2>';
+                    output += '<h2>left, screen turned counterclockwise</h2>';
+                    break;
+                case 180:
+                    output += '<h2>Portrait</h2>';
+                    output += '<h2>upside-down portrait</h2>';
+                    break;
+            }
+
+            // 출력
+            $('body').html(output);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('touchstart', function (e) {
+                $('body').append('<h1>touch Start</h1>');
+            });
+
+            $(document).on('touchmove', function (e) {
+                $('body').append('<h1>touch Move</h1>');
+            });
+
+            $(document).on('touchend', function (e) {
+                $('body').append('<h1>touch End</h1>');
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('touchstart', function (e) {
+                var event = e.originalEvent;
+            });
+
+            $(document).on('touchmove', function (e) {
+                var event = e.originalEvent;
+            });
+
+            $(document).on('touchend', function (e) {
+                var event = e.originalEvent;
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('touchstart', function (e) {
+                var event = e.originalEvent;
+                $('#output').html('<h1>' + event.touches[0].screenX + '</h1>');
+                e.preventDefault();
+            });
+
+            $(document).on('touchmove', function (e) {
+                var event = e.originalEvent;
+                $('#output').html('<h1>' + event.touches[0].screenX + '</h1>');
+                e.preventDefault();
+            });
+
+            $(document).on('touchend', function (e) {
+                var event = e.originalEvent;
+                $('#output').html('<h1>' + event.touches[0].screenX + '</h1>');
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+            </ul>
+        </div>
+        <div data-role="footer">
+            <h1>footer</h1>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b">
+            <h1>footer</h1>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#second-page">List Item 1</a></li>
+                <li><a href="#second-page">List Item 2</a></li>
+                <li><a href="#second-page">List Item 3</a></li>
+                <li><a href="#second-page">List Item 4</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 두 번째 페이지 -->
+    <div data-role="page" id="second-page">
+        <div data-role="header" data-theme="b">
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#second-page">List Item 1</a></li>
+                <li><a href="#second-page">List Item 2</a></li>
+                <li><a href="#second-page">List Item 3</a></li>
+                <li><a href="#second-page">List Item 4</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 두 번째 페이지 -->
+    <div data-role="page" id="second-page">
+        <div data-role="header" data-theme="b" data-add-back-btn="true">
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#second-page" data-transition="slide">List Item 1</a></li>
+                <li><a href="#second-page" data-transition="slideup">List Item 2</a></li>
+                <li><a href="#second-page" data-transition="slidedown">List Item 3</a></li>
+                <li><a href="#second-page" data-transition="pop">List Item 4</a></li>
+                <li><a href="#second-page" data-transition="fade">List Item 5</a></li>
+                <li><a href="#second-page" data-transition="flip">List Item 6</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 두 번째 페이지 -->
+    <div data-role="page" id="second-page">
+        <div data-role="header" data-theme="b" data-add-back-btn="true">
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page" id="first-page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#second-page" data-transition="slide">List Item 1</a></li>
+                <li><a href="#second-page" data-transition="slideup">List Item 2</a></li>
+                <li><a href="#second-page" data-transition="slidedown">List Item 3</a></li>
+                <li><a href="#second-page" data-transition="pop">List Item 4</a></li>
+                <li><a href="#second-page" data-transition="fade">List Item 5</a></li>
+                <li><a href="#second-page" data-transition="flip">List Item 6</a></li>
+                <li><a href="#second-page" data-rel="dialog">List Item 7</a></li>
+                <li><a href="#second-page" data-rel="dialog" data-transition="pop">List Item 8</a></li>
+                <li><a href="#second-page" data-rel="dialog" data-transition="slidedown">List Item 9</a></li>
+                <li><a href="#second-page" data-rel="dialog" data-transition="flip">List Item 10</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 두 번째 페이지 -->
+    <div data-role="page" id="second-page">
+        <div data-role="header" data-theme="b" data-add-back-btn="true">
+            <h1>Other Page</h1>
+        </div>
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet neque scelerisque, semper nibh quis, laoreet mi. Integer non ligula auctor, tempus massa at, aliquet turpis. Sed bibendum eleifend leo id porta. Sed euismod aliquet elit at consectetur. In in nisi ac turpis scelerisque volutpat ut a ante. Aenean posuere vestibulum lorem id consequat. Morbi a nisl urna. Sed ac ipsum vestibulum, molestie purus et, feugiat nibh.</p>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 1</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 2</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 3</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 4</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 5</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 6</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 7</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 8</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 9</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 0</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 1</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 2</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 3</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 4</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 5</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 6</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 7</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 8</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 9</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 0</h3>
+                        <p>Lorem ipsum</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 1</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">273</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 2</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">52</span>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 3</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">103</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 4</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">32</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 5</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">72</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 6</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">57</span>
+                    </a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 7</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">275</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 8</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">274</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 9</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>List Item 0</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-count">270</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+             <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Divider</li>
+                <li>
+                    <a href="#">
+                        <img src="ie.png" />
+                        <h3>List Item 1</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-aside">Vestibulum</span>
+                        <span class="ui-li-count">273</span>
+                    </a>
+                    <a href="#" data-icon="search"></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="google.png" />
+                        <h3>List Item 2</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-aside">libero vel</span>
+                        <span class="ui-li-count">52</span>
+                    </a>
+                    <a href="#" data-icon="search"></a>
+                </li>
+                <li data-role="list-divider">Divider</li>   
+                <li>
+                    <a href="#">
+                        <img src="opera.png" />
+                        <h3>List Item 3</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-aside">ullamcorper</span>
+                        <span class="ui-li-count">103</span>
+                    </a>
+                    <a href="#" data-icon="gear"></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="FF.png" />
+                        <h3>List Item 4</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-aside">sit amet</span>
+                        <span class="ui-li-count">57</span>
+                    </a>
+                    <a href="#" data-icon="gear"></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="safari.png" />
+                        <h3>List Item 5</h3>
+                        <p>Lorem ipsum</p>
+                        <span class="ui-li-aside">SentAVant</span>
+                        <span class="ui-li-count">57</span>
+                    </a>
+                    <a href="#" data-icon="gear"></a>
+                </li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true" data-filter="true">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">방화</a></li>
+                <li><a href="#">개화산</a></li>
+                <li><a href="#">김포공항</a></li>
+                <li><a href="#">송정</a></li>
+                <li><a href="#">마곡</a></li>
+                <li><a href="#">발산</a></li>
+                <li><a href="#">우장산</a></li>
+                <li><a href="#">화곡</a></li>
+                <li><a href="#">까치산</a></li>
+                <li><a href="#">신정</a></li>
+                <li><a href="#">목동</a></li>
+                <li><a href="#">오목교</a></li>
+                <li><a href="#">양평</a></li>
+                <li><a href="#">영등포구청</a></li>
+                <li><a href="#">영등포시장</a></li>
+                <li><a href="#">신길</a></li>
+                <li><a href="#">여의도</a></li>
+                <li><a href="#">여의나루</a></li>
+                <li><a href="#">마포</a></li>
+                <li><a href="#">공덕</a></li>
+                <li><a href="#">애오개</a></li>
+                <li><a href="#">충정로</a></li>
+                <li><a href="#">서대문</a></li>
+                <li><a href="#">광화문</a></li>
+                <li><a href="#">종로3가</a></li>
+                <li><a href="#">을지로4가</a></li>
+                <li><a href="#">동대문운동장</a></li>
+                <li><a href="#">청구</a></li>
+                <li><a href="#">신금호</a></li>
+                <li><a href="#">행당</a></li>
+                <li><a href="#">왕십리</a></li>
+                <li><a href="#">마장</a></li>
+                <li><a href="#">답십리</a></li>
+                <li><a href="#">장한평</a></li>
+                <li><a href="#">군자</a></li>
+                <li><a href="#">아차산</a></li>
+                <li><a href="#">광나루</a></li>
+                <li><a href="#">천호</a></li>
+                <li><a href="#">길동</a></li>
+                <li><a href="#">굽은다리</a></li>
+                <li><a href="#">명일</a></li>
+                <li><a href="#">고덕</a></li>
+                <li><a href="#">상일동</a></li>
+                <li><a href="#">둔촌동</a></li>
+                <li><a href="#">올림픽공원</a></li>
+                <li><a href="#">방이</a></li>
+                <li><a href="#">오금</a></li>
+                <li><a href="#">개롱</a></li>
+                <li><a href="#">거여</a></li>
+                <li><a href="#">마천</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="text-input">Text Input</label>
+                <input type="text" name="text-input" id="text-input" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="passwordinput">Password Input</label>
+            <input type="password" name="password-input" id="password-input" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <div data-role="controlgroup">
+                    <fieldset data-role="controlgroup">
+                        <legend>Check</legend>
+                        <label for="radio-input-1">Radio Input</label>
+                        <input type="radio" name="radio-input" id="radio-input-1" />
+                        <label for="radio-input-2">Radio Input</label>
+                        <input type="radio" name="radio-input" id="radio-input-2" />
+                    </fieldset>
+                </div>
+            </div>
+            <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Check</legend>
+                        <label for="checkbox-input-1">Checkbox Input</label>
+                        <input type="checkbox" name="checkbox-input-1"id="checkbox-input-1"/>
+                        <label for="checkbox-input-2">Checkbox Input</label>
+                        <input type="checkbox" name="checkbox-input-2"id="checkbox-input-2"/>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="select">Select Input</label>
+                <select id="select">
+                    <option>서울</option>
+                    <option>부산</option>
+                    <option>대구</option>
+                    <option>대전</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="slider">Select slider</label>
+                <select name="slider" id="slider" data-role="slider">
+                    <option value="off">off</option>
+                    <option value="on">on</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textarea">Textarea Input</label>
+                <textarea id="textarea"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="slider">Input slider</label>
+                <input type="range" name="slider" id="slider" value="0" min="0" max="100" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="search">Search Input</label>
+                <input type="search" name="search" id="search" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible">
+                <h1>Accordion</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>Accordion</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>Accordion</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible-set">
+                <div data-role="collapsible">
+                    <h1>Accordion</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Accordion</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Accordion</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><h1>block-a</h1></div>
+                <div class="ui-block-b"><h1>block-b</h1></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><h1>block-a</h1></div>
+                <div class="ui-block-b"><h1>block-b</h1></div>
+                <div class="ui-block-a"><h1>block-a</h1></div>
+                <div class="ui-block-b"><h1>block-b</h1></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><h1>blo-a</h1></div>
+                <div class="ui-block-b"><h1>blo-b</h1></div>
+                <div class="ui-block-c"><h1>blo-c</h1></div>
+                <div class="ui-block-a"><h1>blo-a</h1></div>
+                <div class="ui-block-b"><h1>blo-b</h1></div>
+                <div class="ui-block-c"><h1>blo-c</h1></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="id-input">ID</label>
+                <input type="text" name="id-input" id="id-input" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="password-input">Password</label>
+                <input type="text" name="password-input" id="password-input" />
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-role="button">submit</a></div>
+                <div class="ui-block-b"><a href="#" data-role="button">reset</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="panel" id="panel">
+            <h1>Panel</h1>
+            <a href="#panel" data-rel="close">Close panel</a>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="#panel" class="btn">Open Panel</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="panel" data-display="push" data-position="right" id="panel">
+            <h1>Panel</h1>
+            <a href="#panel" data-rel="close">Close Panel</a>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div data-role="header" data-theme="b">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="#panel" class="btn">Open Panel</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear">Settings</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home" class="ui-btn-left">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Settings</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home" class="ui-btn-left">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Settings</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="plus">Add</a>
+            <a href="#" data-icon="delete">Delete</a>
+            <a href="#" data-icon="refresh">Refresh</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home" class="ui-btn-left">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Settings</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="plus">Add</a>
+            <a href="#" data-icon="delete">Delete</a>
+            <a href="#" data-icon="refresh">Refresh</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home" class="ui-btn-left">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Settings</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="grid">One</a></li>
+                    <li><a href="#" data-icon="star">Two</a></li>
+                    <li><a href="#" data-icon="alert">Three</a></li>
+                    <li><a href="#" data-icon="info">Four</a></li>
+                    <li><a href="#" data-icon="gear">Five</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="plus">Add</a>
+            <a href="#" data-icon="delete">Delete</a>
+            <a href="#" data-icon="refresh">Refresh</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="grid">One</a></li>
+                    <li><a href="#" data-icon="star">Two</a></li>
+                    <li><a href="#" data-icon="alert">Three</a></li>
+                    <li><a href="#" data-icon="info">Four</a></li>
+                    <li><a href="#" data-icon="gear">Five</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="home" class="ui-btn-left">Home</a>
+            <h1>Mobile</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Settings</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="grid" class="ui-btn-active">One</a></li>
+                    <li><a href="#" data-icon="star">Two</a></li>
+                    <li><a href="#" data-icon="alert">Three</a></li>
+                    <li><a href="#" data-icon="info">Four</a></li>
+                    <li><a href="#" data-icon="gear">Five</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+                <li><a href="#">List Item 5</a></li>
+                <li><a href="#">List Item 6</a></li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">List Item 7</a></li>
+                <li><a href="#">List Item 8</a></li>
+                <li><a href="#">List Item 9</a></li>
+                <li><a href="#">List Item 0</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <a href="#" data-icon="plus">Add</a>
+            <a href="#" data-icon="delete">Delete</a>
+            <a href="#" data-icon="refresh">Refresh</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="grid" class="ui-btn-active">One</a></li>
+                    <li><a href="#" data-icon="star">Two</a></li>
+                    <li><a href="#" data-icon="alert">Three</a></li>
+                    <li><a href="#" data-icon="info">Four</a></li>
+                    <li><a href="#" data-icon="gear">Five</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="http://hanb.co.kr" data-role="button">External Link</a>
+            <a href="OtherPage.html" data-role="button">Local Link</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <h1>Hello Second Page</h1>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="mailto:rintiantta@naver.com" data-role="button">Mail Link</a>
+            <a href="mailto:rintiantta@naver.com?subject=Hello&body=World..!" data-role="button">Mail Link</a>
+            <a href="tel:010-0000-0000" data-role="button">Phone Link</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('mobileinit', function () {
+            alert('Mobile Init..!');
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="mailto:rintiantta@naver.com" data-role="button">Mail Link</a>
+            <a href="mailto:rintiantta@naver.com?subject=Hello&body=World..!" data-role="button">Mail Link</a>
+            <a href="tel:010-0000-0000" data-role="button">Phone Link</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('mobileinit', function () {
+            $.mobile.toolbar.prototype.options.addBackBtn = true;
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Mobile</h1>
+        </div>
+        <div data-role="content">
+            <a href="mailto:rintiantta@naver.com" data-role="button">Mail Link</a>
+            <a href="mailto:rintiantta@naver.com?subject=Hello&body=World..!" data-role="button">Mail Link</a>
+            <a href="tel:010-0000-0000" data-role="button">Phone Link</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('mobileinit', function () {
+            alert('MOBILE INIT');
+        });
+        $(document).on({
+            pagebeforecreate: function () { alert('PAGE BEFORE CREATE'); },
+            pagecreate: function () { alert('PAGE CREATE'); },
+            pagebeforechange: function () { alert('PAGE BEFORE CHANGE'); },
+            pagechange: function () { alert('PAGE CHANGE'); }
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <!-- 첫 번째 페이지 -->
+    <div data-role="page">
+        <div data-role="header">
+            <h1>FIRST</h1>
+        </div>
+        <div data-role="content">
+            <a href="#second-page" data-role="button">To Second Page</a>
+        </div>
+    </div>
+
+    <!-- 두 번째 페이지 -->
+    <div data-role="page" id="second-page" data-add-back-btn="true">
+        <div data-role="header">
+            <h1>SECOND</h1>
+        </div>
+        <div data-role="content"></div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is First PAGE</h1>
+            <a data-role="button" href="30-52.html">Move To Second PAGE</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b" data-add-back-btn="true">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is Second PAGE</h1>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a').click(function (event) {
+                // 변수를 선언합니다.
+                var href = $(this).attr('href');
+
+                // 기본 이벤트를 제거합니다.
+                event.preventDefault();
+
+                // 페이지를 이동합니다.
+                $.mobile.changePage(href);
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is First PAGE</h1>
+            <a data-role="button" href="30-52.html">Move To Second PAGE</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a').click(function (event) {
+                // 변수를 선언합니다.
+                var href = $(this).attr('href');
+
+                // 로딩 메시지를 출력합니다.
+                $.mobile.loading('show');
+
+                // 기본 이벤트를 제거합니다.
+                event.preventDefault();
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is First PAGE</h1>
+            <a data-role="button" href="30-52.html">Move To Second PAGE</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a').click(function (event) {
+                // 변수를 선언합니다.
+                var href = $(this).attr('href');
+
+                // 로딩 메시지를 출력합니다.
+                $.mobile.loading('show', {
+                    text: href + '로 이동합니다.',
+                    textVisible: true,
+                });
+
+                // 기본 이벤트를 제거합니다.
+                event.preventDefault();
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is First PAGE</h1>
+            <a data-role="button" href="30-52.html">Move To Second PAGE</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a').click(function (event) {
+                // 변수를 선언합니다.
+                var href = $(this).attr('href');
+
+                // 로딩 메시지를 출력합니다.
+                $.mobile.loading('show', {
+                    text: href + '로 이동합니다.',
+                    textVisible: true,
+                });
+
+                // 기본 이벤트를 제거합니다.
+                event.preventDefault();
+
+                // 2초 후에 로딩 메시지를 제거합니다.
+                setTimeout(function () {
+                    $.mobile.loading('hide');
+                }, 1000 * 2)
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <h1>Here is First PAGE</h1>
+            <a data-role="button" href="30-52.html">Move To Second PAGE</a>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <button>ADD BUTTON</button>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('button').click(function () {
+                // 문서 객체를 추가합니다.
+                $('<button>ADD</button>').appendTo('div[data-role=content]');
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <button>ADD BUTTON</button>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('button').click(function () {
+                // 문서 객체를 추가합니다.
+                $('<button>ADD</button>').appendTo('div[data-role=content]');
+
+                // create 이벤트를 강제로 호출합니다.
+                $('div[data-role=content]').trigger('create');
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+        </div>
+        <div data-role="content">
+            <button>ADD BUTTON</button>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+            <a data-icon="plus" class="ui-btn-right">ADD</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a[data-icon="plus"]').click(function () {
+                // 문서 객체를 추가합니다.
+                $('<li><a href="#">List Item</a></li>').appendTo('ul');
+
+                // 기본 이벤트를 제거합니다.
+                return false;
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+            <a data-icon="plus" class="ui-btn-right">ADD</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).on('pagecreate', function () {
+            $('a.ui-btn-right').click(function () {
+                alert()
+                // 문서 객체를 추가합니다.
+                $('<li><a href="#">List Item</a></li>').appendTo('ul');
+                $('ul').listview('refresh');
+
+                // 기본 이벤트를 제거합니다.
+                return false;
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>MOBILE</h1>
+            <a data-icon="plus" class="ui-btn-right">ADD</a>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="#">List Item</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------

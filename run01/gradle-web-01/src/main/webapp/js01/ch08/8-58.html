@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (true) {
+			// 변수를 선언합니다.
+			var object = {};
+			var value = 'test';
+			Object.defineProperty(object, 'name', {
+				get: function () {
+					alert('GETTER');
+					return value;
+				},
+				set: function (newValue) {
+					alert('SETTER: ' + newValue);
+					value = newValue;
+				}
+			});
+
+			// 출력합니다.
+			object.name = 'ALPHA';
+			alert(object.name);
+			
+			alert(object.name.get());  // no operate
+			object.name.set('KANG');   // no operate
+			//alert(object.name);
+			
+			alert(value);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

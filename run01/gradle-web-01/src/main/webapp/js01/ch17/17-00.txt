@@ -1,0 +1,482 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('button').click(function () {
+                // 간단한 효과를 적용합니다.
+                $('.page').toggle('slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Toggle Show</button>
+    <div class="page">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin: 0px; padding: 0px; }
+        ul { list-style:none; }
+        img { width: 500px; height: 350px; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery.innerfade.js"></script>
+    <script>
+        $(document).ready(function () {
+            // innerfade 플러그인을 적용합니다.
+            $('#inner-fade').innerfade({
+                animationtype: 'fade',
+                speed: 750,
+                timeout: 2000,
+                type: 'random',
+                containerheight: '350px'
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="inner-fade">
+        <li><img src="Chrysanthemum.jpg" /></li>
+        <li><img src="Desert.jpg" /></li>
+        <li><img src="Hydrangeas.jpg" /></li>
+        <li><img src="Jellyfish.jpg" /></li>
+        <li><img src="Koala.jpg" /></li>
+        <li><img src="Lighthouse.jpg" /></li>
+        <li><img src="Penguins.jpg" /></li>
+    </ul>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').hover(function () {
+                $(this).animate({
+                    left: 500
+                }, 'slow');
+            }, function () {
+                $(this).animate({
+                    left: 0
+                }, 'slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').click(function () {
+                // 변수를 선언합니다.
+                var width = $(this).css('width');
+                var height = $(this).css('height');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').click(function () {
+                // 변수를 선언합니다.
+                var width = $(this).css('width');
+                var height = $(this).css('height');
+
+                // animate() 메서드를 사용합니다.
+                $(this).animate({
+                    width: parseInt(width) + 50,
+                    height: parseInt(height) + 50
+                }, 'slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').click(function () {
+                // animate() 메서드를 사용합니다.
+                $(this).animate({
+                    width: '+=50',
+                    height: '+=50'
+                }, 'slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color:orange;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').click(function () {
+                $(this).animate({
+                    left: '+=60'
+                }, 2000).animate({
+                    width: '+=60'
+                }, 2000).animate({
+                    height: '+=60'
+                }, 2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 50px; height: 50px;
+            background-color:orange;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            // animate() 메서드를 사용합니다.
+            $('div').animate({ left: '+=60' }, 2000);
+            $('div').animate({ width: '+=60' }, 2000);
+            $('div').animate({ height: '+=60' }, 2000);
+
+            // 3초 후에 함수를 실행합니다.
+            setTimeout(function () {
+                // 애니메이션 큐를 제거합니다.
+                $('div').clearQueue();
+
+                // 효과 메서드를 사용합니다.
+                $('div').hide();
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 100px; height: 100px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('button').click(function () {
+                // 변수를 선언합니다.
+                var html = $(this).html();
+                var evalText = "$('div')." + html;
+
+                // 메서드를 실행합니다.
+                eval(evalText);
+            });
+
+            // 애니메이션을 시작합니다.
+            setInterval(function () {
+                $('div').animate({
+                    left: '500'
+                }, 1000).animate({
+                    left: '0'
+                }, 1000);
+            }, 2000);
+        });
+    </script>
+</head>
+<body>
+    <button>stop()</button>
+    <button>stop(true)</button>
+    <button>stop(false, true)</button>
+    <button>stop(true, true)</button>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width: 100px; height: 100px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').each(function (index) {
+                // (index * 500)초 후 animate() 메서드를 실행합니다.
+                $(this).delay(index * 500).animate({
+                    left: 500
+                }, 'slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <style>
+        .reverse {
+            color: white;
+            background-color: black;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').hover(function () {
+                $(this).addClass('reverse', 1000);
+            }, function () {
+                $(this).removeClass('reverse', 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+    <div>
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+    <div>
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <style>
+        div  {
+            background-color:orange;
+            width: 150px; height: 150px;
+            position: relative;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('button').click(function () {
+                // 변수를 선언합니다.
+                var easing = $('select > option:selected').html();
+
+                // animate() 메서드를 사용합니다.
+                $('div').animate({
+                    left: '400'
+                }, 2000, easing).animate({
+                    left: '0'
+                }, 1000, easing);
+            });
+        });
+    </script>
+</head>
+<body>
+    <select>
+        <option>linear</option>
+        <option>swing</option>
+        <option>easeInQuad</option>
+        <option>easeOutQuad</option>
+        <option>easeInOutQuad</option>
+        <option>easeInCubic</option>
+        <option>easeOutCubic</option>
+        <option>easeInOutCubic</option>
+        <option>easeInQuart</option>
+        <option>easeOutQuart</option>
+        <option>easeInOutQuart</option>
+        <option>easeInQuint</option>
+        <option>easeOutQuint</option>
+        <option>easeInOutQuint</option>
+        <option>easeInSine</option>
+        <option>easeOutSine</option>
+        <option>easeInOutSine</option>
+        <option>easeInExpo</option>
+        <option>easeOutExpo</option>
+        <option>easeInOutExpo</option>
+        <option>easeInCirc</option>
+        <option>easeOutCirc</option>
+        <option>easeInOutCirc</option>
+        <option>easeInElastic</option>
+        <option>easeOutElastic</option>
+        <option>easeInOutElastic</option>
+        <option>easeInBack</option>
+        <option>easeOutBack</option>
+        <option>easeInOutBack</option>
+        <option>easeInBounce</option>
+        <option>easeOutBounce</option>
+        <option>easeInOutBounce</option>
+    </select>
+    <button>MOVE</button>
+    <div></div>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------

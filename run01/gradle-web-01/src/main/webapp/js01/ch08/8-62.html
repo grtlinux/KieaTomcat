@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (!true) {
+			// 변수를 선언합니다.
+			var object = Object.create({}, {
+				name: { value: '윤인성', enumerable: true },
+				region: { value: '서울특별시', enumerable: true }
+			});
+
+			// 출력합니다.
+			alert(Object.keys(object));
+			alert(Object.values(object));   // ERROR
+        }
+
+        if (!true) {
+			// 변수를 선언합니다.
+			var object = {
+				name: '윤인성',
+				region: '서울특별시',
+			};
+
+			// 출력합니다.
+			alert(Object.keys(object));
+			alert(Object.values(object));    //
+        }
+
+		if (true) {
+			var obj = { foo: "bar", baz: 42 };
+			console.log(Object.values(obj)); // ['bar', 42]
+
+			// array like object
+			var obj = { 0: 'a', 1: 'b', 2: 'c' };
+			console.log(Object.values(obj)); // ['a', 'b', 'c']
+
+			// array like object with random key ordering
+			var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+			console.log(Object.values(an_obj)); // ['b', 'c', 'a']
+
+			// getFoo is property which isn't enumerable
+			var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+			my_obj.foo = "bar";
+			console.log(Object.values(my_obj)); // ['bar']
+
+			// non-object argument will be coerced to an object
+			console.log(Object.values("foo")); // ['f', 'o', 'o']
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

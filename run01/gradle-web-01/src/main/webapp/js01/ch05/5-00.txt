@@ -1,0 +1,835 @@
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 생성합니다.
+        var 함수 = function () {
+            var output = prompt('숫자를 입력해주세요.', '숫자');
+            alert(output);
+        };
+
+        // 출력합니다.
+        alert(함수);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        alert(alert);
+        alert(prompt);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 만듭니다.
+        var 함수 = function () {
+            var output = prompt('숫자를 입력해주세요.', '숫자');
+            alert(output);
+        };
+
+        // 함수를 호출합니다.
+        함수();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function 함수() { alert('함수 A'); }
+        function 함수() { alert('함수 B'); }
+        함수();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var 함수 = function () { alert('함수 A'); };
+        var 함수 = function () { alert('함수 B'); };
+        함수();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        함수();
+        var 함수 = function () { alert('함수 A'); };
+        var 함수 = function () { alert('함수 B'); };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        함수();
+        function 함수() { alert('함수 A'); }
+        function 함수() { alert('함수 B'); }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        var 함수 = function () { alert('함수 A'); }
+        function 함수() { alert('함수 B'); }
+
+        // 함수를 호출합니다.
+        함수();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function f(x) { return x * x; }
+
+        // 함수를 호출합니다.
+        alert(f(3));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 호출합니다.
+        alert('원래 매개 변수입니다.', '추가된 매개 변수입니다.');
+        prompt('원래 매개 변수입니다.');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 배열을 생성합니다.
+        var array1 = Array();
+        var array2 = Array(10);
+        var array3 = Array(273, 103, 57, 32);
+
+        // 출력합니다.
+        alert(array1 + '\n' + array2 + '\n' + array3);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function sumAll() {
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function sumAll() {
+            // 출력합니다.
+            alert(typeof (arguments) + ' : ' + arguments.length);
+        }
+
+        // 함수를 호출합니다.
+        sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function sumAll() {
+            var output = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                output += arguments[i];
+            }
+            return output;
+        }
+
+        // 함수를 호출 및 출력합니다.
+        alert(sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function 이렇게함수() {
+            // 매개 변수의 개수를 가져옵니다.
+            var length = arguments.length;
+
+            // 조건을 나누어줍니다.
+            if (length == 0) {
+                // 매개 변수가 없을 때
+            } else if (length == 1) {
+                // 매개 변수가 한 개일 때
+            } else {
+                // 매개 변수가 두 개일 때
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function returnFunction() {
+            alert('문장 A');
+            return;
+            alert('문장 B');
+        }
+
+        // 함수를 호출합니다.
+        returnFunction();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function returnFunction() {
+            alert('문장 A');
+            return;
+            alert('문장 B');
+        }
+
+        // 함수를 호출합니다.
+        var output = returnFunction();
+        alert(typeof (output) + ' : ' + output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function pythagoras(width, height) {
+            return Math.sqrt(width * width + height * height);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 제곱을 구하는 함수
+        function square(x) {
+            return x * x;
+        }
+
+        // 피타고라스 함수
+        function pythagoras(width, height) {
+            return Math.sqrt(square(width) + square(height));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        /* 윤씨가 만든 함수 */
+        // 제곱을 구하는 함수
+        function square(x) {
+            return x * x;
+        }
+
+        // 피타고라스 함수
+        function pythagoras(width, height) {
+            return Math.sqrt(square(width) + square(height));
+        }
+
+        // 피타고라스 함수를 호출합니다.
+        alert(pythagoras(3, 4));
+
+        /* 연씨가 만든 함수 */
+        // 삼각형이 직각인지 확인하는 함수
+        function square(width, height, hypotenuse) {
+            if (width * width + height * height == hypotenuse * hypotenuse) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function pythagoras(width, height) {
+            function square(x) {
+                return x * x;
+            }
+
+            return Math.sqrt(square(width) + square(height));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        (function () {
+            // 코드
+            // 코드
+            // 코드
+        })();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        function callTenTimes(callback) {
+            // 10회 반복합니다.
+            for (var i = 0; i < 10; i++) {
+                // 매개 변수로 전달된 함수를 호출합니다.
+                callback();
+            }
+        }
+
+        // 변수를 선언합니다.
+        var callback = function () {
+            alert('함수 호출');
+        };
+
+        // 함수를 호출합니다.
+        callTenTimes(callback);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        function callTenTimes(callback) {
+            for (var i = 0; i < 10; i++) {
+                callback();
+            }
+        }
+
+        // 함수를 호출합니다.
+        callTenTimes(function () {
+            alert('함수 호출');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function returnFunction() {
+            return function () {
+                alert('Hello Function .. !');
+            };
+        }
+
+        // 함수를 호출합니다.
+        returnFunction()();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        function test(name) {
+            var output = 'Hello ' + name + ' .. !';
+        }
+
+        // 출력합니다.
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        function test(name) {
+            var output = 'Hello ' + name + ' .. !';
+            return function () {
+                alert(output);
+            };
+        }
+
+        // 출력합니다.
+        test('JavaScript')();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        function test(name) {
+            var output = 'Hello ' + name + ' .. !';
+            return function () {
+                alert(output);
+            };
+        }
+
+        // 변수를 선언합니다.
+        var test_1 = test('Web');
+        var test_2 = test('JavaScript');
+
+        // 함수를 호출합니다.
+        test_1();
+        test_2();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 3초 후에 함수를 실행합니다.
+        setTimeout(function () {
+            alert('3초가 지났습니다. ㅇㅂㅇ');
+        }, 3000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 1초마다 함수를 실행합니다.
+        var intervalID = setInterval(function () {
+            alert('<p>' + new Date() + '</p>');
+        }, 1000);
+
+        // 10초 후 함수를 실행합니다.
+        setTimeout(function () {
+            // 타이머를 종료합니다.
+            clearInterval(intervalID);
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        alert('A');
+        setTimeout(function () {
+            alert('B');
+        }, 0);
+        alert('C');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        setTimeout(function () {
+            alert('Set Timeout');
+        }, 0);
+
+        while (true) { }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function () {
+                alert(i);
+            }, 0);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        for (var i = 0; i < 3; i++) {
+            (function (closed_i) {
+                setTimeout(function () {
+                    alert(closed_i);
+                }, 0);
+            })(i)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        [0, 1, 2].forEach(function (i) {
+            setTimeout(function () {
+                alert(i);
+            }, 0);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 인코딩할 URL을 만듭니다.
+        var URI = 'http://hanb.co.kr?test=한글입니다.';
+
+        // 출력할 문자열을 만듭니다.
+        var output = '';
+        output += '★escape()\n'
+        output += escape(URI) + '\n\n';
+        output += '★encodeURI()\n'
+        output += encodeURI(URI) + '\n\n';
+        output += '★encodeURIComponent()\n'
+        output += encodeURIComponent(URI) + '\n\n';
+
+        // 출력합니다.
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 문자열을 생성합니다.
+        var willEval = '';
+        willEval += 'var number = 10;';
+        willEval += 'alert(number);';
+
+        // eval() 함수를 호출합니다.
+        eval(willEval);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 문자열을 생성합니다.
+        var willEval = '';
+        willEval += 'var number = 10;';
+        willEval += 'alert(number);';
+
+        // eval() 함수를 호출합니다.
+        eval(willEval);
+
+        // eval() 함수로 호출한 코드의 변수를 사용합니다.
+        alert(number);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var number = 1 / 0;
+        alert(number);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var number = 1 / 0;
+        alert(number + ' : ' + isFinite(number));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var value = -10 / 0;
+
+        // 출력합니다.
+        if (value == Infinity) {
+            alert('Infinity입니다.');
+        } else {
+            alert('Infinity가 아닙니다.');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (NaN == NaN) {
+            alert('NaN == NaN');
+        } else {
+            alert('NaN != NaN');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        if (isNaN(NaN)) {
+            alert('NaN == NaN');
+        } else {
+            alert('NaN != NaN');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var won = '1000원';
+        var dollar = '1.5$';
+        alert(Number(won) + ' : ' + Number(dollar));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var won = '1000원';
+        var dollar = '1.5$';
+        alert(parseInt(won) + ' : ' + parseInt(dollar));
+        alert(parseFloat(won) + ' : ' + parseFloat(dollar));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
