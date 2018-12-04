@@ -1,11 +1,15 @@
 .gradle
-/build/
 !gradle/wrapper/gradle-wrapper.jar
+
+### folder ###
 /.gradle/
 /bin/
-/gradle
+/build/
+/gradle/
 /target/
 /war/
+
+
 
 
 ### STS ###
