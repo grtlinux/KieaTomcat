@@ -97,6 +97,17 @@ Wrapper
 - [SSL 설정법](https://tadpoledbhub.atlassian.net/wiki/spaces/TADPOLE/pages/18382851/SSL ""):
 - [Tomcat HTTPS 설정하기](https://joshua1988.github.io/web-development/pwa/tomcat-https-setup/ ""): vue.js 를 찾아보아라...^^
 -
+- (spring-security)
+- [초보자가 이해하는 Spring Security - 퍼옴](http://postitforhooney.tistory.com/entry/SpringSecurity-%EC%B4%88%EB%B3%B4%EC%9E%90%EA%B0%80-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-Spring-Security-%ED%8D%BC%EC%98%B4 ""):
+- [스프링 시큐리티 기초 따라가기 (1) - 환경설정 및 기본 로그인 시스템](http://hamait.tistory.com/325 ""):
+- [Spring Security Example UserDetailsService](https://www.journaldev.com/2736/spring-security-example-userdetailsservice ""):
+- [12회차_Spring Security 로그인 방법(데이터베이스 연동)](https://m.blog.naver.com/PostView.nhn?blogId=sam_sist&logNo=220964537132&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F ""):
+- [01. 스프링 시큐리티(spring-security) 연동(유저, 유저권한)](http://ryudung.tistory.com/19?category=657567 ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
 - []( ""):
 - []( ""):
 - []( ""):
