@@ -31,7 +31,7 @@
 		</property>
 		<!-- JDBC접속 문자열 설정 -->
 		<property name="url">
-			<value>jdbc:mysql://192.168.2.13:3306/spring?useUnicode=true&amp;characterEncoding=utf8
+			<value>jdbc:mysql://192.168.1.13:3306/spring?useUnicode=true&amp;characterEncoding=utf8
 			</value>
 		</property>
 		<!-- MySQL 유저ID 설정 -->
