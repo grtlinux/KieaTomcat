@@ -8,6 +8,8 @@
 /target/
 /war/
 
+*.md.html
+
 
 ### STS ###
 .apt_generated

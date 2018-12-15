@@ -1,6 +1,15 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
+/.gradle/
+/.mvn/
+/bin/
+/gradle
+/target/
+/war/
+
+*.md.html
+
 
 ### STS ###
 .apt_generated
