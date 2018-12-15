@@ -3,6 +3,8 @@ gradle-security-02
 
 - 2018.12.15: modify these sources using gradle-security-01
 
+- 2018.12.15: has some differences of security between 4.2.1 and 5.0.10
+
 - 2018.12.15: the below
 ```
 	<!-- 검사 URL -->
