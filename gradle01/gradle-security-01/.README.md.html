@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>C:\hanwha\GIT_sts\KieaTomcat\gradle01\gradle-security-02\.README.md.html</title>
+<title>C:\hanwha\GIT_sts\KieaTomcat\gradle01\gradle-security-01\.README.md.html</title>
 
 
 <style type="text/css">
@@ -639,44 +639,14 @@ function setDocumentScrollTop(ypos)
 
 </head>
 <body class="markdown-body">
-<h1> <a id="gradle-security-02" class="anchor" href="#gradle-security-02" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>gradle-security-02</h1> 
+<h1> <a id="gradle-security-01" class="anchor" href="#gradle-security-01" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>gradle-security-01</h1> 
 <ul> 
- <li> <p>2018.12.15: modify these sources using gradle-security-01</p> </li> 
- <li> <p>2018.12.15: has some differences of security between 4.2.1 and 5.0.10</p> </li> 
- <li> <p>2018.12.15: the below</p> </li> 
+ <li>2018.12.15: has some differences of security between 4.2.1 and 5.0.10</li> 
 </ul> 
-<pre><code>	&lt;!-- 검사 URL --&gt;
-	&lt;http use-expressions=&quot;true&quot;&gt;
-		&lt;intercept-url pattern=&quot;/login/loginForm.do&quot; access=&quot;permitAll&quot; /&gt;
-		&lt;intercept-url pattern=&quot;/home.do&quot; access=&quot;permitAll&quot; /&gt;
-		&lt;intercept-url pattern=&quot;/admin/**&quot; access=&quot;hasRole('ADMIN')&quot; /&gt;
-		&lt;intercept-url pattern=&quot;/**&quot; access=&quot;hasAnyRole('USER, ADMIN')&quot; /&gt;
-        
-		&lt;form-login login-page=&quot;/login/loginForm.do&quot;
-					default-target-url=&quot;/home.do&quot;
-					authentication-failure-url=&quot;/login/loginForm.do?error&quot;
-					username-parameter=&quot;id&quot;
-					password-parameter=&quot;password&quot; /&gt;
-		&lt;logout logout-url=&quot;/logout&quot;
-					logout-success-url=&quot;/home.do&quot; /&gt;
-		        
-		&lt;access-denied-handler error-page=&quot;/login/accessDenied.do&quot; /&gt;
-	&lt;/http&gt;
-    
-	&lt;!--  provider  --&gt;
-	&lt;authentication-manager&gt;
-		&lt;authentication-provider&gt;
-			&lt;user-service&gt;
-				&lt;user name=&quot;user&quot; password=&quot;password&quot; authorities=&quot;ROLE_USER&quot; /&gt;
-				&lt;user name=&quot;admin&quot; password=&quot;password&quot; authorities=&quot;ROLE_ADMIN&quot; /&gt;
-			&lt;/user-service&gt;
-		&lt;/authentication-provider&gt;
-	&lt;/authentication-manager&gt;
-</code></pre> 
 <h2> <a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2> 
 <ul> 
- <li> <a href="https://offbyone.tistory.com/91" title="스프링프레임웍 - Spring Security(2) : 커스텀 로그인 화면 및 권한에 따른 접근 제어" rel="nofollow">스프링프레임웍 - Spring Security(2) : 커스텀 로그인 화면 및 권한에 따른 접근 제어</a>:</li> 
+ <li> <a href="https://offbyone.tistory.com/88" title="스프링프레임웍 - Spring Security(1) : 기본 설정" rel="nofollow">스프링프레임웍 - Spring Security(1) : 기본 설정</a>:</li> 
 </ul> 
-<p>..........</p>
+<p>.....</p>
 </body>
 </html>
