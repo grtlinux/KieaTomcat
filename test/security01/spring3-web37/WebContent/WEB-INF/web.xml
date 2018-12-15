@@ -30,7 +30,8 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- filter-security -->
+	<!-- spring security -->
+	<!-- filter -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -40,7 +41,8 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- listener-security -->
+	<!-- spring security -->
+	<!-- listener -->
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>

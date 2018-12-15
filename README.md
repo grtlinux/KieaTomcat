@@ -103,7 +103,8 @@ Wrapper
 - [Spring Security Example UserDetailsService](https://www.journaldev.com/2736/spring-security-example-userdetailsservice ""):
 - [12회차_Spring Security 로그인 방법(데이터베이스 연동)](https://m.blog.naver.com/PostView.nhn?blogId=sam_sist&logNo=220964537132&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F ""):
 - [01. 스프링 시큐리티(spring-security) 연동(유저, 유저권한)](http://ryudung.tistory.com/19?category=657567 ""):
-- []( ""):
+- [스프링프레임웍 - Spring Security(1) : 기본 설정](https://offbyone.tistory.com/88 "스프링프레임웍 - Spring Security(1) : 기본 설정"): 하단 링크 확인
+- [github.com spring-projects/spring-security-javaconfig](https://github.com/spring-projects/spring-security-javaconfig/blob/master/quickstart.md "spring-projects/spring-security-javaconfig"):
 - []( ""):
 - []( ""):
 - []( ""):
@@ -122,7 +123,6 @@ Wrapper
 - []( ""):
 - []( ""):
 - [토렌트 사이트 추천 순위 TOP 18+](https://makemoneyskills.com/torrent-site-recommend/ "토렌트 사이트 추천 순위 TOP 18+"):
-- []( ""):
 - [토렌트 설치와 사용법 그리고 토렌트 파일로 자료 다운로드 받기](https://m.blog.naver.com/PostView.nhn?blogId=e_maill&logNo=220310900415&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F ""):
 
 .....
