@@ -14,5 +14,8 @@
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 		<input type="submit" value="LOGOUT">
 	</form:form>
+	<p>
+	
+	<a href="<c:url value='/logout' />">LOGOUT</a>
 </body>
 </html>

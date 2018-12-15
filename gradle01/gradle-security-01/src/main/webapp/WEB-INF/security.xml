@@ -11,11 +11,18 @@
 		">
 
 	<!-- security:http -->
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/**" access="hasRole('USER')" />
+		<security:form-login login-page="/login" />
+		<security:logout logout-url="/logout" />
+	</security:http>
+	<!--
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/**" access="hasRole('USER')" />
 		<security:form-login />
 		<security:logout />
 	</security:http>
+	-->
 
 	<!-- security:authentication-manager -->
 	<security:authentication-manager>
