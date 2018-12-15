@@ -5,6 +5,8 @@ gradle-security-02
 
 - 2018.12.15: has some differences of security between 4.2.1 and 5.0.10
 
+- 2018.12.15: reference spring3-web37
+
 - 2018.12.15: the below
 ```
 	<!-- 검사 URL -->
