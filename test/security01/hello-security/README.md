@@ -92,6 +92,11 @@ References
 - [Spring boot에서 Spring security를 사용하여 로그인 하기](https://wedul.site/170 "Spring boot에서 Spring security를 사용하여 로그인 하기"):
 - [Spring Boot + Spring MVC + Spring Security + MySQL](https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d "Spring Boot + Spring MVC + Spring Security + MySQL"):
 - [Spring Boot + Spring Security + Thymeleaf example](http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/ "Spring Boot + Spring Security + Thymeleaf example"):
+- [Spring Boot Web Application, Part 5 – Spring Security](https://springframework.guru/spring-boot-web-application-part-5-spring-security/ "Spring Boot Web Application, Part 5 – Spring Security"):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
 - []( ""):
 - []( ""):
 - []( ""):
