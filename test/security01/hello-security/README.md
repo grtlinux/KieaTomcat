@@ -93,9 +93,9 @@ References
 - [Spring Boot + Spring MVC + Spring Security + MySQL](https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d "Spring Boot + Spring MVC + Spring Security + MySQL"):
 - [Spring Boot + Spring Security + Thymeleaf example](http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/ "Spring Boot + Spring Security + Thymeleaf example"):
 - [Spring Boot Web Application, Part 5 – Spring Security](https://springframework.guru/spring-boot-web-application-part-5-spring-security/ "Spring Boot Web Application, Part 5 – Spring Security"):
-- []( ""):
-- []( ""):
-- []( ""):
+- [스프링 부트 보안(예제)](https://frontierdev.tistory.com/89 "스프링 부트 보안(예제)"):
+- [Spring Boot Security 연습](http://julydaily.blogspot.com/2017/07/spring-boot-security.html "Spring Boot Security 연습"):
+- [julyinsung/springboot](https://github.com/julyinsung/springboot "julyinsung/springboot"):
 - []( ""):
 - []( ""):
 - []( ""):
