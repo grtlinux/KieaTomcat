@@ -16,14 +16,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	@Override
+	@SuppressWarnings("deprecation")
 	protected UserDetailsService userDetailsService() {
-		@SuppressWarnings("deprecation")
 		UserDetails user = User.withDefaultPasswordEncoder()
 				.username("user")
 				.password("password")
 				.roles("USER")
 				.build();
-		return new InMemoryUserDetailsManager(user);
+		UserDetails admin = User.withDefaultPasswordEncoder()
+				.username("admin")
+				.password("password")
+				.roles("USER")
+				.build();
+		return new InMemoryUserDetailsManager(user, admin);
 	}
 
 	@Override
