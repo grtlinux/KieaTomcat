@@ -80,8 +80,17 @@ JSP의 위치
 
 References
 ----------
+- [2년 된 Spring 소스코드를 Spring Boot 로 바꾼 후기](https://limsungmook.github.io/2016/12/28/review-migration-legacy-to-boot/ "2년 된 Spring 소스코드를 Spring Boot 로 바꾼 후기"):
+- [SPRING BOOT에서 JSP 사용하기](http://coding-slave.blogspot.com/2016/01/web-spring-spring-boot.html "SPRING BOOT에서 JSP 사용하기"):
 - [Spring 4 Tutorial with Examples](https://www.concretepage.com/spring-4/ "Spring 4 Tutorial with Examples"): ConcretePage.com ^^
 - [Spring Boot Hello World Example – JSP](https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-jsp/ "Spring Boot Hello World Example – JSP"):
+- [Creating a Web Application with Spring Boot with JSP](http://www.springboottutorial.com/creating-web-application-with-spring-boot "Creating a Web Application with Spring Boot with JSP"):
+- [Spring Boot - Exploded web application with jar and war packaging](https://www.logicbig.com/tutorials/spring-framework/spring-boot/boot-exploded-war.html "Spring Boot - Exploded web application with jar and war packaging"):
+- [Spring Boot - Creating web application using Spring MVC](https://www.boraji.com/spring-boot-creating-web-application-using-spring-mvc "Spring Boot - Creating web application using Spring MVC"):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
 - []( ""):
 - []( ""):
 - []( ""):
