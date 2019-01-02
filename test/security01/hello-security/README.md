@@ -87,10 +87,10 @@ References
 - [Creating a Web Application with Spring Boot with JSP](http://www.springboottutorial.com/creating-web-application-with-spring-boot "Creating a Web Application with Spring Boot with JSP"):
 - [Spring Boot - Exploded web application with jar and war packaging](https://www.logicbig.com/tutorials/spring-framework/spring-boot/boot-exploded-war.html "Spring Boot - Exploded web application with jar and war packaging"):
 - [Spring Boot - Creating web application using Spring MVC](https://www.boraji.com/spring-boot-creating-web-application-using-spring-mvc "Spring Boot - Creating web application using Spring MVC"):
-- []( ""):
-- []( ""):
-- []( ""):
-- []( ""):
+- [Hello Spring Security with Boot](https://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-boot.html "Hello Spring Security with Boot"):
+- [Spring Boot 기반 Spring Security 회원가입 / 로그인 구현하기](https://xmfpes.github.io/spring/spring-security/ "Spring Boot 기반 Spring Security 회원가입 / 로그인 구현하기"):
+- [Spring boot에서 Spring security를 사용하여 로그인 하기](https://wedul.site/170 "Spring boot에서 Spring security를 사용하여 로그인 하기"):
+- [Spring Boot + Spring MVC + Spring Security + MySQL](https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d "Spring Boot + Spring MVC + Spring Security + MySQL"):
 - []( ""):
 - []( ""):
 - []( ""):
