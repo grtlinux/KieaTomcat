@@ -1,0 +1,50 @@
+property:
+  test:
+    name: property depth test
+propertyTest: test
+propertyTestList: a,b,c
+
+fruit:
+  title: Fruit Title
+  serial: 12345
+  list:
+    - name: banana
+      color: yellow
+    - name: apple
+      color: red
+    - name: water melon
+      color: green
+  arr:
+    - Hello
+    - World
+    - Seok
+
+org:
+  tain:
+    server:
+      port: 8000
+
+# listening port of springboot
+server:
+  port: 8000
+
+---
+# local
+spring:
+  profiles: local
+server:
+  port: 8001
+  
+---
+# dev
+spring:
+  profiles: dev
+server:
+  port: 8002
+  
+---
+# real
+spring:
+  profiles: real
+server:
+  port: 8003
