@@ -1,0 +1,49 @@
+# default yaml
+
+server:
+  name: Spring Boot Web Listen Port
+  port: 8888
+
+#
+property:
+  test:
+    name: property depth test
+
+propertyTest: test
+
+propertyTestList: a,b,c
+
+#
+fruit:
+  title: Fruit Title
+  count: 12345
+  list:
+    - name: banana
+      color: yellow
+      price: 1000
+    - name: apple
+      color: red
+      price: 2000
+    - name: water melon
+      color: green
+      price: 3000
+  country:
+    - Korea
+    - USA
+    - Japen
+    - England
+
+#
+org:
+  tain:
+    thomson:
+      name: Kiea Thomson
+      udp:
+        ip: 192.168.1.123
+        port: 1024
+      listen:
+        port: 3306
+
+
+
+# 

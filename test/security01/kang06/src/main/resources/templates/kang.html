@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Spring Security Example</title>
+</head>
+<body>
+	<div>
+		<h1>kang.html</h1>
+	</div>
+	<div>
+		<h1 th:inline="text">User is '[[${#httpServletRequest.remoteUser}]]'</h1>
+	</div>
+	<div>
+		<form method="post" th:action="@{/logout}">
+			<input type="submit" value="Sign out"/>
+		</form>
+	</div>
+	<div>
+		<a th:href="@{/hello}">hello.html</a>
+	</div>
+</body>
+</html>
+
