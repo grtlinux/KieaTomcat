@@ -1,0 +1,21 @@
+{
+	"id": "FEP01",
+	"name": "First ID",
+	"description": "First created ID",
+	"fields": [
+		{
+			"name": "fld01",
+			"size": 10,
+			"description": "field 1"
+		},
+		{
+			"name": "fld02",
+			"size": 20,
+			"description": "field 2"
+		}
+	],
+	"number": 12345
+}
+
+
+
