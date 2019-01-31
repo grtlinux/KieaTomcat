@@ -1,7 +1,7 @@
 {
 	"id": "FEP01",
 	"name": "First ID",
-	"description": "First created ID",
+	"description": "First created ID in resources folder",
 	"fields": [
 		{
 			"name": "fld01",

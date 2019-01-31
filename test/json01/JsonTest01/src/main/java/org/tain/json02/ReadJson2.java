@@ -1,7 +1,5 @@
 package org.tain.json02;
 
-import java.io.File;
-
 import org.springframework.stereotype.Component;
 import org.tain.fep.Fep;
 
@@ -15,10 +13,10 @@ public class ReadJson2 {
 	}
 
 	public void readJson() throws Exception {
-		System.out.println(">>>>> ReadJson.readJson....");
+		System.out.println(">>>>> ReadJson2.readJson....");
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		Fep fep = objectMapper.readValue(new File("/users/kangmac/FEP01.json"), Fep.class);
+		Fep fep = objectMapper.readValue(getClass().getResourceAsStream("/FEP01.json"), Fep.class);
 		
 		System.out.println(">>>>> " + fep);
 	}

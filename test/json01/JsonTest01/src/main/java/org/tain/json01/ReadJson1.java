@@ -15,7 +15,7 @@ public class ReadJson1 {
 	}
 
 	public void readJson() throws Exception {
-		System.out.println(">>>>> ReadJson.readJson....");
+		System.out.println(">>>>> ReadJson1.readJson....");
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		Fep fep = objectMapper.readValue(new File("/users/kangmac/FEP01.json"), Fep.class);
