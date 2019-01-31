@@ -1,0 +1,140 @@
+#
+# Properties: server
+#
+server:
+  port: 8000
+
+
+#
+# Properties: property
+#
+property:
+  test:
+    name: property depth test
+propertyTest: test
+propertyTestList: a, b, c
+
+
+
+#
+# Properties: info
+#
+project:
+  artifactId: ArtifactID
+  name: Hello
+  description: Hello, world
+  version: 1.2.3
+  
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    varsion: ${project.version}
+
+#
+# Properties: fixtures
+#
+fixtures:
+  articles:
+    - id: 1
+      title: title1
+      content: content1
+    - id: 2
+      title: title2
+      content: content2
+    - id: 3
+      title: title3
+      content: content3
+
+
+
+#
+# Properties: myconfig.dbconfig
+#
+myconfig.dbconfig:
+  needUpdateScheme: true
+  dataUpateType: prod
+  databases:
+    db0:
+      url: jdbc:mysql://192.168.1.13:3306/db?useSSL=false&useUnicode=true&characterEncoding=utf-8
+      username: user
+      password: pass
+
+
+#
+# Properties: security
+#
+acme:
+  security:
+    -
+      username: admin
+      password: password
+      roles:
+        - USER
+        - ADMIN
+    -
+      username: user
+      password: password
+      roles:
+        - USER
+
+
+
+
+
+#
+# Properties: spring profiles
+#   $ java -jar -Dspring.profiles.active=[default|dev&test|prod&real]   XXXX.jar
+#   $ java -jar XXXX.jar --spring.profiles.active=[default|dev&test|prod&real]
+#
+logging:
+  level:
+    .: error
+    org.springframework: ERROR
+    com.mkyong: ERROR
+
+spring:
+  profiles:
+    active: "default"
+    #active: "dev"
+    #active: "prod"
+  main:
+    banner-mode: "off"
+
+servers:
+  email: default@mkyong.com
+
+---
+
+spring:
+  profiles: dev # test
+servers:
+  title: Development
+  email: dev@mkyong.com
+  cluster:
+    - ip: 127.0.0.1
+      path: /dev1
+    - ip: 127.0.0.2
+      path: /dev2
+    - ip: 127.0.0.3
+      path: /dev3
+
+---
+
+spring:
+  profiles: prod # real
+servers:
+  title: Prod Real
+  email: prod@mkyong.com
+  cluster:
+    - ip: 192.168.0.1
+      path: /app1
+    - ip: 192.168.0.2
+      path: /app2
+    - ip: 192.168.0.3
+      path: /app3
+
+
+
+

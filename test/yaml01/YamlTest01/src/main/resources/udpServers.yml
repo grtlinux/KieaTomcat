@@ -1,0 +1,15 @@
+#
+# Properties: udpServers.yml
+# Comment: create 1st at 2019.01.30 by Kiea Seok Kang(010-4258-2025)
+#   option: --udp-servers.list='["192.168.1.11:1111", "192.168.1.22:2222", "192.168.1.33:3333"]'
+#   option: --udp-servers.list='192.168.1.11:1111, 192.168.1.22:2222, 192.168.1.33:3333'
+#
+
+udp-servers:
+  list:
+    - 127.0.0.1:1234
+    - 127.0.0.2:2345
+
+#
+
+

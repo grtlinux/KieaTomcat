@@ -1,0 +1,24 @@
+#
+# Properties: subApp
+#
+sub-app:
+  email: yml@gmail.com
+  threadPool: 99999
+
+
+#
+# Properties: security
+#
+acme2:
+  security:
+    -
+      username: admin2
+      password: password2
+      roles:
+        - USER
+        - ADMIN
+    -
+      username: user2
+      password: password2
+      roles:
+        - USER
