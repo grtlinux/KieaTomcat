@@ -8,7 +8,8 @@ public class BeanTest01Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BeanTest01Application.class, args);
+		
+		System.exit(0);
 	}
-
 }
 
