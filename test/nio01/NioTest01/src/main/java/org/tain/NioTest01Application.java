@@ -8,7 +8,8 @@ public class NioTest01Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NioTest01Application.class, args);
+		
+		System.exit(0);
 	}
-
 }
 
