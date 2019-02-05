@@ -1,0 +1,31 @@
+package org.tain.sec04.exam03_properties;
+
+import java.io.FileReader;
+import java.net.URLDecoder;
+import java.util.Properties;
+
+import org.springframework.stereotype.Component;
+import org.tain.utils.ClassUtil;
+
+@Component(value = "PropertiesExample")
+public class PropertiesExample {
+
+	public PropertiesExample() throws Exception {
+		System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		
+		Properties properties  = new Properties();
+		String path = PropertiesExample.class.getResource("./database.properties").getPath();
+		path = URLDecoder.decode(path, "utf-8");
+		properties.load(new FileReader(path));
+		
+		String driver = properties.getProperty("driver");
+		String url = properties.getProperty("url");
+		String username = properties.getProperty("username");
+		String password = properties.getProperty("password"); 
+		
+		System.out.println("driver : " + driver);
+		System.out.println("url : " + url);
+		System.out.println("username : " + username);
+		System.out.println("password : " + password);
+	}
+}
