@@ -28,6 +28,12 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"numberofsaves": "272"}'
 References
 ----------
 - [How to test a REST api from command line with curl](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/ ""):
+- [curl](https://www.lesstif.com/display/WS/curl ""):
+- [curl 설치 및 사용법 - HTTP GET/POST, REST API 연계등](https://www.lesstif.com/pages/viewpage.action?pageId=14745703 ""):
+- [curl 에 신뢰하는 인증기관 인증서 추가하기](https://www.lesstif.com/pages/viewpage.action?pageId=15892500 ""):
+- [지원되는 cURL 옵션](https://fmhelp.filemaker.com/help/16/fmp/ko/index.html#page/FMP_Help/curl-options.html ""):
+- [ssl 이란 리다이렉트 - 명령 줄에서 CURL을 사용하여 https 연결](https://code.i-harness.com/ko-kr/q/99cddb ""):
+- [REST API 제대로 알고 사용하기](https://meetup.toast.com/posts/92 ""):
 - []( ""):
 - []( ""):
 - []( ""):
