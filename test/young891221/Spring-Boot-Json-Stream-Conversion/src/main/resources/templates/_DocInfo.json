@@ -1,0 +1,14 @@
+{
+	"fields": [
+		{ "fieldId": "F001", "fieldName": "fld001", "name": "전문길이", "length": 6, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F002", "fieldName": "fld002", "name": "전문경로", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F003", "fieldName": "fld003", "name": "전문구분", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F004", "fieldName": "fld004", "name": "전문종별", "length": 2, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F005", "fieldName": "fld005", "name": "전문순번", "length": 5, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F006", "fieldName": "fld006", "name": "점포번호", "length": 5, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F007", "fieldName": "fld007", "name": "영업일자", "length": 8, "fieldType": "DATE", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F008", "fieldName": "fld008", "name": "포스번호", "length": 2, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F009", "fieldName": "fld009", "name": "거래번호", "length": 5, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F010", "fieldName": "fld010", "name": "에러코드", "length": 4, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
+	]
+}
