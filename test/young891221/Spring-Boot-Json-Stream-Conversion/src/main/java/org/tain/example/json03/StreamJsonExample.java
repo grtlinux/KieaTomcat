@@ -41,6 +41,8 @@ public class StreamJsonExample {
 			this.storeInfo = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/StoreInfo.json"), StoreInfo.class);
 			this.item01Info = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/Item01Info.json"), Item01Info.class);
 			this.item23Info = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/Item23Info.json"), Item23Info.class);
+			//this.item23Info = this.objectMapper.readValue(ResourceUtils.getFile("file:templates/json/Item23Info.json"), Item23Info.class);
+			//this.item23Info = this.objectMapper.readValue(ResourceUtils.getFile("templates/json/Item23Info.json"), Item23Info.class);
 		}
 
 		if (flag) {
