@@ -1,0 +1,33 @@
+{
+	"fields": [
+		{ "fieldId": "F083", "fieldName": "fld083", "name": "아이템 헤더 ID", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F084", "fieldName": "fld084", "name": "아이템 길이", "length": 3, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F085", "fieldName": "fld085", "name": "승인 VAN사", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F086", "fieldName": "fld086", "name": "전문일련번호", "length": 6, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F087", "fieldName": "fld087", "name": "카드번호", "length":16, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F088", "fieldName": "fld088", "name": "유효기간", "length": 4, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F089", "fieldName": "fld089", "name": "비밀번호", "length":16, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F090", "fieldName": "fld090", "name": "할부개월", "length": 2, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+
+		{ "fieldId": "F091", "fieldName": "fld091", "name": "매출액", "length": 9, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F092", "fieldName": "fld092", "name": "부가세", "length": 9, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F093", "fieldName": "fld093", "name": "승인번호", "length":12, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F094", "fieldName": "fld094", "name": "WCC", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F095", "fieldName": "fld095", "name": "카드데이터", "length":37, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F096", "fieldName": "fld096", "name": "승인일자", "length": 8, "fieldType": "DATE", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F097", "fieldName": "fld097", "name": "승인시간", "length": 6, "fieldType": "TIME", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F098", "fieldName": "fld098", "name": "발급사코드", "length": 4, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F099", "fieldName": "fld099", "name": "발급사명", "length":20, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F100", "fieldName": "fld100", "name": "매입사코드", "length": 4, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+
+		{ "fieldId": "F101", "fieldName": "fld101", "name": "매입사명", "length":20, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F102", "fieldName": "fld102", "name": "가맹점 코드", "length":15, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F103", "fieldName": "fld103", "name": "카드잔액", "length": 9, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F104", "fieldName": "fld104", "name": "카드종류", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F105", "fieldName": "fld105", "name": "포스유니크키", "length":30, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F106", "fieldName": "fld106", "name": "벤사유니크키", "length":25, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F107", "fieldName": "fld107", "name": "filler", "length":85, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
+	]
+}
+
+

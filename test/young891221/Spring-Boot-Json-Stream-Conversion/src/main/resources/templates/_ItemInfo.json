@@ -45,3 +45,5 @@
 		{ "fieldId": "F082", "fieldName": "fld082", "name": "filler", "length":10, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
 	]
 }
+
+

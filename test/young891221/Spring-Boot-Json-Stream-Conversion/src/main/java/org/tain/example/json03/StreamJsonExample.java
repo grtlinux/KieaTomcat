@@ -1,14 +1,15 @@
 package org.tain.example.json03;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-import org.tain.example.info.CardInfo;
-import org.tain.example.info.DocInfo;
 import org.tain.example.info.FieldInfo;
-import org.tain.example.info.ItemInfo;
-import org.tain.example.info.StoreInfo;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,6 +22,12 @@ public class StreamJsonExample {
 	@Autowired
 	private StreamJsonProperty streamJsonProperty;
 	
+	private ObjectMapper objectMapper = null;
+	private MastInfo mastInfo = null;
+	private StoreInfo storeInfo = null;
+	private Item01Info item01Info = null;
+	private Item23Info item23Info = null;
+	
 	@Bean(value = "example.svr01.ServerExample.test01")
 	public void test01() throws Exception {
 		if (flag) {
@@ -28,102 +35,110 @@ public class StreamJsonExample {
 			System.out.println(">>>>> " + streamJsonProperty);
 		}
 		
-		ObjectMapper mapper = new ObjectMapper();  // create once, reuse
+		if (flag) {
+			this.objectMapper = new ObjectMapper();  // create once, reuse
+			this.mastInfo = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/MastInfo.json"), MastInfo.class);
+			this.storeInfo = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/StoreInfo.json"), StoreInfo.class);
+			this.item01Info = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/Item01Info.json"), Item01Info.class);
+			this.item23Info = this.objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/Item23Info.json"), Item23Info.class);
+		}
 
 		if (flag) {
-			// json to object
-			// DocInfo docInfo = mapper.readValue(new File("/Users/kangmac/STS_GIT/_DocInfo.json"), DocInfo.class);  // OK
-			DocInfo docInfo = mapper.readValue(ResourceUtils.getFile("classpath:templates/_DocInfo.json"), DocInfo.class);
-			System.out.println(">>>>> " + docInfo);
+			File file = ResourceUtils.getFile("classpath:templates/data/Request01(Euckr).dat");
+			System.out.println(">>>>> file: " + file.getAbsolutePath());
+			
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ResourceUtils.getFile("classpath:templates/data/Request01(Euckr).dat")), "EUC-KR"));
+			String line;
+			
+			ObjectMapper objectMapper = new ObjectMapper();  // create once, reuse
+
+			while ((line = bufferedReader.readLine()) != null) {
+				if (flag) System.out.println(">>>>> " + line);
+				analyze(line, objectMapper);
+			}
+			
+			bufferedReader.close();
+		}
+	}
+	
+	private void analyze(String strReq, ObjectMapper objectMapper) throws Exception {
+		strReq = strReq.replace('.', ' ');
+		byte[] byteReq = strReq.getBytes("EUC-KR");
+		int offset = 0;
+		
+		// MastInfo
+		System.out.println("########## MastInfo: " + this.mastInfo);
+		for (FieldInfo fieldInfo : this.mastInfo.getFields()) {
+			String strField = new String(byteReq, offset, fieldInfo.getLength(), "EUC-KR");
+			offset += fieldInfo.getLength();
+			
+			// 필드 원본값 저장
+			fieldInfo.setFromValue(strField);
+			// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
+			fieldInfo.setToValue(getToValue(fieldInfo));
+
+			String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+			System.out.println(">>>>> " + jsonString);
+		}
+
+		// StoreInfo
+		System.out.println("########## StoreInfo: " + this.storeInfo);
+		for (FieldInfo fieldInfo : this.storeInfo.getFields()) {
+			String strField = new String(byteReq, offset, fieldInfo.getLength(), "EUC-KR");
+			offset += fieldInfo.getLength();
+			
+			// 필드 원본값 저장
+			fieldInfo.setFromValue(strField);
+			// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
+			fieldInfo.setToValue(getToValue(fieldInfo));
+
+			String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+			System.out.println(">>>>> " + jsonString);
 		}
 		
-		if (flag) {
-			// 
-			String strReqPacket = "000990SH0000000851501201901296001790000000095051501600179020190129201901291335000000900001.................................0000002250000002250000002250000000000000000000000000000070100010................000001218001000000880027980700120......0000001300001000001300000000000000001300000110073240..........000001300......000000000......000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000001218002088011151344350701420......0000000950001000000950000000000000000950000110073240..........000000950......000000000......00000000000000000000000000000000000000000000000000000000000000000000000000000000080000000002334760000000533872..........KRKW................0000000225000000020552063467....A533872...............................2019012913350009..롯데마스터카드......09..롯데카드............9966089516.....000000000005150100000201901296001790.....0000000000000000000000000.....................................................................................";
-			strReqPacket = strReqPacket.replace('.', ' ');
-			byte[] byteReqPacket = strReqPacket.getBytes("EUC-KR");
-			int offset = 0;
-
-			// DocInfo docInfo = mapper.readValue(new File("/Users/kangmac/STS_GIT/_DocInfo.json"), DocInfo.class);  // OK
-			DocInfo docInfo = mapper.readValue(ResourceUtils.getFile("classpath:templates/_DocInfo.json"), DocInfo.class); // OK
-			System.out.println(">>>>> " + docInfo);
-
-			for (FieldInfo info : docInfo.getFields()) {
-				String strField = new String(byteReqPacket, offset, info.getLength());
-				offset += info.getLength();
-				
-				// 필드 원본값 저장
-				info.setFromValue(strField);
-				// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
-				info.setToValue(getToValue(info));
-				
-				String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(info);  // 이쁜 출력
-				System.out.println(">>>>> " + jsonString);
-			}
-
-			StoreInfo storeInfo = mapper.readValue(ResourceUtils.getFile("classpath:templates/_StoreInfo.json"), StoreInfo.class);
-			System.out.println(">>>>> " + storeInfo);
+		for (; offset < byteReq.length;) {
+			String id = new String(byteReq, offset, 2, "EUC-KR");
 			
-			for (FieldInfo info : storeInfo.getFields()) {
-				String strField = new String(byteReqPacket, offset, info.getLength());
-				offset += info.getLength();
-				
-				// 필드 원본값 저장
-				info.setFromValue(strField);
-				// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
-				info.setToValue(getToValue(info));
-
-				String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(info);  // 이쁜 출력
-				System.out.println(">>>>> " + jsonString);
-			}
-			
-			for (; offset < byteReqPacket.length;) {
-				String id = new String(byteReqPacket, offset, 2);  // 구분자 ID
-				if ("01".equals(id)) {
-					// Item data
-					ItemInfo itemInfo = mapper.readValue(ResourceUtils.getFile("classpath:templates/_ItemInfo.json"), ItemInfo.class);
-					System.out.println(">>>>> " + itemInfo);
+			if ("01".equals(id)) {
+				// Item01Info
+				System.out.println("########## Item01Info: " + this.item01Info);
+				for (FieldInfo fieldInfo : item01Info.getFields()) {
+					String strField = new String(byteReq, offset, fieldInfo.getLength(), "EUC-KR");
+					offset += fieldInfo.getLength();
 					
-					for (FieldInfo info : itemInfo.getFields()) {
-						String strField = new String(byteReqPacket, offset, info.getLength());
-						offset += info.getLength();
-						
-						// 필드 원본값 저장
-						info.setFromValue(strField);
-						// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
-						info.setToValue(getToValue(info));
+					// 필드 원본값 저장
+					fieldInfo.setFromValue(strField);
+					// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
+					fieldInfo.setToValue(getToValue(fieldInfo));
 
-						String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(info);  // 이쁜 출력
-						System.out.println(">>>>> " + jsonString);
-					}
-				} else if ("23".equals(id)) {
-					// card data
-					CardInfo cardInfo = mapper.readValue(ResourceUtils.getFile("classpath:templates/_CardInfo.json"), CardInfo.class);
-					System.out.println(">>>>> " + cardInfo);
+					String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+					System.out.println(">>>>> " + jsonString);
+				}
+			} else if ("23".equals(id)) {
+				// Item23Info
+				System.out.println("########## Item23Info: " + this.item23Info);
+				for (FieldInfo fieldInfo : item23Info.getFields()) {
+					String strField = new String(byteReq, offset, fieldInfo.getLength(), "EUC-KR");
+					offset += fieldInfo.getLength();
 					
-					for (FieldInfo info : cardInfo.getFields()) {
-						String strField = new String(byteReqPacket, offset, info.getLength(), "EUC-KR");
-						offset += info.getLength();
-						
-						// 필드 원본값 저장
-						info.setFromValue(strField);
-						// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
-						info.setToValue(getToValue(info));
+					// 필드 원본값 저장
+					fieldInfo.setFromValue(strField);
+					// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
+					fieldInfo.setToValue(getToValue(fieldInfo));
 
-						String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(info);  // 이쁜 출력
-						System.out.println(">>>>> " + jsonString);
-					}
+					String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+					System.out.println(">>>>> " + jsonString);
 				}
 			}
 		}
 	}
 	
-	private String getToValue(FieldInfo info) throws Exception {
+	private String getToValue(FieldInfo fieldInfo) throws Exception {
 		
 		String ret = null;
 		
-		String fromValue = info.getFromValue();
-		String fieldType = info.getFieldType();
+		String fromValue = fieldInfo.getFromValue();
+		String fieldType = fieldInfo.getFieldType();
 		
 		if (!fieldType.equals("STRING") && fromValue.trim().length() > 0) {
 			if (fieldType.equals("LONG")) {
@@ -144,3 +159,7 @@ public class StreamJsonExample {
 		return ret;
 	}
 }
+
+
+
+

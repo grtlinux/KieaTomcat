@@ -38,3 +38,5 @@
 		{"fieldId": "F043", "fieldName": "fld043", "name": "연습모드구분", "length":  1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": ""}
 	]
 }
+
+

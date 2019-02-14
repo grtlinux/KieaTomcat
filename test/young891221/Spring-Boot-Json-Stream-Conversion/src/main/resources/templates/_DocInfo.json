@@ -12,3 +12,5 @@
 		{ "fieldId": "F010", "fieldName": "fld010", "name": "에러코드", "length": 4, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
 	]
 }
+
+
