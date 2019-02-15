@@ -158,9 +158,10 @@ public void readallfilesfromresources() {
 
 References
 ----------
-- []( ""):
-- []( ""):
-- []( ""):
+- [5.4 The ResourceLoader](https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch05s04.html ""):
+- [(Spring 레퍼런스) 5장 리소스 #1](https://blog.outsider.ne.kr/794 ""):
+- [(Spring 레퍼런스) 5장 리소스 #2](https://blog.outsider.ne.kr/795 ""):
+- [Spring ResourceLoader example – Load resource files in Spring](https://howtodoinjava.com/spring-core/how-to-load-external-resources-files-into-spring-context/ ""):
 - []( ""):
 - []( ""):
 - []( ""):
