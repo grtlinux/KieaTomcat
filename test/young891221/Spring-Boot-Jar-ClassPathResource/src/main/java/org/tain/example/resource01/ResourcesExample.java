@@ -90,16 +90,27 @@ public class ResourcesExample {
 	public void test04() throws Exception {
 		// classpath*:../../json/*.json    <- OK
 		Resource[] resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath:templates/json/*.json");
-		for (int i=0; i < resources.length; i++) {
-			System.out.println(">>>>> " + resources[i].getFilename());
+
+		if (flag) {
+			for (Resource resource : resources) {
+				System.out.println(">>>>> " + resource.getFile().getName());
+			}
 		}
 		
-		for (Resource resource : resources) {
-			System.out.println(">>>>> " + resource.getFilename() + " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-			InputStream is = resource.getInputStream();
-			byte[] byteJson = IOUtils.toByteArray(is);
-			String strJson = new String(byteJson, Charset.forName("UTF-8"));
-			System.out.println(">>>>> " + strJson);
+		if (!flag) {
+			for (int i=0; i < resources.length; i++) {
+				System.out.println(">>>>> " + resources[i].getFilename());
+			}
+		}
+		
+		if (!flag) {
+			for (Resource resource : resources) {
+				System.out.println(">>>>> " + resource.getFilename() + " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+				InputStream is = resource.getInputStream();
+				byte[] byteJson = IOUtils.toByteArray(is);
+				String strJson = new String(byteJson, Charset.forName("UTF-8"));
+				System.out.println(">>>>> " + strJson);
+			}
 		}
 	}
 }
