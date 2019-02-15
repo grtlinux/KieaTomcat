@@ -7,14 +7,13 @@ import java.io.InputStreamReader;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 import org.tain.example.info.FieldInfo;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Component(value = "example.json03.StreamJsonExample")
+//@Component(value = "example.json03.StreamJsonExample")
 public class StreamJsonExample {
 
 	private static final boolean flag = true;
@@ -28,7 +27,7 @@ public class StreamJsonExample {
 	private Item01Info item01Info = null;
 	private Item23Info item23Info = null;
 	
-	@Bean(value = "example.svr01.ServerExample.test01")
+	@Bean
 	public void test01() throws Exception {
 		if (flag) {
 			System.out.println(">>>>> " + ClassUtil.getClassInfo());

@@ -89,7 +89,11 @@ public class ResourcesExample {
 	@Bean
 	public void test04() throws Exception {
 		// classpath*:../../json/*.json    <- OK
-		Resource[] resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath:templates/json/*.json");
+		Resource[] resources = null;
+		resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath*:**/*.json");  // ALL json in all jar files and this resources
+		resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath:**/*.json");   // ALL json in this resources
+		resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath:templates/json/*.json");   // specified json files
+		resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources("classpath:templates/json/MastInfo.json");   // the specified json file
 
 		if (flag) {
 			for (Resource resource : resources) {
