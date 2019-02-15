@@ -35,9 +35,9 @@ public class Application {
 			IntStream.rangeClosed(1, 201).forEach(index ->
 				boardRepository.save(
 						Board.builder()
-							.title("" + index)
-							.subTitle("" + index)
-							.content("")
+							.title("제목-" + index)
+							.subTitle("부제목-" + index)
+							.content("내용입니다.")
 							.boardType(BoardType.free)
 							.createdDate(LocalDateTime.now())
 							.updatedDate(LocalDateTime.now())
