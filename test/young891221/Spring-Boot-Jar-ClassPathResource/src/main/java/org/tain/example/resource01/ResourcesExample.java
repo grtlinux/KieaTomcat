@@ -83,6 +83,9 @@ public class ResourcesExample {
 		}
 	}
 	
+	/*
+	 * TODO KANG-20190215: the below source dosn't execute on executable jar environment.
+	 */
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
