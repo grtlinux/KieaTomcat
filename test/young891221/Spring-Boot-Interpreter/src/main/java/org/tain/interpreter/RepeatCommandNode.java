@@ -19,6 +19,6 @@ public class RepeatCommandNode extends Node {
 	}
 
 	public String toString() {
-		return "[repeat " + this.number + " " + this.commandListNode + "]";
+		return "(repeat " + this.number + " " + this.commandListNode + ")";
 	}
 }

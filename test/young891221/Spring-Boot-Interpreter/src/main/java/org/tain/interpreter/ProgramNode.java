@@ -16,6 +16,6 @@ public class ProgramNode extends Node {
 	}
 
 	public String toString() {
-		return "[program " + this.commandListNode + "]";
+		return "(program " + this.commandListNode + ")";
 	}
 }
