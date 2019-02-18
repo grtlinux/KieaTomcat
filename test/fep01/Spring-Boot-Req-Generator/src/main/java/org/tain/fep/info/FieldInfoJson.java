@@ -13,7 +13,7 @@ public class FieldInfoJson {
 
 	private static final boolean flag = true;
 	
-	private List<String> list;
+	private List<String> list;  // TODO KANG-20190218: to property yaml
 	
 	private Map<String, String> map;
 	
