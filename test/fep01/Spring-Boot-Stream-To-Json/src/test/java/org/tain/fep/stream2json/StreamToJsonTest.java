@@ -1,7 +1,9 @@
 package org.tain.fep.stream2json;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -9,6 +11,7 @@ import org.tain.fep.info.FieldInfo;
 import org.tain.fep.info.Item01Info;
 import org.tain.fep.info.Item23Info;
 import org.tain.fep.info.MastInfo;
+import org.tain.fep.info.ReqDataInfo;
 import org.tain.fep.info.ReqFieldInfo;
 import org.tain.fep.info.StoreInfo;
 import org.tain.utils.ClassUtil;
@@ -26,6 +29,9 @@ public class StreamToJsonTest {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
 		String stream = null;
+		ReqFieldInfo reqFieldInfo1 = null;
+		ReqFieldInfo reqFieldInfo2 = null;
+		ReqDataInfo reqDataInfo = null;
 		
 		if (flag) {
 			// get stream
@@ -36,13 +42,72 @@ public class StreamToJsonTest {
 		if (flag) {
 			// get field info
 			this.objectMapper = new ObjectMapper();  // need one instance
-			ReqFieldInfo reqFieldInfo = analyze(stream);
-			if (!flag) System.out.println(">>>>> " + reqFieldInfo);
-			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo));  // 이쁜 출력
-
-			if (!flag) for (FieldInfo fieldInfo : reqFieldInfo.getStoreInfo().getFields()) {
+			reqFieldInfo1 = analyze(stream);
+			if (!flag) System.out.println(">>>>> " + reqFieldInfo1);
+			if (!flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo1));  // 이쁜 출력
+		}
+		
+		if (!flag) {
+			// check print
+			if (!flag) for (FieldInfo fieldInfo : reqFieldInfo1.getStoreInfo().getFields()) {
 				if (flag) System.out.println(">>>>>" + fieldInfo);
 			}
+			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo1.getMastInfo()));  // 이쁜 출력
+			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo1.getStoreInfo()));  // 이쁜 출력
+			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo1.getListItem01Info()));  // 이쁜 출력
+			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo1.getItem23Info()));  // 이쁜 출력
+		}
+		
+		if (flag) {
+			// json -> map (reqDataInfo)
+			reqDataInfo = new ReqDataInfo();
+			
+			if (flag) {
+				Map<String, String> map = new HashMap<>();
+				for (FieldInfo fieldInfo : reqFieldInfo1.getMastInfo().getFields()) {
+					if (!flag) System.out.printf(">>>>> '%s' : '%s'%n", fieldInfo.getFieldId(), fieldInfo.getToValue());
+					map.put(fieldInfo.getFieldId(), fieldInfo.getToValue());
+				}
+				reqDataInfo.setMastData(map);
+			}
+			
+			if (flag) {
+				Map<String, String> map = new HashMap<>();
+				for (FieldInfo fieldInfo : reqFieldInfo1.getStoreInfo().getFields()) {
+					if (!flag) System.out.printf(">>>>> '%s' : '%s'%n", fieldInfo.getFieldId(), fieldInfo.getToValue());
+					map.put(fieldInfo.getFieldId(), fieldInfo.getToValue());
+				}
+				reqDataInfo.setStoreData(map);
+			}
+			
+			if (flag) {
+				List<Map<String, String>> listMap = new ArrayList<>();
+				for (Item01Info item01Info : reqFieldInfo1.getListItem01Info()) {
+					Map<String, String> map = new HashMap<>();
+					for (FieldInfo fieldInfo : item01Info.getFields()) {
+						if (!flag) System.out.printf(">>>>> '%s' : '%s'%n", fieldInfo.getFieldId(), fieldInfo.getToValue());
+						map.put(fieldInfo.getFieldId(), fieldInfo.getToValue());
+					}
+					listMap.add(map);
+				}
+				reqDataInfo.setListItem01Data(listMap);
+			}
+			
+			if (flag) {
+				Map<String, String> map = new HashMap<>();
+				for (FieldInfo fieldInfo : reqFieldInfo1.getItem23Info().getFields()) {
+					if (!flag) System.out.printf(">>>>> '%s' : '%s'%n", fieldInfo.getFieldId(), fieldInfo.getToValue());
+					map.put(fieldInfo.getFieldId(), fieldInfo.getToValue());
+				}
+				reqDataInfo.setItem23Data(map);
+			}
+			
+			System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqDataInfo));  // 이쁜 출력
+		}
+		
+		if (flag) {
+			// reqFieldInfo
+			// TODO KANG-20190219: reqFieldInfo2
 		}
 	}
 	
@@ -163,6 +228,13 @@ public class StreamToJsonTest {
 			ret = fromValue.trim();  // string은 공백 삭제ㅠ
 		}
 
+		return ret;
+	}
+	
+	@SuppressWarnings("unused")
+	private String getFromValue(FieldInfo fieldInfo) throws Exception {
+		String ret = null;
+		
 		return ret;
 	}
 }
