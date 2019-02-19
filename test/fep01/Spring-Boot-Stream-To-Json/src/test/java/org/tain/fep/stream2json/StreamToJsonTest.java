@@ -84,21 +84,6 @@ public class StreamToJsonTest {
 			System.out.println(">>>>> " + jsonString);
 		}
 		
-		// StoreInfo
-		System.out.println("########## StoreInfo: " + this.storeInfo);
-		for (FieldInfo fieldInfo : this.storeInfo.getFields()) {
-			String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
-			offset += fieldInfo.getLength();
-			
-			// 필드 원본값 저장
-			fieldInfo.setFromValue(strField);
-			// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
-			fieldInfo.setToValue(getToValue(fieldInfo));
-
-			String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
-			System.out.println(">>>>> " + jsonString);
-		}
-		
 		for (; offset < bytData.length;) {
 			String id = new String(bytData, offset, 2, "EUC-KR");
 			

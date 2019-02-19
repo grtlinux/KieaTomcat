@@ -104,7 +104,7 @@ public class HttpClientResponse {
 				
 				HttpEntity httpEntity = httpResponse.getEntity();
 				entity = EntityUtils.toString(httpEntity);
-				if (flag) System.out.println(">>>>> httpResponse.getEntity()\n" + entity);
+				if (!flag) System.out.println(">>>>> httpResponse.getEntity()\n" + entity);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

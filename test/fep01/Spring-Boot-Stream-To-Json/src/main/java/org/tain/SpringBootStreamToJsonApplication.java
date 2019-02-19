@@ -11,6 +11,6 @@ public class SpringBootStreamToJsonApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootStreamToJsonApplication.class, args);
 		
-		if (!flag) System.exit(0);
+		if (flag) System.exit(0);
 	}
 }
