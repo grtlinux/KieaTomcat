@@ -4,13 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootStreamToJsonApplication {
+public class SpringBootFieldInfoJsonApplication {
 
-	private static final boolean flag = true;
-	
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootStreamToJsonApplication.class, args);
-		
-		if (!flag) System.exit(0);
+		SpringApplication.run(SpringBootFieldInfoJsonApplication.class, args);
 	}
+
 }
