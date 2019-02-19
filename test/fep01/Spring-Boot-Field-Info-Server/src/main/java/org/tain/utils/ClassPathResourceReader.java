@@ -29,7 +29,8 @@ public class ClassPathResourceReader {
 				content = reader.lines().collect(Collectors.joining("\n"));
 				reader.close();
 			} catch (Exception e) {
-				throw new RuntimeException(e);
+				//throw new RuntimeException(e);
+				this.content = "{}";
 			}
 		}
 		
