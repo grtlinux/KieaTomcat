@@ -1,11 +1,15 @@
 package org.tain.fep.stream2json;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.tain.fep.info.FieldInfo;
 import org.tain.fep.info.Item01Info;
 import org.tain.fep.info.Item23Info;
 import org.tain.fep.info.MastInfo;
+import org.tain.fep.info.ReqFieldInfo;
 import org.tain.fep.info.StoreInfo;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.HttpClientResponse;
@@ -32,31 +36,32 @@ public class StreamToJsonTest {
 		if (flag) {
 			// get field info
 			this.objectMapper = new ObjectMapper();  // need one instance
-			this.mastInfo = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("MastInfo"), MastInfo.class);
-			this.storeInfo = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("StoreInfo"), StoreInfo.class);
-			this.item01Info = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("Item01Info"), Item01Info.class);
-			this.item23Info = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("Item23Info"), Item23Info.class);
-			
-			analyze(stream);
+			ReqFieldInfo reqFieldInfo = analyze(stream);
+			if (!flag) System.out.println(">>>>> " + reqFieldInfo);
+			if (flag) System.out.println(">>>>> " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqFieldInfo));  // 이쁜 출력
+
+			if (!flag) for (FieldInfo fieldInfo : reqFieldInfo.getStoreInfo().getFields()) {
+				if (flag) System.out.println(">>>>>" + fieldInfo);
+			}
 		}
 	}
 	
 	//////////////////////////////////////////////////
 	
 	private ObjectMapper objectMapper = null;
-	private MastInfo mastInfo = null;
-	private StoreInfo storeInfo = null;
-	private Item01Info item01Info = null;
-	private Item23Info item23Info = null;
-
-	private void analyze(String stream) throws Exception {
+	
+	private ReqFieldInfo analyze(String stream) throws Exception {
 		stream = stream.replace('.', ' ');
 		byte[] bytData = stream.getBytes("EUC-KR");
 		int offset = 0;
 
+		// Request Field Info
+		ReqFieldInfo reqFieldInfo = new ReqFieldInfo();
+		
 		// MastInfo
-		System.out.println("########## MastInfo: " + this.mastInfo);
-		for (FieldInfo fieldInfo : this.mastInfo.getFields()) {
+		MastInfo mastInfo = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("MastInfo"), MastInfo.class);
+		if (!flag) System.out.println("########## MastInfo: " + mastInfo);
+		for (FieldInfo fieldInfo : mastInfo.getFields()) {
 			String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 			offset += fieldInfo.getLength();
 			
@@ -65,13 +70,16 @@ public class StreamToJsonTest {
 			// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
 			fieldInfo.setToValue(getToValue(fieldInfo));
 
-			String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
-			System.out.println(">>>>> " + jsonString);
+			//String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+			//System.out.println(">>>>> " + jsonString);
 		}
+		reqFieldInfo.setMastInfo(mastInfo);
+		
 
 		// StoreInfo
-		System.out.println("########## StoreInfo: " + this.storeInfo);
-		for (FieldInfo fieldInfo : this.storeInfo.getFields()) {
+		StoreInfo storeInfo = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("StoreInfo"), StoreInfo.class);
+		if (!flag) System.out.println("########## StoreInfo: " + storeInfo);
+		for (FieldInfo fieldInfo : storeInfo.getFields()) {
 			String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 			offset += fieldInfo.getLength();
 			
@@ -80,16 +88,20 @@ public class StreamToJsonTest {
 			// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
 			fieldInfo.setToValue(getToValue(fieldInfo));
 
-			String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
-			System.out.println(">>>>> " + jsonString);
+			//String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+			//System.out.println(">>>>> " + jsonString);
 		}
+		reqFieldInfo.setStoreInfo(storeInfo);
+		
+		List<Item01Info> listItem01Info = new ArrayList<>();
 		
 		for (; offset < bytData.length;) {
 			String id = new String(bytData, offset, 2, "EUC-KR");
 			
 			if ("01".equals(id)) {
 				// Item01Info
-				System.out.println("########## Item01Info: " + this.item01Info);
+				Item01Info item01Info = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("Item01Info"), Item01Info.class);
+				if (!flag) System.out.println("########## Item01Info: " + item01Info);
 				for (FieldInfo fieldInfo : item01Info.getFields()) {
 					String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 					offset += fieldInfo.getLength();
@@ -99,12 +111,15 @@ public class StreamToJsonTest {
 					// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
 					fieldInfo.setToValue(getToValue(fieldInfo));
 
-					String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
-					System.out.println(">>>>> " + jsonString);
+					//String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+					//System.out.println(">>>>> " + jsonString);
 				}
+				listItem01Info.add(item01Info);
+				
 			} else if ("23".equals(id)) {
 				// Item23Info
-				System.out.println("########## Item23Info: " + this.item23Info);
+				Item23Info item23Info = this.objectMapper.readValue(HttpClientResponse.getInstance().getFieldInfo("Item23Info"), Item23Info.class);
+				if (!flag) System.out.println("########## Item23Info: " + item23Info);
 				for (FieldInfo fieldInfo : item23Info.getFields()) {
 					String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 					offset += fieldInfo.getLength();
@@ -114,11 +129,15 @@ public class StreamToJsonTest {
 					// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
 					fieldInfo.setToValue(getToValue(fieldInfo));
 
-					String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
-					System.out.println(">>>>> " + jsonString);
+					//String jsonString = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(fieldInfo);  // 이쁜 출력
+					//System.out.println(">>>>> " + jsonString);
 				}
+				reqFieldInfo.setItem23Info(item23Info);
 			}
 		}
+		reqFieldInfo.setListItem01Info(listItem01Info);
+		
+		return reqFieldInfo;
 	}
 	
 	private String getToValue(FieldInfo fieldInfo) throws Exception {
