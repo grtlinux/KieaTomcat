@@ -3,25 +3,16 @@ package org.tain.fep.test;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
-import org.tain.fep.info.FieldInfo;
-import org.tain.fep.info.MastInfo;
-import org.tain.utils.ClassPathResourceReader;
 import org.tain.utils.ClassUtil;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-@Component(value = "fep.test.FileCharsetTest")
 public class FileCharsetTest {
 
 	private static final boolean flag = true;
 	
 	private static final String FILE_PATH = "templates/data/Request01(Euckr).dat";
 	
-	@Bean(value = "fep.test.FileCharsetTest.test01")
 	public void test01() throws Exception {
 		System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
@@ -72,6 +63,7 @@ public class FileCharsetTest {
 
 		
 		if (flag) {
+			/*
 			ObjectMapper objectMapper = new ObjectMapper();
 			// MastInfo mastInfo = objectMapper.readValue(ResourceUtils.getFile("classpath:templates/json/MastInfo.json"), MastInfo.class);  // ERROR on Executable JAR
 			MastInfo mastInfo = objectMapper.readValue(new ClassPathResourceReader("templates/json/MastInfo.json").getContent(), MastInfo.class);
@@ -95,9 +87,11 @@ public class FileCharsetTest {
 					System.out.println(">>>>> " + jsonString);
 				}
 			}
+			*/
 		}
 	}
 	
+	/*
 	@SuppressWarnings("unused")
 	private String getToValue(FieldInfo fieldInfo) throws Exception {
 		
@@ -124,4 +118,5 @@ public class FileCharsetTest {
 
 		return ret;
 	}
+	*/
 }

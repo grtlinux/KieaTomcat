@@ -7,9 +7,7 @@ import java.util.List;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
-@Component(value = "fep.reqgenerator.ReqGenerator")
 public class ReqGenerator {
 
 	private static final boolean flag = true;
@@ -17,9 +15,9 @@ public class ReqGenerator {
 	private static final String REQ_STREAM_FILE = "templates/data/Request01(Euckr).dat";
 	
 	private List<String> list;
-	private int index;
+	//private int index;
 	
-	public ReqGenerator() {
+	private ReqGenerator() {
 		if (flag) {
 			this.list = new ArrayList<>();
 		}
@@ -42,11 +40,45 @@ public class ReqGenerator {
 			}
 		}
 		
+		/*
 		if (flag) {
 			this.index = 0;
 		}
+		*/
 	}
 	
+	private static ReqGenerator instance = null;
+	
+	public synchronized static ReqGenerator getInstance() {
+		if (instance == null) {
+			instance = new ReqGenerator();
+		}
+		
+		return instance;
+	}
+	
+	public int size() {
+		return this.list.size();
+	}
+	
+	public String get(int index) {
+		String ret;
+		
+		try {
+			ret = this.list.get(index);
+		} catch (Exception e) {
+			if (!flag) e.printStackTrace();
+			ret = null;
+		}
+		
+		return ret;
+	}
+	
+	public List<String> getList() {
+		return this.list;
+	}
+	
+	/*
 	public byte[] getReqStreamLine(){
 		
 		byte[] byteRet = null;
@@ -65,4 +97,5 @@ public class ReqGenerator {
 	public void reset() {
 		this.index = 0;
 	}
+	*/
 }
