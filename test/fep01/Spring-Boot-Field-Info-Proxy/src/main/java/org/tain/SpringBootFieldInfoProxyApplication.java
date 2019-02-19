@@ -15,7 +15,7 @@ public class SpringBootFieldInfoProxyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootFieldInfoProxyApplication.class, args);
 
-		if (flag) System.exit(0);
+		if (!flag) System.exit(0);
 	}
 
 	@Bean(value = "Application.test01")
