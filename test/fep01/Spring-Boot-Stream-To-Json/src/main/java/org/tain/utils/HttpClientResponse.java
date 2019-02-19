@@ -65,7 +65,7 @@ public class HttpClientResponse {
 		String entity = null;
 
 		if (flag) {
-			// get stream
+			// get req stream
 			try {
 				HttpHost httpHost = new HttpHost("localhost", 8083, "http");
 				HttpGet httpGet = new HttpGet("/generator/req/" + idx);
@@ -79,6 +79,32 @@ public class HttpClientResponse {
 				HttpEntity httpEntity = httpResponse.getEntity();
 				entity = EntityUtils.toString(httpEntity);
 				if (!flag) System.out.println(">>>>> httpResponse.getEntity()\n" + entity);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return entity;
+	}
+	
+	public String getFieldInfo(String infoKey) {
+		String entity = null;
+		
+		if (flag) {
+			// get req stream
+			try {
+				HttpHost httpHost = new HttpHost("localhost", 8081, "http");
+				HttpGet httpGet = new HttpGet("/field/" + infoKey);
+				if (!flag) System.out.printf(">>>>> [HttpHost:%s] [HttpGet:%s]%n", httpHost, httpGet);
+				
+				HttpResponse httpResponse = httpClient.execute(httpHost, httpGet);
+				
+				if (!flag) System.out.println(">>>>> httpResponse.getStatusLine()\n" + httpResponse.getStatusLine());
+				if (!flag) System.out.println(">>>>> httpResponse.getAllHeaders()\n" + Arrays.asList(httpResponse.getAllHeaders()));
+				
+				HttpEntity httpEntity = httpResponse.getEntity();
+				entity = EntityUtils.toString(httpEntity);
+				if (flag) System.out.println(">>>>> httpResponse.getEntity()\n" + entity);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
