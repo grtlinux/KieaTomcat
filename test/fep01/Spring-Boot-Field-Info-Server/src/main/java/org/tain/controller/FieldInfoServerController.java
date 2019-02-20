@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping(value = {"/fieldInfo"})
-public class FieldInfoController {
+public class FieldInfoServerController {
 	
 	private static final boolean flag = true;
 	

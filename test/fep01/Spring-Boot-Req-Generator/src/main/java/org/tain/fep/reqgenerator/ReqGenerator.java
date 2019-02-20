@@ -1,12 +1,8 @@
 package org.tain.fep.reqgenerator;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.tain.utils.ClassPathResourceReader;
 
 public class ReqGenerator {
 
@@ -15,46 +11,16 @@ public class ReqGenerator {
 	private static final String REQ_STREAM_FILE = "templates/data/Request01(Euckr).dat";
 	
 	private List<String> list;
-	//private int index;
 	
 	private ReqGenerator() {
-		if (flag) {
-			this.list = new ArrayList<>();
-		}
-		
-		if (flag) {
-			BufferedReader bufferedReader = null;
-			try {
-				Resource resource = new ClassPathResource(REQ_STREAM_FILE);
-				bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream(), "EUC-KR"));
-				String line;
-				while ((line = bufferedReader.readLine()) != null) {
-					if (!flag) System.out.println(">>>>> " + line);
-					this.list.add(line);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				if (flag) System.exit(0);
-			} finally {
-				if (bufferedReader != null) try { bufferedReader.close(); } catch (Exception e) {}
+
+		this.list = new ClassPathResourceReader(REQ_STREAM_FILE).getList();
+
+		if (!flag) {
+			for (String line : this.list) {
+				System.out.println(">>>>> " + line);
 			}
 		}
-		
-		/*
-		if (flag) {
-			this.index = 0;
-		}
-		*/
-	}
-	
-	private static ReqGenerator instance = null;
-	
-	public synchronized static ReqGenerator getInstance() {
-		if (instance == null) {
-			instance = new ReqGenerator();
-		}
-		
-		return instance;
 	}
 	
 	public int size() {
@@ -78,24 +44,15 @@ public class ReqGenerator {
 		return this.list;
 	}
 	
-	/*
-	public byte[] getReqStreamLine(){
-		
-		byte[] byteRet = null;
-		
-		try {
-			byteRet = this.list.get(index).getBytes("EUC-KR");
-		} catch (Exception e) {
-			return null;
+	///////////////////////////////////////////////////////////
+	
+	private static ReqGenerator instance = null;
+	
+	public synchronized static ReqGenerator getInstance() {
+		if (instance == null) {
+			instance = new ReqGenerator();
 		}
 		
-		this.index ++;
-		
-		return byteRet;
+		return instance;
 	}
-	
-	public void reset() {
-		this.index = 0;
-	}
-	*/
 }

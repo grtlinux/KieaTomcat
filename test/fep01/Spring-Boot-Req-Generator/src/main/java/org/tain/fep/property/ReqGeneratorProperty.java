@@ -1,4 +1,4 @@
-package org.tain.fep.reqgenerator;
+package org.tain.fep.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -7,7 +7,7 @@ import org.tain.yml.YamlPropertySourceFactory;
 
 import lombok.Data;
 
-@Component(value = "fep.reqgenerator.ReqGeneratorProperty")
+@Component(value = "fep.info.ReqGeneratorProperty")
 @PropertySource(
 		value = {
 				"classpath:/application.yml",

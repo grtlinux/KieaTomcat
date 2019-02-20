@@ -2,6 +2,7 @@ package org.tain.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,8 +30,7 @@ public class ClassPathResourceReader {
 				content = reader.lines().collect(Collectors.joining("\n"));
 				reader.close();
 			} catch (Exception e) {
-				//throw new RuntimeException(e);
-				this.content = "{}";
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -39,6 +39,7 @@ public class ClassPathResourceReader {
 	
 	public List<String> getList() {
 		if (this.list == null) {
+			this.list = new ArrayList<>();
 			try {
 				Resource resource = new ClassPathResource(this.path);
 				BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));

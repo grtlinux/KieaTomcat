@@ -1,11 +1,9 @@
 package org.tain.fep.test;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.tain.fep.reqgenerator.ReqGenerator;
 import org.tain.utils.ClassUtil;
 
-@Component
 public class ReqGeneratorTest01 {
 
 	private static final boolean flag = true;
