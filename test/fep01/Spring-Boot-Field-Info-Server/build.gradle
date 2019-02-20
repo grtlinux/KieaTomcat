@@ -35,4 +35,9 @@ dependencies {
 	// httpClient
 	//implementation 'org.apache.httpcomponents:httpclient'
 	compile('org.apache.httpcomponents:httpclient')
+	
+	// json-simple-XXXX.jar
+	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+	//compile('com.googlecode.json-simple:json-simple')
+
 }
