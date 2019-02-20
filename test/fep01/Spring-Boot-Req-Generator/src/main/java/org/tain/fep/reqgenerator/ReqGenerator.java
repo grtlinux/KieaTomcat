@@ -16,7 +16,7 @@ public class ReqGenerator {
 
 		this.list = new ClassPathResourceReader(REQ_STREAM_FILE).getList();
 
-		if (!flag) {
+		if (flag) {
 			for (String line : this.list) {
 				System.out.println(">>>>> " + line);
 			}

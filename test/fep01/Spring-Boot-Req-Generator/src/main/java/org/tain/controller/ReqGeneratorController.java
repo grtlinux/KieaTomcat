@@ -15,6 +15,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RequestMapping("/reqGen")
 public class ReqGeneratorController {
 
+	private static final boolean flag = true;
+	
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
 	// curl -H 'Content-Type: application/json' -X GET http://localhost:8083/reqGen/dataSize
@@ -28,8 +30,12 @@ public class ReqGeneratorController {
 	//@RequestMapping(value = "/info", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@RequestMapping(value = "/data", method = RequestMethod.POST)
 	public String info(HttpEntity<String> httpEntity) throws Exception {
-		Map<?, ?> map = this.objectMapper.readValue(/* json */httpEntity.getBody(), Map.class);
+		String json = httpEntity.getBody();
+		if (flag) System.out.println(">>>>> req json:" + json);
+		
+		Map<?, ?> map = this.objectMapper.readValue(json, Map.class);
 		Integer index = (Integer) map.get("index");
-		return String.format("{\"dataStream\": \"%s\"}", ReqGenerator.getInstance().get(index));
+		String ret = ReqGenerator.getInstance().get(index);
+		return String.format("{\"dataStream\": \"%s\"}", ret);
 	}
 }
