@@ -17,6 +17,7 @@ public class ReqGeneratorController {
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
+	// curl -H 'Content-Type: application/json' -X GET http://localhost:8083/reqGen/dataSize
 	@GetMapping(value = {"/dataSize"})
 	public String dataSize() {
 		int size = ReqGenerator.getInstance().size();

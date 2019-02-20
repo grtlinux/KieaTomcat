@@ -2,7 +2,6 @@ package org.tain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.tain.fep.reqgenerator.ReqGenerator;
 import org.tain.utils.ClassUtil;
 
@@ -14,10 +13,10 @@ public class SpringBootReqGeneratorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootReqGeneratorApplication.class, args);
 		
-		if (flag) System.exit(0);
+		if (!flag) System.exit(0);
 	}
 	
-	@Bean
+	//@Bean
 	public void test01() throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		

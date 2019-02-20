@@ -42,7 +42,7 @@ public class ClassPathResourceReader {
 			this.list = new ArrayList<>();
 			try {
 				Resource resource = new ClassPathResource(this.path);
-				BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream(), "EUC-KR"));
 				String line;
 				while ((line = reader.readLine()) != null) {
 					this.list.add(line);
