@@ -23,6 +23,7 @@ public class FieldInfoServerController {
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
 
+	// curl -H 'Content-Type: application/json' -X GET http://localhost:8081/fieldInfo/list
 	@GetMapping(value = {"/list"})
 	public List<String> list() {
 		return FieldInfoJson.getInstance().getList();
