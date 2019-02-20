@@ -10,10 +10,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.tain.utils.ClassUtil;
 
-@Component(value = "test.HttpClientTest01")
+//@Component(value = "test.HttpClientTest01")
 public class HttpClientTest01 {
 
 	private static final boolean flag = true;
