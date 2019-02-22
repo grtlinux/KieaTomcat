@@ -23,8 +23,6 @@ public class SpringBootVirtualUserApplication {
 	public void virtuaUser01() throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
-		//if (flag) System.out.println(">>>>> " + GetFieldInfo.getInstance().getMastInfo());
-		
 		VirtualUser01.getInstance().process01();
 	}
 }
