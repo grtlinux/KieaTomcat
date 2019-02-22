@@ -7,7 +7,7 @@ import org.tain.yml.YamlPropertySourceFactory;
 
 import lombok.Data;
 
-@Component(value = " example.cli01.ClientProperty")
+@Component(value = " example.cli02.ClientProperty")
 @PropertySource(
 		value = {
 				"classpath:/application.yml",

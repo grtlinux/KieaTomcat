@@ -39,7 +39,7 @@ public class CommunicationThread extends Thread {
 			System.out.println(">>>>> connection : " + this.isa);
 		}
 
-		if (!flag) {
+		if (flag) {
 			//
 			try {
 				if (flag) {
