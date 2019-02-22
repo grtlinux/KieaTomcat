@@ -10,6 +10,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
 import org.tain.utils.ClassUtil;
+import org.tain.utils.Sleep;
 
 @Component
 public class HttpClientTest {
@@ -19,15 +20,20 @@ public class HttpClientTest {
 	public void test01() {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
+		if (flag) {
+			int millisec = 2000;
+			if (flag) System.out.printf(">>>>> Sleep.run(%d);%n", millisec);
+			Sleep.run(millisec);
+		}
 		//HttpClient httpClient = new DefaultHttpClient();  // deprecated
 		HttpClient httpClient = HttpClientBuilder.create().build();
 		
 		try {
 			// specify the host, protocol, and port
-			HttpHost host = new HttpHost("127.0.0.1", 8081, "http");
+			HttpHost host = new HttpHost("127.0.0.1", 8001, "http");
 			// specify the get request
 			//HttpGet req = new HttpGet("/field?name=MastInfo");
-			HttpGet req = new HttpGet("/field");
+			HttpGet req = new HttpGet("/api/users");
 			
 			if (flag) System.out.println(">>>>> executing request to " + host + " " + req);
 			HttpResponse res = httpClient.execute(host, req);
@@ -45,7 +51,7 @@ public class HttpClientTest {
 				System.out.println(EntityUtils.toString(entity));
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 }

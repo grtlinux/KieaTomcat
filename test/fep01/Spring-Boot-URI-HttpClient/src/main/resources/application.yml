@@ -17,14 +17,14 @@ spring:
       
   data:
     rest:
-      base-path: /info          # base path of data rest
+      base-path: /api          # base path of data rest
       default-page-size: 5     # page elements in a page
       max-page-size: 20        # max page size
 #
 #
 #
 server:
-  port: 8081
+  port: 8001
 
 #
 #
