@@ -8,11 +8,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.springframework.stereotype.Component;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
 
-@Component
+//@Component
 public class HttpClientTest {
 
 	private static final boolean flag = true;
