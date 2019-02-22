@@ -193,7 +193,7 @@ public class GetFieldInfo {
 		return reqDataInfo;
 	}
 
-	public ReqFieldInfo getReqDataInfo(ReqDataInfo reqDataInfo) throws Exception {
+	public ReqFieldInfo getReqFieldInfo(ReqDataInfo reqDataInfo) throws Exception {
 		// reqFieldInfo
 		ReqFieldInfo reqFieldInfo = new ReqFieldInfo();
 
