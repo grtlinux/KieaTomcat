@@ -22,18 +22,23 @@ public class VirtualUser01 {
 	
 	public void process01() throws Exception {
 		
-		int[] arrIndex = new int[] { 0, 1, 2, 3 };
+		//int[] arrIndex = new int[] { 0, 1, 2, 3 };
+		int[] arrIndex = new int[] { 0 };
 		for (int idx : arrIndex ) {
 			String reqStream = null;
 			
 			if (flag) {
 				// to get Request Stream.
-				reqStream = getReqStream(idx);
-				if (flag) System.out.println(">>>>> reqStream: " + reqStream);
+				reqStream = getReqStream(idx).replace('.', ' ');
+				if (flag) System.out.println(">>>>> reqStream: [" + reqStream + "]");
 			}
 			
 			if (flag) {
-				// to get FieldInfo
+				// to get reqFieldInfo
+			}
+			
+			if (flag) {
+				// to get reqFieldData
 			}
 		}
 	}
