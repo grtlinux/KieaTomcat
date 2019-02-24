@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.tain.fep.http.FepHttp;
+import org.tain.fep.info.ReqDataInfo;
+import org.tain.fep.info.ReqFieldInfo;
+import org.tain.fep.json.ReqStreamToJson;
 import org.tain.utils.ClassUtil;
 
 @RestController
@@ -52,6 +55,12 @@ public class ReqStreamController {
 	
 	private String streamToJson(String dataStream) throws Exception {
 		if (flag) System.out.println(">>>>> dataStream : [" + dataStream + "]");
-		return dataStream;
+		
+		ReqFieldInfo reqFieldInfo = ReqStreamToJson.getInstance().getReqFieldInfo(dataStream);
+		ReqDataInfo reqDataInfo = ReqStreamToJson.getInstance().getReqDataInfo(reqFieldInfo);
+		
+		String json = FepHttp.getInstance().getJson(reqDataInfo);
+		if (flag) System.out.println(">>>>> json : -> json " + json);
+		return json;
 	}
 }

@@ -12,6 +12,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.tain.fep.info.ReqDataInfo;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -107,6 +108,14 @@ public class FepHttp {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 
 		String json = this.objectMapper.writeValueAsString(map);
+
+		return json;
+	}
+
+	public String getJson(ReqDataInfo reqDataInfo) throws Exception {
+		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+
+		String json = this.objectMapper.writeValueAsString(reqDataInfo);
 
 		return json;
 	}

@@ -27,7 +27,7 @@ public class ReqStreamGenerator {
 		String ret;
 		
 		try {
-			ret = this.list.get(index);
+			ret = this.list.get(index).replace('.', ' ');
 		} catch (Exception e) {
 			if (!flag) e.printStackTrace();
 			ret = null;
