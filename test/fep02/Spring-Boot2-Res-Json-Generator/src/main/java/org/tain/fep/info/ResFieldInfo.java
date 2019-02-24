@@ -9,5 +9,5 @@ public class ResFieldInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private ResMastInfo resMastInfo;
+	private MastInfo mastInfo;
 }

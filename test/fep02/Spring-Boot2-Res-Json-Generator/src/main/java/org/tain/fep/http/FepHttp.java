@@ -12,6 +12,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.tain.fep.info.ReqDataInfo;
+import org.tain.fep.info.ResDataInfo;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,25 +21,25 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class FepHttp {
 
 	private static final boolean flag = true;
-	
+
 	private HttpClient httpClient;
 	private Map<String, String> mapInfo;
 	private ObjectMapper objectMapper;
-	
+
 	private FepHttp() {
 		this.httpClient = HttpClientBuilder.create().build();
 		this.mapInfo = new HashMap<>();
 		this.objectMapper = new ObjectMapper();
 	}
-	
+
 	public String post(String url, String json) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		
+
 		String ret = null;
-		
+
 		if (flag) {
 			HttpResponse httpResponse = null;
-			
+
 			try {
 				HttpPost httpPost = new HttpPost(url);
 				httpPost.addHeader("content-type", "application/json");
@@ -50,27 +52,27 @@ public class FepHttp {
 				ret = null;
 			} finally {
 				//Deprecated
-				//httpClient.getConnectionManager().shutdown(); 
+				//httpClient.getConnectionManager().shutdown();
 			}
-			
+
 			if (!flag) System.out.println(">>>>> status : " + httpResponse.getStatusLine());
 			if (!flag) System.out.println(">>>>> httpResponse.getAllHeaders()\n" + Arrays.asList(httpResponse.getAllHeaders()));
 
 			HttpEntity httpEntity = httpResponse.getEntity();
 			ret = EntityUtils.toString(httpEntity);
 		}
-		
+
 		return ret;
 	}
-	
+
 	public String get(String url) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		
+
 		String ret = null;
-		
+
 		if (flag) {
 			HttpResponse httpResponse = null;
-			
+
 			try {
 				HttpGet httpGet = new HttpGet(url);
 				httpGet.addHeader("content-type", "application/json");
@@ -82,35 +84,51 @@ public class FepHttp {
 				ret = null;
 			} finally {
 				//Deprecated
-				//httpClient.getConnectionManager().shutdown(); 
+				//httpClient.getConnectionManager().shutdown();
 			}
-			
+
 			if (!flag) System.out.println(">>>>> status : " + httpResponse.getStatusLine());
 			if (!flag) System.out.println(">>>>> httpResponse.getAllHeaders()\n" + Arrays.asList(httpResponse.getAllHeaders()));
 
 			HttpEntity httpEntity = httpResponse.getEntity();
 			ret = EntityUtils.toString(httpEntity);
 		}
-		
+
 		return ret;
 	}
-	
+
 	public Map<?,?> getMap(String json) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 
 		Map<?, ?> map = this.objectMapper.readValue(json, Map.class);
-		
+
 		return map;
 	}
-	
+
 	public String getJson(Map<?,?> map) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		
+
 		String json = this.objectMapper.writeValueAsString(map);
-		
+
 		return json;
 	}
-	
+
+	public String getJson(ReqDataInfo reqDataInfo) throws Exception {
+		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+
+		String json = this.objectMapper.writeValueAsString(reqDataInfo);
+
+		return json;
+	}
+
+	public String getJson(ResDataInfo resDataInfo) throws Exception {
+		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+
+		String json = this.objectMapper.writeValueAsString(resDataInfo);
+
+		return json;
+	}
+
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
@@ -118,28 +136,28 @@ public class FepHttp {
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
 	///////////////////////////////////////////////////
-	
+
 	public String postInfo(String url, String json) throws Exception {
-		
+
 		String ret = null;
 		String infoKey = null;
-		
+
 		if (flag) {
 			Map<?, ?> map = this.objectMapper.readValue(json, Map.class);
 			infoKey = (String) map.get("infoKey");
 			if (infoKey == null)
 				throw new RuntimeException("ERROR: there is no infoKey....");
 		}
-		
+
 		if (flag) {
 			ret = this.mapInfo.get(infoKey);
 			if (ret != null)
 				return ret;
 		}
-		
+
 		if (flag) {
 			HttpResponse httpResponse = null;
-			
+
 			try {
 				HttpPost httpPost = new HttpPost(url);
 				httpPost.addHeader("content-type", "application/json");
@@ -152,9 +170,9 @@ public class FepHttp {
 				ret = null;
 			} finally {
 				//Deprecated
-				//httpClient.getConnectionManager().shutdown(); 
+				//httpClient.getConnectionManager().shutdown();
 			}
-			
+
 			if (!flag) System.out.println(">>>>> status : " + httpResponse.getStatusLine());
 			if (!flag) System.out.println(">>>>> httpResponse.getAllHeaders()\n" + Arrays.asList(httpResponse.getAllHeaders()));
 
@@ -176,26 +194,26 @@ public class FepHttp {
 			ret = stringBuffer.toString();
 			*/
 		}
-		
+
 		if (flag) {
 			this.mapInfo.put(infoKey, ret);
 		}
-		
+
 		return ret;
 	}
-	
+
 	public String getList(String url) {
 		String ret = null;
-		
+
 		try {
 			HttpGet httpGet = new HttpGet(url);
 			if (!flag) System.out.printf(">>>>> [HttpGet:%s]%n", httpGet);
-			
+
 			HttpResponse httpResponse = httpClient.execute(httpGet);
-			
+
 			if (!flag) System.out.println(">>>>> httpResponse.getStatusLine()\n" + httpResponse.getStatusLine());
 			if (!flag) System.out.println(">>>>> httpResponse.getAllHeaders()\n" + Arrays.asList(httpResponse.getAllHeaders()));
-			
+
 			HttpEntity httpEntity = httpResponse.getEntity();
 			ret = EntityUtils.toString(httpEntity);
 			if (!flag) System.out.println(">>>>> httpResponse.getEntity()\n" + ret);
@@ -208,15 +226,15 @@ public class FepHttp {
 	}
 
 	//////////////////////////////////////////
-	
+
 	private static FepHttp instance = null;
-	
+
 	public static FepHttp getInstance() {
-		
+
 		if (instance == null) {
 			instance = new FepHttp();
 		}
-		
+
 		return instance;
 	}
 }
