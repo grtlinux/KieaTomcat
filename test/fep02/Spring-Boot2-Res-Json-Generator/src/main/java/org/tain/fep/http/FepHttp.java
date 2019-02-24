@@ -105,6 +105,7 @@ public class FepHttp {
 		return map;
 	}
 
+	// TODO KANG-20190224: unity of the below methods
 	public String getJson(Map<?,?> map) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 
