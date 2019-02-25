@@ -24,10 +24,15 @@ public class DbController {
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public String info(HttpEntity<String> httpEntity) throws Exception {
 		if (flag) System.out.println(">>>>> httpEntity.getBody() : " + httpEntity.getBody());
-		String json = FepHttp.getInstance().post("http://localhost:8093/store/info", httpEntity.getBody());
+		String json;
 		
-		//Map<?,?> map = FepHttp.getInstance().getMap(json);
-		//if (flag) System.out.println(">>>>> map : " + map);
+		// json {"status": "00000"}
+		json = FepHttp.getInstance().post("http://localhost:8093/store/info", httpEntity.getBody());
+		if (flag) System.out.println(">>>>> step 1: json = " + json);
+		
+		// res json
+		json = FepHttp.getInstance().post("http://localhost:8091/resStream/info", "{\"index\": 0}");
+		if (flag) System.out.println(">>>>> step 2: json = " + json);
 		
 		return json;
 	}
