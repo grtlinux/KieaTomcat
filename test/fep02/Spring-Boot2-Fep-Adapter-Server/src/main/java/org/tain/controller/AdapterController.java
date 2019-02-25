@@ -24,10 +24,8 @@ public class AdapterController {
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public String info(HttpEntity<String> httpEntity) throws Exception {
 		if (flag) System.out.println(">>>>> httpEntity.getBody() : " + httpEntity.getBody());
-		String json = FepHttp.getInstance().post("http://localhost:8090/db/info", httpEntity.getBody());
-		
-		//Map<?,?> map = FepHttp.getInstance().getMap(json);
-		//if (flag) System.out.println(">>>>> map : " + map);
+		//String json = FepHttp.getInstance().post("http://localhost:8090/db/info", httpEntity.getBody());
+		String json = FepHttp.getInstance().post("http://localhost:8088/stream/info", httpEntity.getBody());
 		
 		return json;
 	}
