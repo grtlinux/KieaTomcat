@@ -9,7 +9,7 @@ import org.tain.fep.http.FepHttp;
 import org.tain.utils.ClassUtil;
 
 @RestController
-@RequestMapping(value = {"/virtualUser"})
+@RequestMapping(value = {"/virtualUser"})   // Not to use
 public class VirtualUserController {
 
 	private static final boolean flag = true;

@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.tain.fep.http.FepHttp;
 import org.tain.utils.ClassUtil;
+import org.tain.utils.Sleep;
 
 @SpringBootApplication
 public class SpringBoot2VirtualUserApplication implements CommandLineRunner {
@@ -27,19 +28,24 @@ public class SpringBoot2VirtualUserApplication implements CommandLineRunner {
 		
 		//int[] arrIndex = new int[] { 0, 1, 2, 3 };
 		int[] arrIndex = new int[] { 0, 1, 2 };
-		for (int idx : arrIndex ) {
-			json = FepHttp.getInstance().post("http://localhost:8085/reqStream/info", String.format("{\"index\": %d}", idx));
-			if (flag) System.out.println(">>>>> json : " + json);
-			Map<?,?> map = FepHttp.getInstance().getMap(json);
-			if (flag) System.out.println(">>>>> map : " + map);
-			
-//			if ((Integer) map.get("status") != 200) {
-//				if (flag) System.out.println(">>>>> ERROR: " + (String) map.get("message"));
-//				break;
-//			}
+		//int[] arrIndex = new int[] { 0 };
 
-			json = FepHttp.getInstance().post("http://localhost:8086/virtualUser/info", json);
-			if (flag) System.out.println(">>>>> json : " + json);
+		for (int i=0; i < 10; i++) {
+			for (int idx : arrIndex ) {
+				if (flag) {
+					json = FepHttp.getInstance().post("http://localhost:8085/reqStream/info", String.format("{\"index\": %d}", idx));
+					if (flag) System.out.println(">>>>> REQ json : " + json);
+					Map<?,?> map = FepHttp.getInstance().getMap(json);
+					if (flag) System.out.println(">>>>> REQ map : " + map);
+				}
+				
+				if (flag) {
+					json = FepHttp.getInstance().post("http://localhost:8087/adapter/info", json);
+					if (flag) System.out.println(">>>>> RES json : " + json);
+				}
+				
+				Sleep.run(2000);
+			}
 		}
 	}
 }
