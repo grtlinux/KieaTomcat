@@ -6,6 +6,10 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+import org.tain.fep.http.FepHttp;
+import org.tain.fep.info.ReqDataInfo;
+import org.tain.fep.info.ReqFieldInfo;
+import org.tain.fep.json.ReqJson;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
 
@@ -42,30 +46,58 @@ public class CommunicationThread extends Thread {
 		if (flag) {
 			//
 			try {
+				String message = null;
+				String json = null;
+				
 				if (flag) {
-					// read
-					String strLen = new String(recv(6));
-					int len = Integer.parseInt(strLen);
-					if (flag) System.out.println(">>>>> Server RECV : " + strLen);
-					if (flag) System.out.println(">>>>> Server RECV : " + new String(recv(len), "UTF-8"));
+					// recv
+					byte[] bytLength = recv(6);
+					String strLength = new String(bytLength, "EUC-KR");
+					int len = Integer.parseInt(strLength) - 6;
+					byte[] bytBuffer = recv(len);
+					String strBuffer = new String(bytBuffer, "EUC-KR");
+					message = strLength + strBuffer;
+					
+					if (flag) System.out.printf(">>>>> Server RECV : [%s] [%s]%n", strLength, strBuffer);
+					if (flag) System.out.printf(">>>>> Server RECV : message = [%s]%n", message);
 				}
 
-				Sleep.run(2000);
-
 				if (flag) {
-					// write
-					String message = "Hello Client, My name is Server...^^";
-					byte[] bytBuffer = message.getBytes("UTF-8");
-					byte[] lenBuffer = String.format("%06d", bytBuffer.length).getBytes();
-					if (flag) System.out.println(">>>>> Server SEND lenBuffer = " + send(lenBuffer));
-					if (flag) System.out.println(">>>>> Server SEND bytBuffer = " + send(bytBuffer));
+					// stream -> json
+					ReqFieldInfo reqFieldInfo = ReqJson.getInstance().getReqFieldInfo(message);
+					ReqDataInfo reqDataInfo = ReqJson.getInstance().getReqDataInfo(reqFieldInfo);
+					json = FepHttp.getInstance().getJson(reqDataInfo);
+					if (flag) System.out.println(">>>>> json = " + json);
+				}
+				
+				if (flag) {
+					// FepHttp
+					String json2 = FepHttp.getInstance().post("http://localhost:8090/db/info", json);
+					if (flag) System.out.println(">>>>> json2: " + json2);
+				}
+				
+				if (flag) {
+					// json -> stream
+					ReqDataInfo reqDataInfo = ReqJson.getInstance().getReqDataInfo(json);
+					ReqFieldInfo reqFieldInfo = ReqJson.getInstance().getReqFieldInfo(reqDataInfo);
+					message = ReqJson.getInstance().getStream(reqFieldInfo);
+					if (flag) System.out.println(">>>>> stream = " + message);
+				}
+				
+				if (flag) {
+					// send
+					message = "000040SH00000008515012019012960017900000";
+					String strLength = message.substring(0, 6);
+					String strBuffer = message.substring(6);
+					byte[] bytLength = strLength.getBytes("EUC-KR");
+					byte[] bytBuffer = strBuffer.getBytes("EUC-KR");
+					send(bytLength);
+					send(bytBuffer);
 					this.os.flush();
-
-					System.out.println(">>>>> SEND: " + message);
+					
+					if (flag) System.out.printf(">>>>> Server SEND : message = [%s]%n", message);
+					if (flag) System.out.printf(">>>>> Server SEND : [%s] [%s]%n", strLength, strBuffer);
 				}
-
-				Sleep.run(1000);
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
