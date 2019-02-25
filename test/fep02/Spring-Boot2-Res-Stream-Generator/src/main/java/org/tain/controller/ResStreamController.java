@@ -30,7 +30,7 @@ public class ResStreamController {
 		return ResStreamGenerator.getInstance().getList();
 	}
 	
-	// curl -H 'Content-Type: application/json' -X POST -d '{"infoKey":"MastInfo"}' http://localhost:8092/resStream/info
+	// curl -H 'Content-Type: application/json' -X POST -d '{"index": 0}' http://localhost:8092/resStream/info
 	//@RequestMapping(value = "/info", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public String info(HttpEntity<String> httpEntity) throws Exception {
