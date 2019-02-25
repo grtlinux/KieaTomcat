@@ -6,11 +6,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.tain.utils.ClassUtil;
 
-@Component(value = "fep.example.server.StreamServer")
+//@Component(value = "fep.example.server.StreamServer")
 public class StreamServer {
 
 	private static final boolean flag = true;
@@ -18,7 +16,7 @@ public class StreamServer {
 	@Autowired
 	private StreamServerProperty streamServerProperty;
 	
-	@Bean(value = "fep.example.server.StreamServer.runner")
+	//@Bean(value = "fep.example.server.StreamServer.runner")
 	public void runner() {
 		if (flag) {
 			if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());

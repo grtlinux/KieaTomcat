@@ -7,9 +7,11 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
 
+@Component(value = "fep.example.client.StreamClient")
 public class StreamClient {
 
 	private static final boolean flag = true;
@@ -21,15 +23,13 @@ public class StreamClient {
 	@Autowired
 	private StreamClientProperty streamClientProperty;
 	
-	private StreamClient() {}
-	
 	public void runner(String message) {
 		if (flag) {
 			if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 			if (flag) System.out.println(">>>>> " + this.streamClientProperty);
 		}
 
-		if (!flag) {
+		if (flag) {
 			try {
 				this.socket = new Socket();
 				if (flag) System.out.println(">>>>> request connection...");
@@ -118,16 +118,5 @@ public class StreamClient {
 		this.os.write(buffer, offset, length);
 		
 		return length;
-	}
-	
-	/////////////////////////////////////////////////
-	
-	private static StreamClient instance = null;
-	
-	public synchronized static StreamClient getInstance() throws Exception {
-		if (instance == null) {
-			instance = new StreamClient();
-		}
-		return instance;
 	}
 }
