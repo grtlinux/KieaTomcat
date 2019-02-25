@@ -130,6 +130,7 @@ public class FepHttp {
 		return json;
 	}
 
+	// TODO KANG-20190225: add the below method
 	public String getPrettyJson(Map<?,?> map) throws Exception {
 		String prettyJson = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);  // 이쁜 출력
 		return prettyJson;
