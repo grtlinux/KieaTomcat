@@ -1,4 +1,4 @@
-package org.tain.fep.example.server;
+package org.tain.fep.stream.client;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -7,7 +7,7 @@ import org.tain.yml.YamlPropertySourceFactory;
 
 import lombok.Data;
 
-@Component(value = "fep.example.server.StreamServerProperty")
+@Component(value = "fep.stream.client.StreamClientProperty")
 @PropertySource(
 		value = {
 				"classpath:/application.yml",
@@ -16,11 +16,11 @@ import lombok.Data;
 		ignoreResourceNotFound = true,
 		factory = YamlPropertySourceFactory.class
 )
-@ConfigurationProperties(prefix = "stream-server")
+@ConfigurationProperties(prefix = "stream-client")
 @Data
-public class StreamServerProperty {
+public class StreamClientProperty {
 
-	private String program = "Fep Server Program";
+	private String program = "Fep Client Program";
 	
 	private Double version = 0.01;
 	
@@ -30,5 +30,7 @@ public class StreamServerProperty {
 	
 	private boolean active = true;
 	
-	private Integer listenPort = 2025;
+	private String host = "localhost";
+	
+	private Integer port = 2025;
 }

@@ -43,7 +43,7 @@ public class FepHttp {
 			try {
 				HttpPost httpPost = new HttpPost(url);
 				httpPost.addHeader("content-type", "application/json");
-				httpPost.setEntity(new StringEntity(json));
+				httpPost.setEntity(new StringEntity(json, "UTF-8"));
 				// StringEntity params = new StringEntity(json);
 				// httpPost.setEntity(params);
 				httpResponse = this.httpClient.execute(httpPost);

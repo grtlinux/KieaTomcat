@@ -13,6 +13,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.tain.fep.info.ReqDataInfo;
+import org.tain.fep.info.ResDataInfo;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +43,7 @@ public class FepHttp {
 			try {
 				HttpPost httpPost = new HttpPost(url);
 				httpPost.addHeader("content-type", "application/json");
-				httpPost.setEntity(new StringEntity(json));
+				httpPost.setEntity(new StringEntity(json, "UTF-8"));
 				// StringEntity params = new StringEntity(json);
 				// httpPost.setEntity(params);
 				httpResponse = this.httpClient.execute(httpPost);
@@ -104,6 +105,7 @@ public class FepHttp {
 		return map;
 	}
 
+	// TODO KANG-20190224: unity of the below methods
 	public String getJson(Map<?,?> map) throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 
@@ -118,6 +120,20 @@ public class FepHttp {
 		String json = this.objectMapper.writeValueAsString(reqDataInfo);
 
 		return json;
+	}
+
+	public String getJson(ResDataInfo resDataInfo) throws Exception {
+		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+
+		String json = this.objectMapper.writeValueAsString(resDataInfo);
+
+		return json;
+	}
+
+	// TODO KANG-20190225: add the below method
+	public String getPrettyJson(Map<?,?> map) throws Exception {
+		String prettyJson = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);  // 이쁜 출력
+		return prettyJson;
 	}
 
 	///////////////////////////////////////////////////
