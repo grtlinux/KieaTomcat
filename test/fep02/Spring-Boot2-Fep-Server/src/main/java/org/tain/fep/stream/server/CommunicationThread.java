@@ -9,7 +9,10 @@ import java.net.Socket;
 import org.tain.fep.http.FepHttp;
 import org.tain.fep.info.ReqDataInfo;
 import org.tain.fep.info.ReqFieldInfo;
+import org.tain.fep.info.ResDataInfo;
+import org.tain.fep.info.ResFieldInfo;
 import org.tain.fep.json.ReqJson;
+import org.tain.fep.json.ResJson;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
 
@@ -63,30 +66,30 @@ public class CommunicationThread extends Thread {
 				}
 
 				if (flag) {
-					// stream -> json
+					// REQ: stream -> json
 					ReqFieldInfo reqFieldInfo = ReqJson.getInstance().getReqFieldInfo(message);
 					ReqDataInfo reqDataInfo = ReqJson.getInstance().getReqDataInfo(reqFieldInfo);
 					json = FepHttp.getInstance().getJson(reqDataInfo);
-					if (flag) System.out.println(">>>>> json = " + json);
+					if (flag) System.out.println(">>>>> REQ json = " + json);
 				}
 				
 				if (flag) {
 					// FepHttp
-					String json2 = FepHttp.getInstance().post("http://localhost:8090/db/info", json);
-					if (flag) System.out.println(">>>>> json2: " + json2);
+					json = FepHttp.getInstance().post("http://localhost:8090/db/info", json);
+					if (flag) System.out.println(">>>>> RES json: " + json);
 				}
 				
 				if (flag) {
-					// json -> stream
-					ReqDataInfo reqDataInfo = ReqJson.getInstance().getReqDataInfo(json);
-					ReqFieldInfo reqFieldInfo = ReqJson.getInstance().getReqFieldInfo(reqDataInfo);
-					message = ReqJson.getInstance().getStream(reqFieldInfo);
+					// RES: json -> stream
+					ResDataInfo resDataInfo = ResJson.getInstance().getResDataInfo(json);
+					ResFieldInfo resFieldInfo = ResJson.getInstance().getResFieldInfo(resDataInfo);
+					message = ResJson.getInstance().getStream(resFieldInfo);
 					if (flag) System.out.println(">>>>> stream = " + message);
 				}
 				
 				if (flag) {
 					// send
-					message = "000040SH00000008515012019012960017900000";
+					// message = "000040SH00000008515012019012960017900000";
 					String strLength = message.substring(0, 6);
 					String strBuffer = message.substring(6);
 					byte[] bytLength = strLength.getBytes("EUC-KR");
