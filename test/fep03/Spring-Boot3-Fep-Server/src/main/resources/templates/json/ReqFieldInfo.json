@@ -121,6 +121,6 @@
 		{ "fieldId": "F104", "fieldName": "fld104", "name": "카드종류", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F105", "fieldName": "fld105", "name": "포스유니크키", "length":30, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F106", "fieldName": "fld106", "name": "벤사유니크키", "length":25, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
-		{ "fieldId": "F107", "fieldName": "fld107", "name": "filler", "length":85, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
+		{ "fieldId": "F107", "fieldName": "kang", "name": "filler", "length":85, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
 	]
 }

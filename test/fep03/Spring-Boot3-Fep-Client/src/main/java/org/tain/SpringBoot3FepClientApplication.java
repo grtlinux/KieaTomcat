@@ -39,7 +39,7 @@ public class SpringBoot3FepClientApplication implements CommandLineRunner {
 		if (flag) System.out.println(">>>>> Property -> " + this.property);
 		
 		int cnt = 0;
-		for (; cnt < 100; cnt++) {
+		for (; cnt < 60*60; cnt++) {
 			String req = this.reqStream.get(cnt).replace('.', ' ');
 			if (flag) System.out.printf(">>>>> [%5d] Client REQ: [%s]%n", cnt, req);
 			

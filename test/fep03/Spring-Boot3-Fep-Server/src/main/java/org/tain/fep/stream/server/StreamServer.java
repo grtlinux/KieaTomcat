@@ -43,8 +43,9 @@ public class StreamServer {
 								StreamServer.this.property.getStreamHost(), 
 								StreamServer.this.property.getStreamPort()));
 						
+						int cnt = 0;
 						while (true) {
-							System.out.println(">>>>> waiting for client connection...");
+							System.out.printf(">>>>> waiting for client connection...[cnt=%d]%n", ++cnt);
 							Socket socket = serverSocket.accept();
 							new CommunicationThread(socket, StreamServer.this.property).start();
 						}
