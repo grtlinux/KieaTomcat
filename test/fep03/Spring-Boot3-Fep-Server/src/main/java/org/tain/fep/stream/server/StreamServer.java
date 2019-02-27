@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import org.tain.fep.json.ReqJson;
 import org.tain.fep.property.Property;
 import org.tain.utils.ClassUtil;
 
@@ -30,7 +29,6 @@ public class StreamServer {
 	public void runner() throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		if (flag) System.out.println(">>>>> StreamServer.Property -> " + this.property);
-		if (flag) ReqJson.getInstance(property);
 
 		if (flag) {
 			new Thread(new Runnable() {

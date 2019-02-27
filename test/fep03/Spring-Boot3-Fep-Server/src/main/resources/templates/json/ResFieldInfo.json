@@ -1,5 +1,5 @@
 {
-	"fields": [
+	"mastInfo": [
 		{ "fieldId": "F001", "fieldName": "fld001", "name": "전문길이", "length": 6, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F002", "fieldName": "fld002", "name": "전문경로", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F003", "fieldName": "fld003", "name": "전문구분", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },

@@ -49,7 +49,7 @@
 		{ "fieldId": "F042", "fieldName": "fld042", "name": "택배서비스구분", "length":  1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": ""},
 		{ "fieldId": "F043", "fieldName": "fld043", "name": "연습모드구분", "length":  1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": ""}
 	],
-	"item01Info": [[
+	"item01Info": [
 		{ "fieldId": "F044", "fieldName": "fld044", "name": "아이템 헤더 ID", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F045", "fieldName": "fld045", "name": "아이템 길이", "length": 3, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F046", "fieldName": "fld046", "name": "아이템 순번", "length": 3, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
@@ -93,7 +93,7 @@
 
 		{ "fieldId": "F081", "fieldName": "fld081", "name": "M&M 점포 부담금", "length": 9, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F082", "fieldName": "fld082", "name": "filler", "length":10, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
-	]],
+	],
 	"item23Info" : [
 		{ "fieldId": "F083", "fieldName": "fld083", "name": "아이템 헤더 ID", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F084", "fieldName": "fld084", "name": "아이템 길이", "length": 3, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },

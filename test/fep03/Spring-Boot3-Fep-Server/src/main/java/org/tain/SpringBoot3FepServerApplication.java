@@ -16,7 +16,8 @@ public class SpringBoot3FepServerApplication implements CommandLineRunner {
 		SpringApplication.run(SpringBoot3FepServerApplication.class, args);
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
-		if (flag) System.exit(0);
+		//Sleep.run(60 * 1000);
+		if (!flag) System.exit(0);
 	}
 
 	//////////////////////////////////////////////////////////////////////

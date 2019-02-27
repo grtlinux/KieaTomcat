@@ -7,12 +7,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import org.tain.fep.http.FepHttp;
-import org.tain.fep.info.ReqDataInfo;
-import org.tain.fep.info.ReqFieldInfo;
-import org.tain.fep.info.ResDataInfo;
-import org.tain.fep.info.ResFieldInfo;
-import org.tain.fep.json.ReqJson;
-import org.tain.fep.json.ResJson;
+import org.tain.fep.json.ReqInfo;
+import org.tain.fep.json.ResInfo;
 import org.tain.fep.property.Property;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
@@ -50,8 +46,13 @@ public class CommunicationThread extends Thread {
 		if (flag) {
 			//
 			try {
-				String message = null;
-				String json = null;
+				String reqStream = null;
+				ReqInfo reqInfo = null;
+				String reqJson = null;
+				
+				String resJson = null;
+				ResInfo resInfo = null;
+				String resStream = null;
 				
 				if (flag) {
 					// recv
@@ -60,46 +61,44 @@ public class CommunicationThread extends Thread {
 					int len = Integer.parseInt(strLength) - 6;
 					byte[] bytBuffer = recv(len);
 					String strBuffer = new String(bytBuffer, "EUC-KR");
-					message = strLength + strBuffer;
+					reqStream = strLength + strBuffer;
 					
 					if (flag) System.out.printf(">>>>> Server RECV : [%s] [%s]%n", strLength, strBuffer);
-					if (flag) System.out.printf(">>>>> Server RECV : message = [%s]%n", message);
+					if (flag) System.out.printf(">>>>> Server RECV : reqStream = [%s]%n", reqStream);
 				}
 
 				if (flag) {
 					// REQ: stream -> json
-					ReqFieldInfo reqFieldInfo = ReqJson.getInstance().getReqFieldInfo(message);
-					ReqDataInfo reqDataInfo = ReqJson.getInstance().getReqDataInfo(reqFieldInfo);
-					json = FepHttp.getInstance().getJson(reqDataInfo);
-					if (flag) System.out.println(">>>>> REQ json = " + json);
+					reqInfo = new ReqInfo(reqStream);
+					reqJson = reqInfo.getReqDataJson();
+					if (flag) System.out.println(">>>>> REQ json = " + reqJson);
 				}
 				
 				if (flag) {
-					// FepHttp
-					json = FepHttp.getInstance().post("http://localhost:8080/server/save", json);
-					if (flag) System.out.println(">>>>> RES json: " + json);
+					// TODO KANG-20190228: FepHttp
+					resJson = FepHttp.getInstance().post("http://localhost:8080/server/save", reqJson);
+					if (flag) System.out.println(">>>>> RES json: " + resJson);
 				}
 				
-				if (!flag) {
+				if (flag) {
 					// RES: json -> stream
-					ResDataInfo resDataInfo = ResJson.getInstance().getResDataInfo(json);
-					ResFieldInfo resFieldInfo = ResJson.getInstance().getResFieldInfo(resDataInfo);
-					message = ResJson.getInstance().getStream(resFieldInfo);
-					if (flag) System.out.println(">>>>> stream = " + message);
+					resInfo = new ResInfo(reqInfo.getReqDataNode());
+					resStream = resInfo.getResStream();
+					if (flag) System.out.println(">>>>> resStream = " + resStream);
 				}
 				
 				if (flag) {
 					// send
-					message = "000040SH00000008515012019012960017900000";
-					String strLength = message.substring(0, 6);
-					String strBuffer = message.substring(6);
+					// resStream = "000040SH00000008515012019012960017900000";
+					String strLength = resStream.substring(0, 6);
+					String strBuffer = resStream.substring(6);
 					byte[] bytLength = strLength.getBytes("EUC-KR");
 					byte[] bytBuffer = strBuffer.getBytes("EUC-KR");
 					send(bytLength);
 					send(bytBuffer);
 					this.os.flush();
 					
-					if (flag) System.out.printf(">>>>> Server SEND : message = [%s]%n", message);
+					if (flag) System.out.printf(">>>>> Server SEND : message = [%s]%n", resStream);
 					if (flag) System.out.printf(">>>>> Server SEND : [%s] [%s]%n", strLength, strBuffer);
 				}
 			} catch (Exception e) {

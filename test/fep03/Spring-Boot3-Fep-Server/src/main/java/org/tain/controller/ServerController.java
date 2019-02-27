@@ -9,14 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.tain.fep.http.FepHttp;
 import org.tain.utils.ClassUtil;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @RestController
 @RequestMapping(value = {"/server"})
 public class ServerController {
 
 	private static final boolean flag = true;
 	
+	private ObjectMapper objectMapper = null;
+	
 	public ServerController() {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		this.objectMapper = new ObjectMapper();
 	}
 	
 	@GetMapping(value = {"/"})
@@ -49,8 +55,11 @@ public class ServerController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(HttpEntity<String> httpEntity) throws Exception {
 		String jsonData = httpEntity.getBody();
-		if (flag) System.out.println(">>>>> jsonData REQ : " + jsonData);
+		if (flag) System.out.println(">>>>> ServerController.jsonData REQ : " + jsonData);
 		
-		return String.format("{\"status\": \"%05d\"}", 0);
+		JsonNode dataNode = this.objectMapper.readTree(jsonData);
+		if (flag) System.out.println(">>>>> ServerController.save.dataNode = " + this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dataNode));
+		
+		return String.format("{\"status\": \"%04d\"}", 0);
 	}
 }

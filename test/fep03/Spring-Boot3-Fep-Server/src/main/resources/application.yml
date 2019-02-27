@@ -55,6 +55,8 @@ fep-property:
     - Item23Info
     - ReqFieldInfo
     - ResFieldInfo
+  reqFieldInfo: templates/json/ReqFieldInfo.json
+  resFieldInfo: templates/json/ResFieldInfo.json
 #
 #
 #
