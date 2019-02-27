@@ -66,4 +66,15 @@ public class Property {
 	private String jsonInfoPath;
 	
 	private List<String> jsonInfoKeyList;
+	
+	private String reqFieldInfo;
+	
+	private String resFieldInfo;
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,12 +1,8 @@
 package org.tain.controller;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.tain.fep.http.FepHttp;
 import org.tain.utils.ClassUtil;
 
 @RestController
@@ -21,10 +17,10 @@ public class ServerController {
 	
 	@GetMapping(value = {"/"})
 	public String hello() {
-		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		return "Hello, world!!!!";
 	}
 	
+	/*
 	// curl -H 'Content-Type: application/json' -X GET http://localhost:8082/fieldInfo/list
 	@GetMapping(value = {"/list"})
 	public String list() throws Exception {
@@ -53,4 +49,5 @@ public class ServerController {
 		
 		return String.format("{\"status\": \"%05d\"}", 0);
 	}
+	*/
 }

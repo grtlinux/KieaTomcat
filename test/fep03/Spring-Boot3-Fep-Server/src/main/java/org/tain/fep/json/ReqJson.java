@@ -6,14 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.tain.fep.http.FepHttp;
 import org.tain.fep.info.FieldInfo;
 import org.tain.fep.info.Item01Info;
 import org.tain.fep.info.Item23Info;
 import org.tain.fep.info.MastInfo;
 import org.tain.fep.info.ReqDataInfo;
 import org.tain.fep.info.ReqFieldInfo;
+import org.tain.fep.info.ResFieldInfo;
 import org.tain.fep.info.StoreInfo;
+import org.tain.fep.property.Property;
+import org.tain.utils.ClassPathResourceReader;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,36 +24,55 @@ public class ReqJson {
 
 	private static final boolean flag = true;
 	
-	private static final String URL_FIELD_INFO = "http://localhost:8082/fieldInfo/info";
 	private ObjectMapper objectMapper = null;
-	private MastInfo mastInfo = null;
-	private StoreInfo storeInfo = null;
-	private Item01Info item01Info = null;
-	private Item23Info item23Info = null;
-
-	private ReqJson() throws Exception {
+	private Map<String, Object> mapInfo = new HashMap<>();
+	private Property property;
+	
+	private ReqJson(Property property) throws Exception {
+		this.property = property;
+		
 		if(flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		if(flag) System.out.println(">>>>> ReqJson.Property -> " + this.property);
 		
 		if (flag) {
 			this.objectMapper = new ObjectMapper();
 
-			String jsonInfo = null;
+			String content;
+			String infoPath = this.property.getJsonInfoPath();
+			List<String> listKey = this.property.getJsonInfoKeyList();
+			for (String key : listKey) {
+				String resourcePath = infoPath + key + ".json";
+				if (flag) System.out.println(">>>>> resourcePath = " + resourcePath);
 
-			jsonInfo = FepHttp.getInstance().post(URL_FIELD_INFO, "{\"infoKey\": \"MastInfo\"}");
-			if (!flag) System.out.println(">>>>> MastInfo: " + jsonInfo);
-			this.mastInfo = this.objectMapper.readValue(jsonInfo, MastInfo.class);
-
-			jsonInfo = FepHttp.getInstance().post(URL_FIELD_INFO, "{\"infoKey\": \"StoreInfo\"}");
-			if (!flag) System.out.println(">>>>> StoreInfo: " + jsonInfo);
-			this.storeInfo = this.objectMapper.readValue(jsonInfo, StoreInfo.class);
-
-			jsonInfo = FepHttp.getInstance().post(URL_FIELD_INFO, "{\"infoKey\": \"Item01Info\"}");
-			if (!flag) System.out.println(">>>>> Item01Info: " + jsonInfo);
-			this.item01Info = this.objectMapper.readValue(jsonInfo, Item01Info.class);
-
-			jsonInfo = FepHttp.getInstance().post(URL_FIELD_INFO, "{\"infoKey\": \"Item23Info\"}");
-			if (!flag) System.out.println(">>>>> Item23Info: " + jsonInfo);
-			this.item23Info = this.objectMapper.readValue(jsonInfo, Item23Info.class);
+				switch (key) {
+				case "MastInfo":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, MastInfo.class));
+					break;
+				case "StoreInfo":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, StoreInfo.class));
+					break;
+				case "Item01Info":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, Item01Info.class));
+					break;
+				case "Item23Info":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, Item23Info.class));
+					break;
+				case "ReqFieldInfo":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, ReqFieldInfo.class));
+					break;
+				case "ResFieldInfo":
+					content = ClassPathResourceReader.getInstance().getContent(resourcePath);
+					this.mapInfo.put(key, this.objectMapper.readValue(content, ResFieldInfo.class));
+					break;
+				default:
+					throw new RuntimeException("KANG-ERROR: wrong key(" + key + ")");
+				}
+			}
 		}
 	}
 	
@@ -61,7 +82,7 @@ public class ReqJson {
 	//////////////////////////////////////////////////
 	//////////////////////////////////////////////////
 
-	public ReqFieldInfo getReqFieldInfo(String stream) throws Exception {
+	public synchronized ReqFieldInfo getReqFieldInfo(String stream) throws Exception {
 		// stream = stream.replace('.', ' ');
 		byte[] bytData = stream.getBytes("EUC-KR");
 		int offset = 0;
@@ -70,8 +91,9 @@ public class ReqJson {
 		ReqFieldInfo reqFieldInfo = new ReqFieldInfo();
 
 		// MastInfo
+		MastInfo mastInfo = (MastInfo) this.mapInfo.get("MastInfo");
 		if (!flag) System.out.println("########## MastInfo: " + mastInfo);
-		for (FieldInfo fieldInfo : this.mastInfo.getFields()) {
+		for (FieldInfo fieldInfo : mastInfo.getFields()) {
 			String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 			offset += fieldInfo.getLength();
 
@@ -83,8 +105,9 @@ public class ReqJson {
 		reqFieldInfo.setMastInfo(mastInfo);
 
 		// StoreInfo
+		StoreInfo storeInfo = (StoreInfo) this.mapInfo.get("StoreInfo");
 		if (!flag) System.out.println("########## StoreInfo: " + storeInfo);
-		for (FieldInfo fieldInfo : this.storeInfo.getFields()) {
+		for (FieldInfo fieldInfo : storeInfo.getFields()) {
 			String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 			offset += fieldInfo.getLength();
 
@@ -102,8 +125,9 @@ public class ReqJson {
 
 			if ("01".equals(id)) {
 				// Item01Info
+				Item01Info item01Info = (Item01Info) this.mapInfo.get("Item01Info");
 				if (!flag) System.out.println("########## Item01Info: " + item01Info);
-				for (FieldInfo fieldInfo : this.item01Info.getFields()) {
+				for (FieldInfo fieldInfo : item01Info.getFields()) {
 					String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 					offset += fieldInfo.getLength();
 
@@ -116,8 +140,9 @@ public class ReqJson {
 
 			} else if ("23".equals(id)) {
 				// Item23Info
+				Item23Info item23Info = (Item23Info) this.mapInfo.get("Item23Info");
 				if (!flag) System.out.println("########## Item23Info: " + item23Info);
-				for (FieldInfo fieldInfo : this.item23Info.getFields()) {
+				for (FieldInfo fieldInfo : item23Info.getFields()) {
 					String strField = new String(bytData, offset, fieldInfo.getLength(), "EUC-KR");
 					offset += fieldInfo.getLength();
 
@@ -195,8 +220,9 @@ public class ReqJson {
 		if (flag) {
 			// MastInfo
 			Map<String, String> map = reqDataInfo.getMastData();
+			MastInfo mastInfo = new MastInfo();
 			if (!flag) System.out.println("########## MastInfo: " + mastInfo);
-			for (FieldInfo fieldInfo : this.mastInfo.getFields()) {
+			for (FieldInfo fieldInfo : mastInfo.getFields()) {
 				// 필드타입에 따른 변경(string/integer/date/time) 값을 저장
 				fieldInfo.setToValue(map.get(fieldInfo.getFieldName()));
 				// 필드 원본값 저장
@@ -395,10 +421,14 @@ public class ReqJson {
 	
 	private static ReqJson instance = null;
 	
-	public synchronized static ReqJson getInstance() throws Exception {
+	public synchronized static ReqJson getInstance(Property property) throws Exception {
 		if (instance == null) {
-			instance = new ReqJson();
+			instance = new ReqJson(property);
 		}
 		return instance;
+	}
+	
+	public static ReqJson getInstance() throws Exception {
+		return getInstance(null);
 	}
 }

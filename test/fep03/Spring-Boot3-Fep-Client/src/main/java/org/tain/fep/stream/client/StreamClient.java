@@ -48,8 +48,11 @@ public class StreamClient {
 		
 		if (flag) {
 			try {
+				if (flag) System.out.printf(">>>>> try the connection.[%s:%d]..%n"
+						, this.property.getStreamHost()
+						, this.property.getStreamPort());
+
 				this.socket = new Socket();
-				if (flag) System.out.println(">>>>> request connection...");
 				this.socket.connect(new InetSocketAddress(this.property.getStreamHost(), this.property.getStreamPort()));
 				this.isa = (InetSocketAddress) this.socket.getRemoteSocketAddress();
 				if (flag) System.out.println(">>>>> connection success : " + this.isa);

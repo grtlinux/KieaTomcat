@@ -80,7 +80,7 @@ public class CommunicationThread extends Thread {
 					if (flag) System.out.println(">>>>> RES json: " + json);
 				}
 				
-				if (flag) {
+				if (!flag) {
 					// RES: json -> stream
 					ResDataInfo resDataInfo = ResJson.getInstance().getResDataInfo(json);
 					ResFieldInfo resFieldInfo = ResJson.getInstance().getResFieldInfo(resDataInfo);
@@ -90,7 +90,7 @@ public class CommunicationThread extends Thread {
 				
 				if (flag) {
 					// send
-					// message = "000040SH00000008515012019012960017900000";
+					message = "000040SH00000008515012019012960017900000";
 					String strLength = message.substring(0, 6);
 					String strBuffer = message.substring(6);
 					byte[] bytLength = strLength.getBytes("EUC-KR");
