@@ -22,7 +22,7 @@ public class ReqInfo {
 		this.reqStream = reqStream;
 		this.reqFieldInfo = (ReqFieldInfo) BeanUtils.getBean("json.ReqFieldInfo");
 		
-		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		if (!flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		if (!flag) System.out.println(">>>>> reqStream: [" + this.reqStream + "]");
 		if (!flag) System.out.println(">>>>> reqFieldInfo: " + this.reqFieldInfo);
 		

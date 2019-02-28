@@ -2,13 +2,16 @@ package org.tain.fep.examples;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.context.annotation.Bean;
+import org.tain.domain.Item01;
 import org.tain.utils.ClassUtil;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -362,5 +365,41 @@ public class JsonNodeExample {
 		}
 		
 		if (flag) System.out.println("-----------------------------------------------");
+	}
+	
+	private String item01Json = "[{\"fld044\":\"01\",\"fld045\":218,\"fld046\":1,\"fld047\":\"0\""
+			+ ",\"fld048\":8801121106792,\"fld049\":\"070813\",\"fld050\":\"0\",\"fld051\":\"\""
+			+ ",\"fld052\":2000,\"fld053\":1,\"fld054\":2000,\"fld055\":0,\"fld056\":2000,\"fld057\":\"0\""
+			+ ",\"fld058\":1,\"fld059\":1,\"fld060\":\"007324\",\"fld061\":\"0\",\"fld062\":\"\""
+			+ ",\"fld063\":2000,\"fld064\":\"\",\"fld065\":0,\"fld066\":\"\",\"fld067\":0,\"fld068\":\"0\""
+			+ ",\"fld069\":0,\"fld070\":0,\"fld071\":\"0\",\"fld072\":0,\"fld073\":0,\"fld074\":\"0\""
+			+ ",\"fld075\":0,\"fld076\":0,\"fld077\":0,\"fld078\":\"0\",\"fld079\":0,\"fld080\":0"
+			+ ",\"fld081\":0,\"fld082\":\"8000000000\"},{\"fld044\":\"01\",\"fld045\":218,\"fld046\":2"
+			+ ",\"fld047\":\"0\",\"fld048\":8801121106792,\"fld049\":\"070813\",\"fld050\":\"0\""
+			+ ",\"fld051\":\"\",\"fld052\":2000,\"fld053\":1,\"fld054\":2000,\"fld055\":0,\"fld056\":2000"
+			+ ",\"fld057\":\"0\",\"fld058\":1,\"fld059\":1,\"fld060\":\"007324\",\"fld061\":\"0\""
+			+ ",\"fld062\":\"\",\"fld063\":2000,\"fld064\":\"\",\"fld065\":0,\"fld066\":\"\""
+			+ ",\"fld067\":0,\"fld068\":\"0\",\"fld069\":0,\"fld070\":0,\"fld071\":\"0\",\"fld072\":0"
+			+ ",\"fld073\":0,\"fld074\":\"0\",\"fld075\":0,\"fld076\":0,\"fld077\":0,\"fld078\":\"0\""
+			+ ",\"fld079\":0,\"fld080\":0,\"fld081\":0,\"fld082\":\"8000000000\"},{\"fld044\":\"01\""
+			+ ",\"fld045\":218,\"fld046\":3,\"fld047\":\"0\",\"fld048\":8801121107942,\"fld049\":\"070730\""
+			+ ",\"fld050\":\"0\",\"fld051\":\"\",\"fld052\":2000,\"fld053\":1,\"fld054\":2000,\"fld055\":0"
+			+ ",\"fld056\":2000,\"fld057\":\"0\",\"fld058\":1,\"fld059\":1,\"fld060\":\"007324\""
+			+ ",\"fld061\":\"0\",\"fld062\":\"\",\"fld063\":2000,\"fld064\":\"\",\"fld065\":0"
+			+ ",\"fld066\":\"\",\"fld067\":0,\"fld068\":\"0\",\"fld069\":0,\"fld070\":0,\"fld071\":\"0\""
+			+ ",\"fld072\":0,\"fld073\":0,\"fld074\":\"0\",\"fld075\":0,\"fld076\":0,\"fld077\":0"
+			+ ",\"fld078\":\"0\",\"fld079\":0,\"fld080\":0,\"fld081\":0,\"fld082\":\"8000000000\"}]";
+	
+	@Bean(value = "json.JsonNodeExample.test07")
+	public void test07() {
+		if (flag) System.out.println(">>>>> test07. TreeModel CRUD " + ClassUtil.getClassInfo());
+		
+		try {
+			List<Item01> listItem01 = this.objectMapper.readValue(item01Json, new TypeReference<List<Item01>>(){});
+			if (flag) System.out.println(">>>>> listItem01: " + listItem01);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -33,6 +33,7 @@ public class CreateUserBoardData {
 	public void create() {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		
+		@SuppressWarnings("unused")
 		User user = this.userRepository.save(
 				User.builder()
 					.name("havi")

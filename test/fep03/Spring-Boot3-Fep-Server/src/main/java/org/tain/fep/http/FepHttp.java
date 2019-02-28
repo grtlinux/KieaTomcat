@@ -31,7 +31,7 @@ public class FepHttp {
 	}
 
 	public String post(String url, String json) throws Exception {
-		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		if (!flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 
 		String ret = null;
 

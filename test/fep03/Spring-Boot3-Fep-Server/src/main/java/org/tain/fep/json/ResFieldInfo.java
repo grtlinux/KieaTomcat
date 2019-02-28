@@ -22,12 +22,12 @@ public class ResFieldInfo {
 	public ResFieldInfo(Property property) throws Exception {
 		this.property = property;
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		if (flag) System.out.println(">>>>> ResFieldInfo.Property -> " + this.property);
+		if (!flag) System.out.println(">>>>> ResFieldInfo.Property -> " + this.property);
 		
 		this.resFieldInfoPath = this.property.getResFieldInfo();
-		if (flag) System.out.println(">>>>> resFieldInfoPath: " + this.resFieldInfoPath);
+		if (!flag) System.out.println(">>>>> resFieldInfoPath: " + this.resFieldInfoPath);
 		this.resContent = ClassPathResourceReader.getInstance().getContent(this.resFieldInfoPath);
-		if (flag) System.out.println(">>>>> resContent: " + this.resContent);
+		if (!flag) System.out.println(">>>>> resContent: " + this.resContent);
 		this.objectMapper = new ObjectMapper();
 		this.resNode = this.objectMapper.readTree(this.resContent);
 	}

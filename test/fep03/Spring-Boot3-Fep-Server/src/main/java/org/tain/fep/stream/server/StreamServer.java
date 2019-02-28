@@ -28,7 +28,7 @@ public class StreamServer {
 	@Bean(value = "fep.stream.server.StreamServer.runner")
 	public void runner() throws Exception {
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		if (flag) System.out.println(">>>>> StreamServer.Property -> " + this.property);
+		if (!flag) System.out.println(">>>>> StreamServer.Property -> " + this.property);
 
 		if (flag) {
 			new Thread(new Runnable() {
@@ -43,11 +43,11 @@ public class StreamServer {
 								StreamServer.this.property.getStreamHost(), 
 								StreamServer.this.property.getStreamPort()));
 						
-						int cnt = 0;
+						Integer cnt = 0;
 						while (true) {
 							System.out.printf(">>>>> waiting for client connection...[cnt=%d]%n", ++cnt);
 							Socket socket = serverSocket.accept();
-							new CommunicationThread(socket, StreamServer.this.property).start();
+							new CommunicationThread(socket, cnt).start();
 						}
 					} catch (Exception e) {
 						e.printStackTrace();

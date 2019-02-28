@@ -22,12 +22,12 @@ public class ReqFieldInfo {
 	public ReqFieldInfo(Property property) throws Exception {
 		this.property = property;
 		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
-		if (flag) System.out.println(">>>>> ReqFieldInfo.Property -> " + this.property);
+		if (!flag) System.out.println(">>>>> ReqFieldInfo.Property -> " + this.property);
 		
 		this.reqFieldInfoPath = this.property.getReqFieldInfo();
-		if (flag) System.out.println(">>>>> reqFieldInfoPath: " + this.reqFieldInfoPath);
+		if (!flag) System.out.println(">>>>> reqFieldInfoPath: " + this.reqFieldInfoPath);
 		this.reqContent = ClassPathResourceReader.getInstance().getContent(this.reqFieldInfoPath);
-		if (flag) System.out.println(">>>>> reqContent: " + this.reqContent);
+		if (!flag) System.out.println(">>>>> reqContent: " + this.reqContent);
 		this.objectMapper = new ObjectMapper();
 		this.reqNode = this.objectMapper.readTree(this.reqContent);
 	}

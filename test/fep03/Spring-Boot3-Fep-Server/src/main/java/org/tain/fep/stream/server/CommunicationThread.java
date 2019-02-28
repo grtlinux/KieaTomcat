@@ -10,6 +10,7 @@ import org.tain.fep.http.FepHttp;
 import org.tain.fep.json.ReqInfo;
 import org.tain.fep.json.ResInfo;
 import org.tain.fep.property.Property;
+import org.tain.utils.BeanUtils;
 import org.tain.utils.ClassUtil;
 import org.tain.utils.Sleep;
 
@@ -18,6 +19,7 @@ public class CommunicationThread extends Thread {
 	private static final boolean flag = true;
 
 	private Socket socket = null;
+	private Integer cnt = 0;
 	private Property property;
 
 	private InetSocketAddress isa = null;
@@ -25,9 +27,12 @@ public class CommunicationThread extends Thread {
 	private InputStream is = null;
 	private OutputStream os = null;
 
-	public CommunicationThread(Socket socket, Property property) throws Exception {
+	public CommunicationThread(Socket socket, Integer cnt) throws Exception {
 		this.socket = socket;
-		this.property = property;
+		this.cnt = cnt;
+		//this.property = property;
+		this.property = (Property) BeanUtils.getBean("fep.property.Property");
+		if (!flag) System.out.println(">>>>> " + this.property);
 
 		this.isa = (InetSocketAddress) this.socket.getRemoteSocketAddress();
 
@@ -39,7 +44,6 @@ public class CommunicationThread extends Thread {
 	public void run() {
 		if (flag) {
 			System.out.println(">>>>> " + ClassUtil.getClassInfo());
-			System.out.println(">>>>> " + this.property);
 			System.out.println(">>>>> connection : " + this.isa);
 		}
 
@@ -71,20 +75,20 @@ public class CommunicationThread extends Thread {
 					// REQ: stream -> json
 					reqInfo = new ReqInfo(reqStream);
 					reqJson = reqInfo.getReqDataJson();
-					if (flag) System.out.println(">>>>> REQ json = " + reqJson);
+					if (flag) System.out.println(">>>>> Server REQ json = " + reqJson);
 				}
 				
 				if (flag) {
 					// TODO KANG-20190228: FepHttp
 					resJson = FepHttp.getInstance().post("http://localhost:8080/server/save", reqJson);
-					if (flag) System.out.println(">>>>> RES json: " + resJson);
+					if (flag) System.out.println(">>>>> Server RES json = " + resJson);
 				}
 				
 				if (flag) {
 					// RES: json -> stream
 					resInfo = new ResInfo(reqInfo.getReqDataNode());
 					resStream = resInfo.getResStream();
-					if (flag) System.out.println(">>>>> resStream = " + resStream);
+					if (!flag) System.out.println(">>>>> Server resStream = " + resStream);
 				}
 				
 				if (flag) {
@@ -98,7 +102,7 @@ public class CommunicationThread extends Thread {
 					send(bytBuffer);
 					this.os.flush();
 					
-					if (flag) System.out.printf(">>>>> Server SEND : message = [%s]%n", resStream);
+					if (flag) System.out.printf(">>>>> Server SEND : resStream = [%s]%n", resStream);
 					if (flag) System.out.printf(">>>>> Server SEND : [%s] [%s]%n", strLength, strBuffer);
 				}
 			} catch (Exception e) {
@@ -117,7 +121,7 @@ public class CommunicationThread extends Thread {
 		}
 
 		if (flag) {
-			System.out.println(">>>>> dis-connection : " + this.isa);
+			System.out.printf(">>>>> [cnt=%5d] dis-connection : ", this.cnt, this.isa);
 		}
 	}
 

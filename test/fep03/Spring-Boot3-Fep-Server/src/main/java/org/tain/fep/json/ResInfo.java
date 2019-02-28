@@ -23,7 +23,7 @@ public class ResInfo {
 		this.reqDataNode = reqDataNode;
 		this.resFieldInfo = (ResFieldInfo) BeanUtils.getBean("json.ResFieldInfo");
 
-		if (flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
+		if (!flag) System.out.println(">>>>> " + ClassUtil.getClassInfo());
 		if (!flag) System.out.println(">>>>> reqDataNode: [" + this.reqDataNode + "]");
 		if (!flag) System.out.println(">>>>> resFieldInfo: " + this.resFieldInfo);
 

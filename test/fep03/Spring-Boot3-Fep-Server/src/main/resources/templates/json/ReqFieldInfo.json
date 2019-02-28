@@ -56,7 +56,7 @@
 		{ "fieldId": "F047", "fieldName": "fld047", "name": "취소 구분", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F048", "fieldName": "fld048", "name": "단품 코드", "length":13, "fieldType": "LONG", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F049", "fieldName": "fld049", "name": "상품 코드", "length": 6, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
-		{ "fieldId": "F050", "fieldName": "fld040", "name": "BOTTLE 구분", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
+		{ "fieldId": "F050", "fieldName": "fld050", "name": "BOTTLE 구분", "length": 1, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 
 		{ "fieldId": "F051", "fieldName": "fld051", "name": "분류 코드", "length": 6, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F052", "fieldName": "fld052", "name": "원가", "length":10, "fieldType": "INTEGER", "comment": "", "fromValue": "", "toValue": "" },
@@ -121,6 +121,6 @@
 		{ "fieldId": "F104", "fieldName": "fld104", "name": "카드종류", "length": 2, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F105", "fieldName": "fld105", "name": "포스유니크키", "length":30, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
 		{ "fieldId": "F106", "fieldName": "fld106", "name": "벤사유니크키", "length":25, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" },
-		{ "fieldId": "F107", "fieldName": "kang", "name": "filler", "length":85, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
+		{ "fieldId": "F107", "fieldName": "fld107", "name": "filler", "length":85, "fieldType": "STRING", "comment": "", "fromValue": "", "toValue": "" }
 	]
 }
