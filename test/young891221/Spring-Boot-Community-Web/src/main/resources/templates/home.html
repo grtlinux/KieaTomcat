@@ -2,11 +2,12 @@
 <html
 	lang="en"
 	xmlns:th="http://www.thymeleaf.org">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>home.html</title>
-	<link rel="stylesheet" th:href="@{/css/base.css}" />
-	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF8"/>
+	<title>SpringBoot Demo</title>
+	<link rel="stylesheet" th:href="@{/css/base.css}"/>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
 	<!-- header -->
@@ -14,16 +15,13 @@
 	
 	<!-- body -->
 	<div class="container">
-		<br/><br/>
+		<br/>
+		<br/>
 		<div class="jumbotron">
 			<h1>안녕하세요, 환영합니다.</h1>
-			<p>
-				함께 SpringBoot를 공부할 준비되셨나요? 준비되셨다면 '시작하기'를 눌러주세요!
-			</p>
+			<p>함께 SpringBoot를 공부할 준비되셨나요? 준비되셨다면 '시작하기'를 눌러주세요.</p>
 			<br/>
-			<p align="right">
-				<a href="/board/list" class="btn btn-primary btn-lg">시작하기</a>
-			</p>
+			<p align="right"><a href="/board/list" class="btn btn-primary btn-lg">시작하기</a></p>
 		</div>
 	</div>
 	<!-- /body -->
@@ -31,4 +29,5 @@
 	<!-- footer -->
 	<div th:replace="layout/footer::footer"></div>
 </body>
+
 </html>
