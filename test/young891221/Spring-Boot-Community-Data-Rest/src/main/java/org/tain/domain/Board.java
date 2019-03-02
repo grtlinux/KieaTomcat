@@ -10,7 +10,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.tain.domain.enums.BoardType;
@@ -51,8 +50,8 @@ public class Board implements Serializable {
 	@Column
 	private LocalDateTime updatedDate;
 	
-	@OneToOne
-	private User user;
+	//@OneToOne
+	//private User user;
 
 	@Builder
 	public Board(
@@ -61,14 +60,14 @@ public class Board implements Serializable {
 			String content,
 			BoardType boardType,
 			LocalDateTime createdDate,
-			LocalDateTime updatedDate,
-			User user) {
+			LocalDateTime updatedDate
+			/*, User user */) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.content = content;
 		this.boardType = boardType;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
-		this.user = user;
+		//this.user = user;
 	}
 }
